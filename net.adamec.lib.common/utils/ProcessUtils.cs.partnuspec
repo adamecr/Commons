@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="ProcessUtils.cs" target="content\App_Packages\RadCommons.utils.ProcessUtils\ProcessUtils.cs.cs" />
-    <file src="ProcessUtils.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.ProcessUtils\ProcessUtils.cs.cs" />
+    <file src="ProcessUtils.cs" target="content\App_Packages\RadCommons.utils.ProcessUtils\ProcessUtils.cs" />
+    <file src="ProcessUtils.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.ProcessUtils\ProcessUtils.cs" />
   </files>
 </package>

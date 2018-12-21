@@ -7,13 +7,13 @@
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
     <dependencies>
-      <dependency id="RadCommons.logging.CommonLogging" include="all" />
-      <dependency id="RadCommons.di.Component" include="all" />
+      <dependency id="RadCommons.logging.CommonLogging" include="all" version="%%CURRENT_VERSION%%" />
+      <dependency id="RadCommons.di.Component" include="all" version="%%CURRENT_VERSION%%" />
     </dependencies>
   </metadata>
   <files>
-    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs.cs" />
-    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs.cs" />
+    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs" />
+    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs" />
     <file src="ComponentAttribute.cs" target="content\App_Packages\RadCommons.di.Component\ComponentAttribute.cs" />
     <file src="ComponentAttribute.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\ComponentAttribute.cs" />
     <file src="ContainerBuilderExtensions.cs" target="content\App_Packages\RadCommons.di.Component\ContainerBuilderExtensions.cs" />

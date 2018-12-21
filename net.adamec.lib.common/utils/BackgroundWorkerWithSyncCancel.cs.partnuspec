@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="BackgroundWorkerWithSyncCancel.cs" target="content\App_Packages\RadCommons.utils.BackgroundWorkerWithSyncCancel\BackgroundWorkerWithSyncCancel.cs.cs" />
-    <file src="BackgroundWorkerWithSyncCancel.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.BackgroundWorkerWithSyncCancel\BackgroundWorkerWithSyncCancel.cs.cs" />
+    <file src="BackgroundWorkerWithSyncCancel.cs" target="content\App_Packages\RadCommons.utils.BackgroundWorkerWithSyncCancel\BackgroundWorkerWithSyncCancel.cs" />
+    <file src="BackgroundWorkerWithSyncCancel.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.BackgroundWorkerWithSyncCancel\BackgroundWorkerWithSyncCancel.cs" />
   </files>
 </package>

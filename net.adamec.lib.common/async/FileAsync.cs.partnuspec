@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="FileAsync.cs" target="content\App_Packages\RadCommons.async.FileAsync\FileAsync.cs.cs" />
-    <file src="FileAsync.cs" target="contentFiles\cs\any\App_Packages\RadCommons.async.FileAsync\FileAsync.cs.cs" />
+    <file src="FileAsync.cs" target="content\App_Packages\RadCommons.async.FileAsync\FileAsync.cs" />
+    <file src="FileAsync.cs" target="contentFiles\cs\any\App_Packages\RadCommons.async.FileAsync\FileAsync.cs" />
   </files>
 </package>

@@ -7,12 +7,11 @@
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
     <dependencies>
-      <dependency id="RadCommons.logging.CommonLogging" include="all" />
-      <dependency id="RadCommons.logging.LoggerExtensions" include="all" />
+      <dependency id="RadCommons.logging.CommonLogging" include="all" version="%%CURRENT_VERSION%%" />
     </dependencies>
   </metadata>
   <files>
-    <file src="AsyncManager.cs" target="content\App_Packages\RadCommons.async.AsyncManager\AsyncManager.cs.cs" />
-    <file src="AsyncManager.cs" target="contentFiles\cs\any\App_Packages\RadCommons.async.AsyncManager\AsyncManager.cs.cs" />
+    <file src="AsyncManager.cs" target="content\App_Packages\RadCommons.async.AsyncManager\AsyncManager.cs" />
+    <file src="AsyncManager.cs" target="contentFiles\cs\any\App_Packages\RadCommons.async.AsyncManager\AsyncManager.cs" />
   </files>
 </package>

@@ -14,7 +14,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/adamecr/Commons</PackageProjectUrl>
     <RepositoryUrl>https://github.com/adamecr/Commons.git</RepositoryUrl>
-    <PackageIconUrl>https://github.com/adamecr/Commons/blob/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/adamecr/Commons/master/icon.png</PackageIconUrl>
     <PushPackagesToVstsFeed>false</PushPackagesToVstsFeed>
   </PropertyGroup>
 </Project>

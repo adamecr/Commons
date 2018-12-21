@@ -8,8 +8,8 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs.cs" />
-    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs.cs" />
+    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs" />
+    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs" />
     <file src="CommonLogging.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs" />
     <file src="CommonLogging.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs" />
     <file src="ILogger.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs" />

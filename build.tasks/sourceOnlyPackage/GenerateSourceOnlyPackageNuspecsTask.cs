@@ -102,7 +102,9 @@ namespace build.tasks.sourceOnlyPackage
                 var ns = XNamespace.Get("http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd");
                 var outFile = partNuspecFileNameFull + ".tmp.nuspec";
                 Log.LogMessage($"Loading {partNuspecFileNameFull}");
-                var outXDoc = XDocument.Load(partNuspecFileNameFull);
+                var partNuspecFileContent = File.ReadAllText(partNuspecFileNameFull);
+                partNuspecFileContent = partNuspecFileContent.Replace("%%CURRENT_VERSION%%", PackageVersionFull);
+                var outXDoc = XDocument.Parse(partNuspecFileContent);
                 var packageXElement = GetOrCreateElement(outXDoc, "package", ns);
                 var metadataXElement = GetOrCreateElement(packageXElement, "metadata", ns);
 

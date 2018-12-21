@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="BaseDisposable.cs" target="content\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs.cs" />
-    <file src="BaseDisposable.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs.cs" />
+    <file src="BaseDisposable.cs" target="content\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs" />
+    <file src="BaseDisposable.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.BaseDisposable\BaseDisposable.cs" />
   </files>
 </package>

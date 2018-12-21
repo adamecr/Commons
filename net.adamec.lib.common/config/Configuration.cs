@@ -77,7 +77,6 @@ namespace net.adamec.lib.common.config
     /// <NuProp.Description>Simple configuration container in case DI with more sophisticated containers is not used (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons</NuProp.Tags>
     /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
-    /// <NuProp.Using id= "RadCommons.logging.LoggerExtensions" />
     public sealed class Configuration
     {
         #region Singleton

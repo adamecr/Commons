@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="StringExtensionsWhitespace.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Whitespace\StringExtensionsWhitespace.cs.cs" />
-    <file src="StringExtensionsWhitespace.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Whitespace\StringExtensionsWhitespace.cs.cs" />
+    <file src="StringExtensionsWhitespace.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Whitespace\StringExtensionsWhitespace.cs" />
+    <file src="StringExtensionsWhitespace.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Whitespace\StringExtensionsWhitespace.cs" />
   </files>
 </package>

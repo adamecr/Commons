@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="Txt.cs" target="content\App_Packages\RadCommons.utils.Txt\Txt.cs.cs" />
-    <file src="Txt.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.Txt\Txt.cs.cs" />
+    <file src="Txt.cs" target="content\App_Packages\RadCommons.utils.Txt\Txt.cs" />
+    <file src="Txt.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.Txt\Txt.cs" />
   </files>
 </package>

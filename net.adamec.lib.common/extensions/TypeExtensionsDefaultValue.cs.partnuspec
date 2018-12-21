@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="TypeExtensionsDefaultValue.cs" target="content\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs.cs" />
-    <file src="TypeExtensionsDefaultValue.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs.cs" />
+    <file src="TypeExtensionsDefaultValue.cs" target="content\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs" />
+    <file src="TypeExtensionsDefaultValue.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.TypeExtensions.DefaultValue\TypeExtensionsDefaultValue.cs" />
   </files>
 </package>

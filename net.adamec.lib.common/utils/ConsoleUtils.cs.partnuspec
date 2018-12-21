@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="ConsoleUtils.cs" target="content\App_Packages\RadCommons.utils.ConsoleUtils\ConsoleUtils.cs.cs" />
-    <file src="ConsoleUtils.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.ConsoleUtils\ConsoleUtils.cs.cs" />
+    <file src="ConsoleUtils.cs" target="content\App_Packages\RadCommons.utils.ConsoleUtils\ConsoleUtils.cs" />
+    <file src="ConsoleUtils.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.ConsoleUtils\ConsoleUtils.cs" />
   </files>
 </package>

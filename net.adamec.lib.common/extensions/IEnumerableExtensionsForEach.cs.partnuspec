@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="IEnumerableExtensionsForEach.cs" target="content\App_Packages\RadCommons.extensions.IEnumerableExtensions.ForEach\IEnumerableExtensionsForEach.cs.cs" />
-    <file src="IEnumerableExtensionsForEach.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.IEnumerableExtensions.ForEach\IEnumerableExtensionsForEach.cs.cs" />
+    <file src="IEnumerableExtensionsForEach.cs" target="content\App_Packages\RadCommons.extensions.IEnumerableExtensions.ForEach\IEnumerableExtensionsForEach.cs" />
+    <file src="IEnumerableExtensionsForEach.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.IEnumerableExtensions.ForEach\IEnumerableExtensionsForEach.cs" />
   </files>
 </package>

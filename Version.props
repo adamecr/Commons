@@ -7,13 +7,13 @@
       =======================================================================================
     -->
   <PropertyGroup>
-    <RadMajor>0</RadMajor>
-    <RadMinor>1</RadMinor>
+    <RadMajor>1</RadMajor>
+    <RadMinor>0</RadMinor>
     <RadPatch>0</RadPatch>
-    <RadBuild>480</RadBuild>
-    <PackageVersionShort>0.1.0</PackageVersionShort>
-    <PackageVersionFull>0.1.0+480.181221103628.master.0016264</PackageVersionFull>
-    <GitCommit>0016264</GitCommit>
+    <RadBuild>493</RadBuild>
+    <PackageVersionShort>1.0.0</PackageVersionShort>
+    <PackageVersionFull>1.0.0+493.181221114250.master.e752c43</PackageVersionFull>
+    <GitCommit>e752c43</GitCommit>
     <GitBranch>master</GitBranch>
   </PropertyGroup>
 </Project>

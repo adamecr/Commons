@@ -159,7 +159,8 @@ namespace build.tasks.sourceOnlyPackage
                         var depId = nuPropUsing.Attribute("id").Value;
                         var depVersion = nuPropUsing.Attribute("version")?.Value;
                         var dependencyXElement = new XElement(ns + "dependency", new XAttribute("id", depId), new XAttribute("include", "all"));
-                        if (!string.IsNullOrEmpty(depVersion)) dependencyXElement.Add(new XAttribute("version", depVersion));
+                        if (string.IsNullOrEmpty(depVersion)) depVersion = "%%CURRENT_VERSION%%";
+                        dependencyXElement.Add(new XAttribute("version", depVersion));
                         dependenciesXElement.Add(dependencyXElement);
                     }
                 }
@@ -176,9 +177,9 @@ namespace build.tasks.sourceOnlyPackage
                 var files = GetEmptyOrCreateElement(packageXElement, "files", ns);
                 files.Add(
                     new XElement(ns + "file", new XAttribute("src", fileName),
-                        new XAttribute("target", $"content\\App_Packages\\{nuPropId}\\{fileName}.cs")),
+                        new XAttribute("target", $"content\\App_Packages\\{nuPropId}\\{fileName}")),
                     new XElement(ns + "file", new XAttribute("src", fileName),
-                        new XAttribute("target", $"contentFiles\\cs\\any\\App_Packages\\{nuPropId}\\{fileName}.cs")));
+                        new XAttribute("target", $"contentFiles\\cs\\any\\App_Packages\\{nuPropId}\\{fileName}")));
 
                 if (nuPropsIncludes != IncludesEnum.None)
                 {

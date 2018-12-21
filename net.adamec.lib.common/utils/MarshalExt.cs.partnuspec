@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="MarshalExt.cs" target="content\App_Packages\RadCommons.utils.MarshalExt\MarshalExt.cs.cs" />
-    <file src="MarshalExt.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.MarshalExt\MarshalExt.cs.cs" />
+    <file src="MarshalExt.cs" target="content\App_Packages\RadCommons.utils.MarshalExt\MarshalExt.cs" />
+    <file src="MarshalExt.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.MarshalExt\MarshalExt.cs" />
   </files>
 </package>

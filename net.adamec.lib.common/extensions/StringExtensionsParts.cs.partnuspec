@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="StringExtensionsParts.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Parts\StringExtensionsParts.cs.cs" />
-    <file src="StringExtensionsParts.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Parts\StringExtensionsParts.cs.cs" />
+    <file src="StringExtensionsParts.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Parts\StringExtensionsParts.cs" />
+    <file src="StringExtensionsParts.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Parts\StringExtensionsParts.cs" />
   </files>
 </package>

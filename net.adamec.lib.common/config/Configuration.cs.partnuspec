@@ -7,12 +7,11 @@
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
     <dependencies>
-      <dependency id="RadCommons.logging.CommonLogging" include="all" />
-      <dependency id="RadCommons.logging.LoggerExtensions" include="all" />
+      <dependency id="RadCommons.logging.CommonLogging" include="all" version="%%CURRENT_VERSION%%" />
     </dependencies>
   </metadata>
   <files>
-    <file src="Configuration.cs" target="content\App_Packages\RadCommons.config.Configuration\Configuration.cs.cs" />
-    <file src="Configuration.cs" target="contentFiles\cs\any\App_Packages\RadCommons.config.Configuration\Configuration.cs.cs" />
+    <file src="Configuration.cs" target="content\App_Packages\RadCommons.config.Configuration\Configuration.cs" />
+    <file src="Configuration.cs" target="contentFiles\cs\any\App_Packages\RadCommons.config.Configuration\Configuration.cs" />
   </files>
 </package>

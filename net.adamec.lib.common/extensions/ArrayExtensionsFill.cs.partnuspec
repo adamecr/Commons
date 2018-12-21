@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="ArrayExtensionsFill.cs" target="content\App_Packages\RadCommons.extensions.ArrayExtensions.Fill\ArrayExtensionsFill.cs.cs" />
-    <file src="ArrayExtensionsFill.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.ArrayExtensions.Fill\ArrayExtensionsFill.cs.cs" />
+    <file src="ArrayExtensionsFill.cs" target="content\App_Packages\RadCommons.extensions.ArrayExtensions.Fill\ArrayExtensionsFill.cs" />
+    <file src="ArrayExtensionsFill.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.ArrayExtensions.Fill\ArrayExtensionsFill.cs" />
   </files>
 </package>

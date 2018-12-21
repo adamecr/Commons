@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="EnumeratorExtensionsToEnumerable.cs" target="content\App_Packages\RadCommons.extensions.EnumeratorExtensions.ToEnumerable\EnumeratorExtensionsToEnumerable.cs.cs" />
-    <file src="EnumeratorExtensionsToEnumerable.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.EnumeratorExtensions.ToEnumerable\EnumeratorExtensionsToEnumerable.cs.cs" />
+    <file src="EnumeratorExtensionsToEnumerable.cs" target="content\App_Packages\RadCommons.extensions.EnumeratorExtensions.ToEnumerable\EnumeratorExtensionsToEnumerable.cs" />
+    <file src="EnumeratorExtensionsToEnumerable.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.EnumeratorExtensions.ToEnumerable\EnumeratorExtensionsToEnumerable.cs" />
   </files>
 </package>

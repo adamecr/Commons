@@ -13,7 +13,6 @@ namespace net.adamec.lib.common.async
     /// <NuProp.Description>Helpers for running the actions in sync or async mode (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons</NuProp.Tags>
     /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
-    /// <NuProp.Using id= "RadCommons.logging.LoggerExtensions" />
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class AsyncManager
     {

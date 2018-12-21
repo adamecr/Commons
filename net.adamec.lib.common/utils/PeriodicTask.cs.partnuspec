@@ -8,7 +8,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="PeriodicTask.cs" target="content\App_Packages\RadCommons.utils.PeriodicTask\PeriodicTask.cs.cs" />
-    <file src="PeriodicTask.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.PeriodicTask\PeriodicTask.cs.cs" />
+    <file src="PeriodicTask.cs" target="content\App_Packages\RadCommons.utils.PeriodicTask\PeriodicTask.cs" />
+    <file src="PeriodicTask.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.PeriodicTask\PeriodicTask.cs" />
   </files>
 </package>
