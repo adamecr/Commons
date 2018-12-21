@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.utils.BackgroundWorkerWithSyncCancel</id>
+    <description>Executes an operation on a separate thread with possibility of sync cancel (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="BackgroundWorkerWithSyncCancel.cs" target="content\App_Packages\RadCommons.utils.BackgroundWorkerWithSyncCancel\BackgroundWorkerWithSyncCancel.cs.cs" />
+    <file src="BackgroundWorkerWithSyncCancel.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.BackgroundWorkerWithSyncCancel\BackgroundWorkerWithSyncCancel.cs.cs" />
+  </files>
+</package>

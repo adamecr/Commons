@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--
+      ======================================================================================= 
+      Common properties to be shared between the projects within the solution
+      =======================================================================================
+    -->
+  <PropertyGroup>
+    <Authors>Radek Adamec</Authors>
+    <Company>Radek Adamec</Company>
+    <Copyright>Radek Adamec 2018</Copyright>
+    <Description>Library of common helpers, utilities and extensions</Description>
+    <PackageLicenseUrl>https://github.com/adamecr/Commons/blob/master/license.txt</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/adamecr/Commons</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/adamecr/Commons.git</RepositoryUrl>
+    <PackageIconUrl>https://github.com/adamecr/Commons/blob/master/icon.png</PackageIconUrl>
+    <PushPackagesToVstsFeed>false</PushPackagesToVstsFeed>
+  </PropertyGroup>
+</Project>

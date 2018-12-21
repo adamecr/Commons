@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.extensions.StringExtensions.Parts</id>
+    <description>String splitting and parts manipulation helpers (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="StringExtensionsParts.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Parts\StringExtensionsParts.cs.cs" />
+    <file src="StringExtensionsParts.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Parts\StringExtensionsParts.cs.cs" />
+  </files>
+</package>

@@ -1,0 +1,20 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.logging.CommonLogging</id>
+    <description>RadCommons logging wrapper around NLog (Source only package).</description>
+    <tags>RadCommons RadCommons-Logging</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs.cs" />
+    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs.cs" />
+    <file src="CommonLogging.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs" />
+    <file src="CommonLogging.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs" />
+    <file src="ILogger.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs" />
+    <file src="ILogger.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs" />
+    <file src="LoggerExtensions.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\LoggerExtensions.cs" />
+    <file src="LoggerExtensions.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExtensions.cs" />
+  </files>
+</package>

@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.extensions.StringExtensions.Html</id>
+    <description>HTML related string manipulation helpers (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="StringExtensionsHtml.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Html\StringExtensionsHtml.cs.cs" />
+    <file src="StringExtensionsHtml.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Html\StringExtensionsHtml.cs.cs" />
+  </files>
+</package>

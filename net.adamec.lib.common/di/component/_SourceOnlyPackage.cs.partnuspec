@@ -1,0 +1,24 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.di.Component</id>
+    <description>RadCommons DI Component - allows to mark and inject the component using the class attributes (Source only package).</description>
+    <tags>RadCommons RadCommons-DI</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+    <dependencies>
+      <dependency id="RadCommons.logging.CommonLogging" include="all" />
+      <dependency id="RadCommons.di.Component" include="all" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs.cs" />
+    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs.cs" />
+    <file src="ComponentAttribute.cs" target="content\App_Packages\RadCommons.di.Component\ComponentAttribute.cs" />
+    <file src="ComponentAttribute.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\ComponentAttribute.cs" />
+    <file src="ContainerBuilderExtensions.cs" target="content\App_Packages\RadCommons.di.Component\ContainerBuilderExtensions.cs" />
+    <file src="ContainerBuilderExtensions.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\ContainerBuilderExtensions.cs" />
+    <file src="NamedComponentRegistrationAttribute.cs" target="content\App_Packages\RadCommons.di.Component\NamedComponentRegistrationAttribute.cs" />
+    <file src="NamedComponentRegistrationAttribute.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Component\NamedComponentRegistrationAttribute.cs" />
+  </files>
+</package>

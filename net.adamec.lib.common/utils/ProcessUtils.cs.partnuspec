@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.utils.ProcessUtils</id>
+    <description>Process related utilities (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="ProcessUtils.cs" target="content\App_Packages\RadCommons.utils.ProcessUtils\ProcessUtils.cs.cs" />
+    <file src="ProcessUtils.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.ProcessUtils\ProcessUtils.cs.cs" />
+  </files>
+</package>

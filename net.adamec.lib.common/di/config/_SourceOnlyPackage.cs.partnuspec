@@ -1,0 +1,29 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.di.Config</id>
+    <description>RadCommons DI configuration helpers (Source only package).</description>
+    <tags>RadCommons RadCommons-DI</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+    <dependencies>
+      <dependency id="RadCommons.logging.CommonLogging" include="all" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.di.Config\_SourceOnlyPackage.cs.cs" />
+    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\_SourceOnlyPackage.cs.cs" />
+    <file src="AutoOptionsAttribute.cs" target="content\App_Packages\RadCommons.di.Config\AutoOptionsAttribute.cs" />
+    <file src="AutoOptionsAttribute.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\AutoOptionsAttribute.cs" />
+    <file src="exception\ServiceCollectionAutoOptionsException.cs" target="content\App_Packages\RadCommons.di.Config\exception\ServiceCollectionAutoOptionsException.cs" />
+    <file src="exception\ServiceCollectionAutoOptionsException.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\exception\ServiceCollectionAutoOptionsException.cs" />
+    <file src="exception\ServiceCollectionConfigureDirectException.cs" target="content\App_Packages\RadCommons.di.Config\exception\ServiceCollectionConfigureDirectException.cs" />
+    <file src="exception\ServiceCollectionConfigureDirectException.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\exception\ServiceCollectionConfigureDirectException.cs" />
+    <file src="extensions\ContainerBuilderExtensions.cs" target="content\App_Packages\RadCommons.di.Config\extensions\ContainerBuilderExtensions.cs" />
+    <file src="extensions\ContainerBuilderExtensions.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\extensions\ContainerBuilderExtensions.cs" />
+    <file src="extensions\ServiceCollectionAutoOptionsExtension.cs" target="content\App_Packages\RadCommons.di.Config\extensions\ServiceCollectionAutoOptionsExtension.cs" />
+    <file src="extensions\ServiceCollectionAutoOptionsExtension.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\extensions\ServiceCollectionAutoOptionsExtension.cs" />
+    <file src="extensions\ServiceCollectionConfigureDirectExtensions.cs" target="content\App_Packages\RadCommons.di.Config\extensions\ServiceCollectionConfigureDirectExtensions.cs" />
+    <file src="extensions\ServiceCollectionConfigureDirectExtensions.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.Config\extensions\ServiceCollectionConfigureDirectExtensions.cs" />
+  </files>
+</package>

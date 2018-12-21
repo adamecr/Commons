@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>$(Authors)</Authors>
+    <Company>$(Company)</Company>
+    <Copyright>$(Copyright)</Copyright>
+    <Description>Library of common helpers, utilities and extensions</Description>
+    <PackageLicenseUrl>$(PackageLicenseUrl)</PackageLicenseUrl>
+    <Version>$(Version)</Version>
+    <Product>net.adamec.lib.common</Product>
+    <PackageProjectUrl>$(PackageProjectUrl)</PackageProjectUrl>
+    <PackageIconUrl>$(PackageIconUrl)</PackageIconUrl>
+    <RepositoryUrl>$(RepositoryUrl)</RepositoryUrl>
+    <PackageTags>RADCommons</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <FileVersion>$(FileVersion)</FileVersion>
+    <AssemblyVersion>$(AssemblyVersion)</AssemblyVersion>
+    <LangVersion>7.2</LangVersion>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="NLog" Version="4.5.7" />
+    <PackageReference Include="ProxyFoo" Version="0.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="**\*.cs.partnuspec">
+      <DependentUpon>%(FileName)</DependentUpon>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.di.PostInit</id>
+    <description>RadCommons DI PostInit - allows to run post init method of component (Source only package).</description>
+    <tags>RadCommons RadCommons-DI</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+    <dependencies>
+      <dependency id="RadCommons.logging.CommonLogging" include="all" />
+      <dependency id="RadCommons.di.Component" include="all" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.di.PostInit\_SourceOnlyPackage.cs.cs" />
+    <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.PostInit\_SourceOnlyPackage.cs.cs" />
+    <file src="ContainerBuilderExtensions.cs" target="content\App_Packages\RadCommons.di.PostInit\ContainerBuilderExtensions.cs" />
+    <file src="ContainerBuilderExtensions.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.PostInit\ContainerBuilderExtensions.cs" />
+    <file src="PostInitAttribute.cs" target="content\App_Packages\RadCommons.di.PostInit\PostInitAttribute.cs" />
+    <file src="PostInitAttribute.cs" target="contentFiles\cs\any\App_Packages\RadCommons.di.PostInit\PostInitAttribute.cs" />
+  </files>
+</package>

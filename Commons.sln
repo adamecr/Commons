@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net.adamec.lib.common", "net.adamec.lib.common\net.adamec.lib.common.csproj", "{77E9FE06-63DA-4D93-B262-FDD642E0D4E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F89B339-14C5-44C9-A0DA-FEE3F7034285} = {9F89B339-14C5-44C9-A0DA-FEE3F7034285}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "build", "build\build.csproj", "{9F89B339-14C5-44C9-A0DA-FEE3F7034285}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "build.tasks", "build.tasks\build.tasks.csproj", "{D09F8AE6-47AA-40B7-BFE7-E362B1C970C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E447003-087B-4ED1-8830-82004111C1AE}"
+	ProjectSection(SolutionItems) = preProject
+		changelog.md = changelog.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		license.txt = license.txt
+		netcoreTemplate.sln.DotSettings.user = netcoreTemplate.sln.DotSettings.user
+		readme.md = readme.md
+		release.chklist = release.chklist
+		Version.props = Version.props
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77E9FE06-63DA-4D93-B262-FDD642E0D4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E9FE06-63DA-4D93-B262-FDD642E0D4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E9FE06-63DA-4D93-B262-FDD642E0D4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E9FE06-63DA-4D93-B262-FDD642E0D4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F89B339-14C5-44C9-A0DA-FEE3F7034285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F89B339-14C5-44C9-A0DA-FEE3F7034285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F89B339-14C5-44C9-A0DA-FEE3F7034285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F89B339-14C5-44C9-A0DA-FEE3F7034285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09F8AE6-47AA-40B7-BFE7-E362B1C970C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09F8AE6-47AA-40B7-BFE7-E362B1C970C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09F8AE6-47AA-40B7-BFE7-E362B1C970C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09F8AE6-47AA-40B7-BFE7-E362B1C970C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1A1D688-6F31-463F-AAB3-1D04854A4887}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.async.AsyncManager</id>
+    <description>Helpers for running the actions in sync or async mode (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+    <dependencies>
+      <dependency id="RadCommons.logging.CommonLogging" include="all" />
+      <dependency id="RadCommons.logging.LoggerExtensions" include="all" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="AsyncManager.cs" target="content\App_Packages\RadCommons.async.AsyncManager\AsyncManager.cs.cs" />
+    <file src="AsyncManager.cs" target="contentFiles\cs\any\App_Packages\RadCommons.async.AsyncManager\AsyncManager.cs.cs" />
+  </files>
+</package>

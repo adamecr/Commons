@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.extensions.IEnumerableExtensions.ForEach</id>
+    <description>Invokes the action for each item if IEnumerable&lt;T&gt; (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="IEnumerableExtensionsForEach.cs" target="content\App_Packages\RadCommons.extensions.IEnumerableExtensions.ForEach\IEnumerableExtensionsForEach.cs.cs" />
+    <file src="IEnumerableExtensionsForEach.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.IEnumerableExtensions.ForEach\IEnumerableExtensionsForEach.cs.cs" />
+  </files>
+</package>

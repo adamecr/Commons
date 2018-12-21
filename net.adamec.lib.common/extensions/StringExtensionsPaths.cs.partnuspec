@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.extensions.StringExtensions.Paths</id>
+    <description>Path manipulation helpers for strings (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="StringExtensionsPaths.cs" target="content\App_Packages\RadCommons.extensions.StringExtensions.Paths\StringExtensionsPaths.cs.cs" />
+    <file src="StringExtensionsPaths.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.StringExtensions.Paths\StringExtensionsPaths.cs.cs" />
+  </files>
+</package>

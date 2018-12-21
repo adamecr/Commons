@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.utils.FileUtils.Copy</id>
+    <description>File copy utilities (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="FileUtilsCopy.cs" target="content\App_Packages\RadCommons.utils.FileUtils.Copy\FileUtilsCopy.cs.cs" />
+    <file src="FileUtilsCopy.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.FileUtils.Copy\FileUtilsCopy.cs.cs" />
+  </files>
+</package>

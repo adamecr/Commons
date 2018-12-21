@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.utils.ProcessWrapper</id>
+    <description>A class the wraps a process, allowing programmatic input and output (Source only package).</description>
+    <tags>RadCommons</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="ProcessWrapper.cs" target="content\App_Packages\RadCommons.utils.ProcessWrapper\ProcessWrapper.cs.cs" />
+    <file src="ProcessWrapper.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.ProcessWrapper\ProcessWrapper.cs.cs" />
+  </files>
+</package>
