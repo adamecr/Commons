@@ -28,7 +28,11 @@ namespace build.tasks.sourceOnlyPackage
         /// <summary>
         /// URL to package license
         /// </summary>
-        public string PackageLicenseUrl { get; set; }
+        public string PackageLicenseUrl { get; set; } 
+        /// <summary>
+        /// Package license type
+        /// </summary>
+        public string PackageLicense { get; set; }
         /// <summary>
         /// URL to package project
         /// </summary>
@@ -137,7 +141,15 @@ namespace build.tasks.sourceOnlyPackage
                 SetOrCreateElement(metadataXElement, "owners", ns, Authors);
                 SetOrCreateElement(metadataXElement, "description", ns, $"Source only package {packageId}", false); //don't override if exists
                 SetOrCreateElement(metadataXElement, "requireLicenseAcceptance", ns, PackageRequireLicenseAcceptance);
-                SetOrCreateElement(metadataXElement, "licenseUrl", ns, PackageLicenseUrl);
+                if (!string.IsNullOrEmpty(PackageLicense))
+                {
+                    SetOrCreateElement(metadataXElement, "license", ns, PackageLicense).
+                        Add(new XAttribute("type","expression"));
+                }
+                else
+                {
+                    SetOrCreateElement(metadataXElement, "licenseUrl", ns, PackageLicenseUrl);
+                }
                 SetOrCreateElement(metadataXElement, "projectUrl", ns, PackageProjectUrl);
                 SetOrCreateElement(metadataXElement, "iconUrl", ns, PackageIconUrl);
                 SetOrCreateElement(metadataXElement, "copyright", ns, Copyright);

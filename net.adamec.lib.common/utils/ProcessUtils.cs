@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.ProcessUtils</NuProp.Id>
     /// <NuProp.Description>Process related utilities (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only process</NuProp.Tags>
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class ProcessUtils
     {
@@ -21,8 +21,10 @@ namespace net.adamec.lib.common.utils
         /// <param name="outputOrError">OUT: the standard output or error text</param>
         /// <returns>True is process runs OK (<paramref name="outputOrError"/> is standard output) or
         /// false in case of exception or command error (<paramref name="outputOrError"/> is the error output or exception message)</returns>
+        /// <exception cref="ArgumentException"><paramref name="command"/> is null or empty</exception>
         public static bool RunCommand(string command, string args, string workingDirectory, out string outputOrError)
         {
+            if(string.IsNullOrWhiteSpace(command)) throw new ArgumentException($"{nameof(command)} is null or empty");
             string output = null;
             string err = null;
             var startInfo = new ProcessStartInfo
@@ -32,7 +34,7 @@ namespace net.adamec.lib.common.utils
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
-                WorkingDirectory = workingDirectory,
+                WorkingDirectory = workingDirectory??Environment.CurrentDirectory,
                 CreateNoWindow = true
             };
 

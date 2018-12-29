@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.di.PostInit</id>
     <description>RadCommons DI PostInit - allows to run post init method of component (Source only package).</description>
-    <tags>RadCommons RadCommons-DI</tags>
+    <tags>RadCommons source-only RadCommons-DI dependency-injection post-init</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

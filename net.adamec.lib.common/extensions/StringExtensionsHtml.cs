@@ -7,7 +7,7 @@ namespace net.adamec.lib.common.extensions
     /// </summary>
     /// <NuProp.Id>RadCommons.extensions.StringExtensions.Html</NuProp.Id>
     /// <NuProp.Description>HTML related string manipulation helpers (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only extension string html</NuProp.Tags>
     internal static partial class StringExtensions
     {
         /// <summary>

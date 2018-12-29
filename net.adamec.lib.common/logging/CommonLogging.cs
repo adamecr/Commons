@@ -1,13 +1,12 @@
 ﻿using System;
 using NLog;
-using ProxyFoo.ExtensionApi;
 
 namespace net.adamec.lib.common.logging
 {
     /// <summary>
     /// <see cref="ILogger"/> factory
     /// </summary>
-    public static class CommonLogging
+    internal static class CommonLogging
     {
         /// <summary>
         /// Creates the logger with given <paramref name="categoryName"/>
@@ -16,7 +15,7 @@ namespace net.adamec.lib.common.logging
         /// <returns>Logger instance</returns>
         public static ILogger CreateLogger(string categoryName)
         {
-            return LogManager.GetLogger(categoryName).Duck<ILogger>();
+            return LogManager.LogFactory.GetLogger<LoggerExt>(categoryName);
         }
 
         /// <summary>

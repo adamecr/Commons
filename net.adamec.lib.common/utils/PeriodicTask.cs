@@ -9,7 +9,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.PeriodicTask</NuProp.Id>
     /// <NuProp.Description>Periodic (or scheduled) async task runner (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only async periodic-task</NuProp.Tags>
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class PeriodicTask
     {
@@ -24,8 +24,13 @@ namespace net.adamec.lib.common.utils
         /// <param name="cancellationToken">Cancellation token used to cancel the (periodic) task execution.</param>
         /// <param name="oneTimeOnly">Flag whether the action should run one time only (after the given <paramref name="period"/>)</param>
         /// <returns>Async task</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/>, <paramref name="period"/> or <paramref name="cancellationToken"/> is null</exception>
         public static async Task RunAsync(Action action, TimeSpan period, CancellationToken cancellationToken,bool oneTimeOnly=false)
         {
+            if(action==null) throw new ArgumentNullException(nameof(action));
+            if (period == null) throw new ArgumentNullException(nameof(period));
+            if (cancellationToken == null) throw new ArgumentNullException(nameof(cancellationToken));
+
             var finished = false;
             while (!cancellationToken.IsCancellationRequested && !finished)
             {

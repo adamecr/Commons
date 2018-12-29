@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.utils.BackgroundWorkerWithSyncCancel</id>
     <description>Executes an operation on a separate thread with possibility of sync cancel (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only worker background-worker</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

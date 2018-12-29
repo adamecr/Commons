@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.extensions.StringExtensions.Parts</id>
     <description>String splitting and parts manipulation helpers (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only extension string</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

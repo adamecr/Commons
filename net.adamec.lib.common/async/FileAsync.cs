@@ -13,7 +13,7 @@ namespace net.adamec.lib.common.async
     /// </summary>
     /// <NuProp.Id>RadCommons.async.FileAsync</NuProp.Id>
     /// <NuProp.Description>Helpers for reading text files in async mode (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only async text-files</NuProp.Tags>
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class FileAsync
     {
@@ -58,7 +58,7 @@ namespace net.adamec.lib.common.async
         /// <exception cref="SecurityException">The caller does not have the required permission. </exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive. </exception>
         /// <exception cref="UnauthorizedAccessException">The access requested is not permitted by the operating system for the specified <paramref name="path" />, such as when access is Write or ReadWrite and the file or directory is set for read-only access. -or-<see cref="F:System.IO.FileOptions.Encrypted" /> is specified for options, but file encryption is not supported on the current platform.</exception>
-        /// <exception cref="ArgumentNullException"><paramref name="path" /> is null. </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path" /> or <paramref name="encoding"/> is null. </exception>
         /// <exception cref="ArgumentException"><paramref name="path" /> is an empty string (""), contains only white space, or contains one or more invalid characters. -or-<paramref name="path" /> refers to a non-file device, such as "con:", "com1:", "lpt1:", etc. in an NTFS environment.</exception>
         /// <exception cref="NotSupportedException"><paramref name="path" /> refers to a non-file device, such as "con:", "com1:", "lpt1:", etc. in a non-NTFS environment.</exception>
         /// <exception cref="ArgumentOutOfRangeException">bufferSize is negative or zero.-or- mode, access, or share contain an invalid value. </exception>
@@ -67,6 +67,9 @@ namespace net.adamec.lib.common.async
         /// <exception cref="InvalidOperationException">The reader is currently in use by a previous read operation. </exception>
         public static async Task<string[]> ReadAllLinesAsync(string path, Encoding encoding)
         {
+            if(path==null) throw new ArgumentNullException(nameof(path));
+            if (encoding == null) throw new ArgumentNullException(nameof(encoding));
+
             var lines = new List<string>();
 
             // Open the FileStream with the same FileMode, FileAccess and FileShare as a call to File.OpenText would've done.
@@ -110,7 +113,7 @@ namespace net.adamec.lib.common.async
         /// <exception cref="SecurityException">The caller does not have the required permission. </exception>
         /// <exception cref="DirectoryNotFoundException">The specified path is invalid, such as being on an unmapped drive. </exception>
         /// <exception cref="UnauthorizedAccessException">The access requested is not permitted by the operating system for the specified <paramref name="path" />, such as when access is Write or ReadWrite and the file or directory is set for read-only access. -or-<see cref="F:System.IO.FileOptions.Encrypted" /> is specified for options, but file encryption is not supported on the current platform.</exception>
-        /// <exception cref="ArgumentNullException"><paramref name="path" /> is null. </exception>
+        /// <exception cref="ArgumentNullException"><paramref name="path" /> or <paramref name="encoding"/> is null. </exception>
         /// <exception cref="ArgumentException"><paramref name="path" /> is an empty string (""), contains only white space, or contains one or more invalid characters. -or-<paramref name="path" /> refers to a non-file device, such as "con:", "com1:", "lpt1:", etc. in an NTFS environment.</exception>
         /// <exception cref="NotSupportedException"><paramref name="path" /> refers to a non-file device, such as "con:", "com1:", "lpt1:", etc. in a non-NTFS environment.</exception>
         /// <exception cref="ArgumentOutOfRangeException">bufferSize is negative or zero.-or- mode, access, or share contain an invalid value. </exception>
@@ -119,6 +122,9 @@ namespace net.adamec.lib.common.async
         /// <exception cref="InvalidOperationException">The reader is currently in use by a previous read operation. </exception>
         public static async Task<string> ReadAllTextAsync(string path, Encoding encoding)
         {
+            if (path == null) throw new ArgumentNullException(nameof(path));
+            if (encoding == null) throw new ArgumentNullException(nameof(encoding));
+
             string text;
 
             // Open the FileStream with the same FileMode, FileAccess and FileShare as a call to File.OpenText would've done.

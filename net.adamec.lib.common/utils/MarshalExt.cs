@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.MarshalExt</NuProp.Id>
     /// <NuProp.Description>Marshaling helpers (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only marshal interop</NuProp.Tags>
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class MarshalExt
     {

@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.extensions.EnumeratorExtensions.ToEnumerable</id>
     <description>Transforms the IEnumerator or IEnumerator&lt;T&gt; to IEnumerable&lt;T&gt; (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only extension enumerator</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.extensions
     /// </summary>
     /// <NuProp.Id>RadCommons.extensions.IEnumerableExtensions.ForEach</NuProp.Id>
     /// <NuProp.Description>Invokes the action for each item if IEnumerable&lt;T&gt; (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags> 
+    /// <NuProp.Tags>RadCommons source-only extension enumerable</NuProp.Tags> 
     // ReSharper disable once InconsistentNaming
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class IEnumerableExtensions

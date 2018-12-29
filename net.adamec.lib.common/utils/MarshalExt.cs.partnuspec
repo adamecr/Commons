@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.utils.MarshalExt</id>
     <description>Marshaling helpers (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only marshal interop</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

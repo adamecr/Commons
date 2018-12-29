@@ -7,7 +7,7 @@ namespace net.adamec.lib.common.extensions
     /// </summary>
     /// <NuProp.Id>RadCommons.extensions.StringExtensions.Case</NuProp.Id>
     /// <NuProp.Description>String case manipulation helpers (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only extension string camel-case case</NuProp.Tags>
     internal static partial class StringExtensions
     {
         /// <summary>
@@ -17,7 +17,7 @@ namespace net.adamec.lib.common.extensions
         /// <returns>Camel Case converted <paramref name="str">string</paramref></returns>
         public static string ToCamelCase(this string str)
         {
-            if (string.IsNullOrEmpty(str)) return str;
+            if (string.IsNullOrWhiteSpace(str)) return str;
 
             var txtInfo = new CultureInfo("en-us", false).TextInfo;
             str = txtInfo.ToLower(str);

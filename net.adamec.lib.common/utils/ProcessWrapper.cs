@@ -14,7 +14,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.ProcessWrapper</NuProp.Id>
     /// <NuProp.Description>A class the wraps a process, allowing programmatic input and output (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags> 
+    /// <NuProp.Tags>RadCommons source-only process</NuProp.Tags> 
     public class ProcessWrapper
     {
         private const int OutputWorkerPeriodMs = 100;
@@ -107,9 +107,10 @@ namespace net.adamec.lib.common.utils
         /// <param name="command">Name of the file to run</param>
         /// <param name="arguments">Optional command line arguments</param>
         /// <param name="workingDirectory">Optional working directory</param>
+        /// <exception cref="ArgumentException"><paramref name="command"/> is null or empty</exception>
         public bool StartProcess(string command, string arguments = null, string workingDirectory = null)
         {
-            if (string.IsNullOrEmpty(command)) throw new ArgumentNullException(nameof(command));
+            if (string.IsNullOrWhiteSpace(command)) throw new ArgumentException($"{nameof(command)} is null or empty");
             if (IsProcessRunning) return false;
 
             Command = command;

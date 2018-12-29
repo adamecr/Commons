@@ -31,10 +31,10 @@ namespace net.adamec.lib.common.di.component
         /// </summary>
         /// <param name="name">Registration name</param>
         /// <param name="type">Registrations type for named registration. Component type will be used if null</param>
-        /// <exception cref="ArgumentNullException"><paramref name="name"/> is null or empty</exception>
+        /// <exception cref="ArgumentException"><paramref name="name"/> is null or empty</exception>
         public NamedComponentRegistrationAttribute(string name, Type type)
         {
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
+            if (string.IsNullOrEmpty(name)) throw new ArgumentException(nameof(name));
             Name = name;
             Type = type;
         }

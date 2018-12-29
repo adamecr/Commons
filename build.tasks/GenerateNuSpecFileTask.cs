@@ -84,7 +84,12 @@ namespace build.tasks
         /// URL to package license
         /// </summary>
         public string PackageLicenseUrl { get; set; }
-
+        
+        /// <summary>
+        /// Package license type
+        /// </summary>
+        public string PackageLicense { get; set; }
+        
         /// <summary>
         /// URL to package project
         /// </summary>
@@ -198,7 +203,15 @@ namespace build.tasks
             sb.AppendLine($"  <title>{title}</title>");
             sb.AppendLine($"  <owners>{Authors}</owners>");
             sb.AppendLine($"  <requireLicenseAcceptance>{PackageRequireLicenseAcceptance}</requireLicenseAcceptance>");
-            sb.AppendLine($"  <licenseUrl>{PackageLicenseUrl}</licenseUrl>");
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+            if (!string.IsNullOrEmpty(PackageLicense))
+            {
+                sb.AppendLine($"  <license type=\"expression\">{PackageLicense}</license>");
+            }
+            else
+            {
+                sb.AppendLine($"  <licenseUrl>{PackageLicenseUrl}</licenseUrl>");
+            }
             sb.AppendLine($"  <projectUrl>{PackageProjectUrl}</projectUrl>");
             sb.AppendLine($"  <iconUrl>{PackageIconUrl}</iconUrl>");
             sb.AppendLine($"  <description>{Description}</description>");
@@ -265,7 +278,10 @@ namespace build.tasks
 
                 foreach (var src in SourceFiles)
                 {
-                    var srcFileRel = src.GetMetadata("OriginalItemSpec").Replace($@"{ProjectDirectory}\", "");
+                    var srcFileOriginal = src.GetMetadata("OriginalItemSpec");
+                    var srcFileRel = srcFileOriginal.Replace($@"{ProjectDirectory}\", "");
+                    if (Path.IsPathRooted(srcFileRel)) continue; //not a project file (probably source-only package) - project files have the relative path in srcFileRel, non project files have full path in srcFileRel 
+
                     var targetFile = Path.Combine("src", ProjectName, srcFileRel);
                     sb.AppendLine($@"    <file src=""{src}"" target=""{targetFile}"" />");
                 }

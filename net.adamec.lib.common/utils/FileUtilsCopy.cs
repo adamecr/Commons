@@ -10,7 +10,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.FileUtils.Copy</NuProp.Id>
     /// <NuProp.Description>File copy utilities (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only file-copy file-utilities</NuProp.Tags>
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class FileUtils
     {

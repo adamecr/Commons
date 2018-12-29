@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.utils.ProcessWrapper</id>
     <description>A class the wraps a process, allowing programmatic input and output (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only process</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

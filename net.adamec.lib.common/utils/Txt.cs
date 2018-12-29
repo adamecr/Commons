@@ -8,8 +8,8 @@ namespace net.adamec.lib.common.utils
     /// Text builder
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.Txt</NuProp.Id>
-    /// <NuProp.Description>Text builder (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Description>Text builder allowing to build strings from parts, supporting conditions, enumerations, etc.(Source only package).</NuProp.Description>
+    /// <NuProp.Tags>RadCommons source-only text-builder string-builder</NuProp.Tags>
     public class Txt
     {
         /// <summary>

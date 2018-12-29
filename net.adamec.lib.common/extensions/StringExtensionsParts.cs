@@ -7,7 +7,7 @@ namespace net.adamec.lib.common.extensions
     /// </summary>
     /// <NuProp.Id>RadCommons.extensions.StringExtensions.Parts</NuProp.Id>
     /// <NuProp.Description>String splitting and parts manipulation helpers (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only extension string</NuProp.Tags>
     internal static partial class StringExtensions
     {
         /// <summary>

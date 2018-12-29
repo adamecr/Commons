@@ -74,8 +74,9 @@ namespace net.adamec.lib.common.config
     /// </para>
     /// </remarks>
     /// <NuProp.Id>RadCommons.config.Configuration</NuProp.Id>
-    /// <NuProp.Description>Simple configuration container in case DI with more sophisticated containers is not used (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Description>Simple configuration container in case DI with more sophisticated containers is not used. Supports the JSON config files, command line arguments
+    /// and environment variables as sources and their hierarchy/overrides. The configuration can be used as key-value pairs or bound to objects (Source only package).</NuProp.Description>
+    /// <NuProp.Tags>RadCommons source-only configuration</NuProp.Tags>
     /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
     public sealed class Configuration
     {
@@ -209,8 +210,11 @@ namespace net.adamec.lib.common.config
         /// <param name="type">Type to bind the configuration to</param>
         /// <param name="sectionName">Optional section to bind</param>
         /// <returns>The instance of  <paramref name="type"/> bound to the configuration</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="type"/> is null</exception>
         private static object Bind(Type type, string sectionName = null)
         {
+            if(type==null) throw new ArgumentNullException(nameof(type));
+
             var options = Activator.CreateInstance(type);
             var items = GetSection(sectionName);
             if (items.Count == 0) return options;
@@ -337,10 +341,10 @@ namespace net.adamec.lib.common.config
         /// </summary>
         /// <param name="key">Configuration item key</param>
         /// <param name="value">The value to be set for the configuration item</param>
-        /// <exception cref="ArgumentNullException"><paramref name="key"/> is null or empty</exception>
+        /// <exception cref="ArgumentException"><paramref name="key"/> is null or empty</exception>
         private void AddOrUpdateItem(string key, object value)
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
+            if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException(nameof(key));
 
             Items.AddOrUpdate(key, value, (k, v) => value);
         }
@@ -377,11 +381,11 @@ namespace net.adamec.lib.common.config
             /// </summary>
             /// <param name="key">Configuration item key</param>
             /// <param name="value">The value to be set for the configuration item</param>
-            /// <exception cref="ArgumentNullException"><paramref name="key"/> is null or empty</exception>
+            /// <exception cref="ArgumentException"><paramref name="key"/> is null or empty</exception>
             /// <returns>The current <see cref="ConfigurationBuilder"/></returns>
             public ConfigurationBuilder Add(string key, object value)
             {
-                if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
+                if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException(nameof(key));
                 Instance.AddOrUpdateItem(key, value);
                 return this;
             }
@@ -450,14 +454,14 @@ namespace net.adamec.lib.common.config
             /// <param name="fileName">Name of the JSON file with configuration</param>
             /// <param name="ignoreNullOrEmptyFileName">If true, the missing file name will not throw the exception and the method just "silently" ends.</param>
             /// <param name="ignoreIfNotExist">If true, the non existing file will not throw the exception and the method just "silently" ends.</param>
-            /// <exception cref="ArgumentNullException"><paramref name="fileName"/> is null or empty and <paramref name="ignoreNullOrEmptyFileName"/> is false</exception>       
+            /// <exception cref="ArgumentException"><paramref name="fileName"/> is null or empty and <paramref name="ignoreNullOrEmptyFileName"/> is false</exception>       
             /// <exception cref="ArgumentException"><paramref name="fileName"/> doesn't exist and <paramref name="ignoreIfNotExist"/> is false</exception>       
             /// <returns>The current <see cref="ConfigurationBuilder"/></returns>
             public ConfigurationBuilder AddJsonFile(string fileName, bool ignoreNullOrEmptyFileName = false, bool ignoreIfNotExist = false)
             {
-                if (string.IsNullOrEmpty(fileName))
+                if (string.IsNullOrWhiteSpace(fileName))
                 {
-                    if (!ignoreNullOrEmptyFileName) throw new ArgumentNullException(nameof(fileName));
+                    if (!ignoreNullOrEmptyFileName) throw new ArgumentException(nameof(fileName));
                     return this;
                 }
 

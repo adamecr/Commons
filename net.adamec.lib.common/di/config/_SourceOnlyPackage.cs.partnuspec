@@ -1,8 +1,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>RadCommons.di.Config</id>
-    <description>RadCommons DI configuration helpers (Source only package).</description>
-    <tags>RadCommons RadCommons-DI</tags>
+    <description>RadCommons DI helpers for application configuration (Source only package).</description>
+    <tags>RadCommons source-only RadCommons-DI dependency-injection configuration</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

@@ -8,7 +8,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.ConsoleUtils</NuProp.Id>
     /// <NuProp.Description>Console output utilities (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only console</NuProp.Tags>
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class ConsoleUtils
     {
@@ -29,6 +29,8 @@ namespace net.adamec.lib.common.utils
         /// <param name="color">Text color to use</param>
         private static void WriteLine(TextWriter writer, string line, ConsoleColor color)
         {
+            if(writer==null) return;
+            
             var currentColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
             writer.WriteLine(line);

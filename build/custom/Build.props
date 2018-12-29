@@ -11,6 +11,7 @@
     <Copyright>Radek Adamec 2018</Copyright>
     <Description>Library of common helpers, utilities and extensions</Description>
     <PackageLicenseUrl>https://github.com/adamecr/Commons/blob/master/license.txt</PackageLicenseUrl>
+    <PackageLicense>MIT</PackageLicense>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/adamecr/Commons</PackageProjectUrl>
     <RepositoryUrl>https://github.com/adamecr/Commons.git</RepositoryUrl>

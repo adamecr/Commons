@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using Autofac;
@@ -17,8 +18,12 @@ namespace net.adamec.lib.common.di.component
         /// </summary>
         /// <param name="builder">Autofac container builder</param>
         /// <param name="assemblies">Assemblies to check the classes for the <see cref="ComponentAttribute"/></param>
+        /// <exception cref="ArgumentNullException"><paramref name="builder"/> or <paramref name="assemblies"/> is null</exception>
         public static void AddServicesWithComponentAttribute(this ContainerBuilder builder, params Assembly[] assemblies)
         {
+            if(builder==null) throw new ArgumentNullException(nameof(builder));
+            if (assemblies==null) throw new ArgumentNullException(nameof(assemblies));
+
             var types = from assembly in assemblies
                         from type in assembly.GetTypes()
                         select type;
@@ -31,8 +36,12 @@ namespace net.adamec.lib.common.di.component
         /// </summary>
         /// <param name="builder">Autofac container builder</param>
         /// <param name="types">Array of types to check the classes for the <see cref="ComponentAttribute"/></param>
+        /// <exception cref="ArgumentNullException"><paramref name="builder"/> or <paramref name="types"/> is null</exception>
         public static void AddServicesWithComponentAttribute(this ContainerBuilder builder, params Type[] types)
         {
+            if (builder == null) throw new ArgumentNullException(nameof(builder));
+            if (types == null) throw new ArgumentNullException(nameof(types));
+
             foreach (var type in types)
             {
                 var componentAttribute = type.GetTypeInfo().GetCustomAttribute<ComponentAttribute>(false);
@@ -128,8 +137,11 @@ namespace net.adamec.lib.common.di.component
         /// <remarks>When the <paramref name="type"/> itself is an interface, it's added to the returned list.</remarks>
         /// <param name="type">Type to check</param>
         /// <returns>Array of interfaces implemented by given <paramref name="type"/> except the <see cref="IDisposable"/> interface</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="type"/> is null</exception>
         private static Type[] GetImplementedInterfaces(Type type)
         {
+            if(type==null) throw new ArgumentNullException(nameof(type));
+
             var types = type.GetTypeInfo().ImplementedInterfaces.Where(i => i as object != (object)typeof(IDisposable));
             return !type.GetTypeInfo().IsInterface ? types.ToArray() : types.Append(type).ToArray();
         }

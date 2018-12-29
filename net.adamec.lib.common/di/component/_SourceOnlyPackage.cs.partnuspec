@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.di.Component</id>
     <description>RadCommons DI Component - allows to mark and inject the component using the class attributes (Source only package).</description>
-    <tags>RadCommons RadCommons-DI</tags>
+    <tags>RadCommons source-only RadCommons-DI dependency-injection components</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

@@ -1,8 +1,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>RadCommons.utils.Txt</id>
-    <description>Text builder (Source only package).</description>
-    <tags>RadCommons</tags>
+    <description>Text builder allowing to build strings from parts, supporting conditions, enumerations, etc.(Source only package).</description>
+    <tags>RadCommons source-only text-builder string-builder</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

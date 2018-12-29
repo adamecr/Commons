@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.extensions.ArrayExtensions.Fill</id>
     <description>Fills the array with given value (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only extension array</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

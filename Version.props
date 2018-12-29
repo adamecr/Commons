@@ -8,12 +8,12 @@
     -->
   <PropertyGroup>
     <RadMajor>1</RadMajor>
-    <RadMinor>0</RadMinor>
+    <RadMinor>1</RadMinor>
     <RadPatch>0</RadPatch>
-    <RadBuild>493</RadBuild>
-    <PackageVersionShort>1.0.0</PackageVersionShort>
-    <PackageVersionFull>1.0.0+493.181221114250.master.e752c43</PackageVersionFull>
-    <GitCommit>e752c43</GitCommit>
-    <GitBranch>master</GitBranch>
+    <RadBuild>515</RadBuild>
+    <PackageVersionShort>1.1.0</PackageVersionShort>
+    <PackageVersionFull>1.1.0+515.181229223445.release.7d9ca8f-dirty</PackageVersionFull>
+    <GitCommit>7d9ca8f-dirty</GitCommit>
+    <GitBranch>release</GitBranch>
   </PropertyGroup>
 </Project>

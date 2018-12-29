@@ -30,7 +30,6 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="NLog" Version="4.5.7" />
-    <PackageReference Include="ProxyFoo" Version="0.4.2" />
   </ItemGroup>
   <ItemGroup>
     <None Update="**\*.cs.partnuspec">

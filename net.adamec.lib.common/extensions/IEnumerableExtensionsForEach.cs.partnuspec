@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.extensions.IEnumerableExtensions.ForEach</id>
     <description>Invokes the action for each item if IEnumerable&lt;T&gt; (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only extension enumerable</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

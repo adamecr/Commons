@@ -9,7 +9,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.BackgroundWorkerWithSyncCancel</NuProp.Id>
     /// <NuProp.Description>Executes an operation on a separate thread with possibility of sync cancel (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only worker background-worker</NuProp.Tags>
     public class BackgroundWorkerWithSyncCancel : BackgroundWorker
     {
         /// <summary>

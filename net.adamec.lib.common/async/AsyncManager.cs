@@ -10,8 +10,8 @@ namespace net.adamec.lib.common.async
     /// Helpers for running the actions in sync or async mode
     /// </summary>
     /// <NuProp.Id>RadCommons.async.AsyncManager</NuProp.Id>
-    /// <NuProp.Description>Helpers for running the actions in sync or async mode (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Description>Helpers for running the async tasks in sync mode and executing sync actions in async mode (Source only package).</NuProp.Description>
+    /// <NuProp.Tags>RadCommons source-only async</NuProp.Tags>
     /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class AsyncManager
@@ -36,6 +36,7 @@ namespace net.adamec.lib.common.async
         /// <param name="action">Action to by run asynchronously</param>
         /// <param name="exceptionHandler">Exception handler. If not provided, <see cref="DefaultExceptionHandler"/> will be used</param>
         /// <returns>Async <see cref="Task"/></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is null</exception>
         public static Task RunAsync(Action action, Action<Exception> exceptionHandler = null)
         {
             if (action == null) throw Logger.Fatal<ArgumentNullException>(nameof(action));
@@ -60,8 +61,11 @@ namespace net.adamec.lib.common.async
         /// Executes synchronously an async <see cref="Task"/> method which has a void return value
         /// </summary>
         /// <param name="task"><see cref="Task"/> method to execute</param>
+        /// <exception cref="ArgumentNullException"><paramref name="task"/> is null</exception>
         public static void RunSync(Func<Task> task)
         {
+            if (task == null) throw Logger.Fatal<ArgumentNullException>(nameof(task));
+
             var oldContext = SynchronizationContext.Current;
             var synch = new ExclusiveSynchronizationContext();
             SynchronizationContext.SetSynchronizationContext(synch);
@@ -91,9 +95,12 @@ namespace net.adamec.lib.common.async
         /// </summary>
         /// <typeparam name="T">Return Type</typeparam>
         /// <param name="task"><see cref="Task{T}"/> method to execute</param>
-        /// <returns></returns>
+        /// <returns>Return value ot the task</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="task"/> is null</exception>
         public static T RunSync<T>(Func<Task<T>> task)
         {
+            if (task == null) throw Logger.Fatal<ArgumentNullException>(nameof(task));
+
             var oldContext = SynchronizationContext.Current;
             var synch = new ExclusiveSynchronizationContext();
             SynchronizationContext.SetSynchronizationContext(synch);

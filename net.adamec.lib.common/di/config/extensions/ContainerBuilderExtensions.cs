@@ -66,10 +66,11 @@ namespace net.adamec.lib.common.di.config.extensions
         /// <param name="configuration">Configuration container</param>
         ///<param name="configSection">Name of the configuration section to bind to</param>
         /// <typeparam name="TOptions">Configuration class type</typeparam>
-        /// <exception cref="ArgumentNullException"><paramref name="configuration"/> is null or <paramref name="configSection"/> is null  or empty</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="configuration"/> is null</exception>
+        /// <exception cref="ArgumentException"><paramref name="configSection"/> is null  or empty</exception>
         public static void AddOptions<TOptions>(this ContainerBuilder builder, IConfigurationRoot configuration, string configSection) where TOptions : new()
         {
-            if (string.IsNullOrEmpty(configSection)) throw new ArgumentNullException(nameof(configSection));
+            if (string.IsNullOrEmpty(configSection)) throw new ArgumentException(nameof(configSection));
             if (configuration == null) throw new ArgumentNullException(nameof(configuration));
 
             var config = new TOptions();

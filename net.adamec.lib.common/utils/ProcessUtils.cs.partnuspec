@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.utils.ProcessUtils</id>
     <description>Process related utilities (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only process</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

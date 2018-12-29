@@ -9,7 +9,7 @@ namespace net.adamec.lib.common.utils
     /// </summary>
     /// <NuProp.Id>RadCommons.utils.BaseDisposable</NuProp.Id>
     /// <NuProp.Description>Helper class for implementation of IDisposable types (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons</NuProp.Tags>
+    /// <NuProp.Tags>RadCommons source-only disposable</NuProp.Tags>
     public abstract class BaseDisposable : IDisposable
     {
         /// <summary>

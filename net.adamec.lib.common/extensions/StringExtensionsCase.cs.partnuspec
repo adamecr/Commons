@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.extensions.StringExtensions.Case</id>
     <description>String case manipulation helpers (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only extension string camel-case case</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

@@ -52,6 +52,7 @@
       Authors="$(Authors)"
       PackageRequireLicenseAcceptance="$(PackageRequireLicenseAcceptance)"
       PackageLicenseUrl="$(PackageLicenseUrl)"
+      PackageLicense="$(PackageLicense)"
       PackageProjectUrl="$(PackageProjectUrl)"
       PackageIconUrl="$(PackageIconUrl)"
       Description="$(Description)"

@@ -24,7 +24,7 @@
  | [AutoOptionsAttribute](#t-net.adamec.lib.common.di.config.autooptionsattribute__19ezdz2) | public | Class | Class attribute allowing the auto registration of options class into .NET Core configuration framework and optional direct registration of singleton instance into MS DI | 
  | [BackgroundWorkerWithSyncCancel](#t-net.adamec.lib.common.utils.backgroundworkerwithsynccancel__1hdlhvo) | public | Class | Executes an operation on a separate thread with possibility of sync cancel. | 
  | [BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps) | public abstract | Class | Helper class for implementation of <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> types | 
- | [CommonLogging](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb) | public static | Class | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory | 
+ | [CommonLogging](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb) | internal static | Class | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory | 
  | [ComponentAttribute](#t-net.adamec.lib.common.di.component.componentattribute__170qqzl) | public | Class | Marks the decorated class as a component that will be available from the service locator / component container. | 
  | [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) | public | Class | Singleton holding the application configuration (options) | 
  | [Configuration.ConfigurationBuilder](#t-net.adamec.lib.common.config.configuration.configurationbuilder__13eawwj) | public | Class | Configuration builder providing the methods for adding the configuration items from individual sources | 
@@ -36,7 +36,7 @@
  | [FileAsync](#t-net.adamec.lib.common.async.fileasync__158f1hu) | internal static | Class | Asynchronous text/lines file read methods https://stackoverflow.com/a/13168006 | 
  | [FileUtils](#t-net.adamec.lib.common.utils.fileutils__1bi9r8y) | internal static | Class | File copy utilities | 
  | [IEnumerableExtensions](#t-net.adamec.lib.common.extensions.ienumerableextensions__1a6urvh) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >System.Collections.Generic.IEnumerable`1</a> extensions | 
- | [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv) | internal static | Class | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
+ | [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | Class | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
  | [MarshalExt](#t-net.adamec.lib.common.utils.marshalext__7jyavy) | internal static | Class | Marshaling helper methods | 
  | [NamedComponentRegistrationAttribute](#t-net.adamec.lib.common.di.component.namedcomponentregistrationattribute__158ujcr) | public | Class | Defines the registration name and type for named registration (component type will be used if null) | 
  | [PeriodicTask](#t-net.adamec.lib.common.utils.periodictask__1xfynj) | internal static | Class | Helper class allowing to execute periodic (or one time) scheduled action | 
@@ -52,7 +52,7 @@
  | [StringExtensions](#t-net.adamec.lib.common.extensions.stringextensions__y7rgbb) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >System.String</a> class extensions | 
  | [Txt](#t-net.adamec.lib.common.utils.txt__1fch6k9) | public | Class | Text builder | 
  | [TypeExtensions](#t-net.adamec.lib.common.extensions.typeextensions__63ezc8) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> extensions | 
- | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | public abstract | Interface | Logger interface - wrapper around the <em>NLog.ILogger</em> | 
+ | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | internal abstract | Interface | Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods | 
  | [ProcessEventHandler](#t-net.adamec.lib.common.utils.processeventhandler__8h5v6w) | public | Delegate | A ProcessEventHandler is a delegate for process output events. | 
  | [ComponentAttribute.ImplicitRegistrationTypeEnum](#t-net.adamec.lib.common.di.component.componentattribute.implicitregistrationtypeenum__10jaypo) | public | Enum | Kind of the implicit component registration | 
  | [ComponentAttribute.ScopeEnum](#t-net.adamec.lib.common.di.component.componentattribute.scopeenum__r7ahps) | public | Enum | Component scope | 
@@ -67,11 +67,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
  | Name | Summary | 
  | ------ | --------- | 
- | [RadCommons.async.AsyncManager](#src-only-package--RadCommons.async.AsyncManager) | Helpers for running the actions in sync or async mode (Source only package). | 
+ | [RadCommons.async.AsyncManager](#src-only-package--RadCommons.async.AsyncManager) | Helpers for running the async tasks in sync mode and executing sync actions in async mode (Source only package). | 
  | [RadCommons.async.FileAsync](#src-only-package--RadCommons.async.FileAsync) | Helpers for reading text files in async mode (Source only package). | 
- | [RadCommons.config.Configuration](#src-only-package--RadCommons.config.Configuration) | Simple configuration container in case DI with more sophisticated containers is not used (Source only package). | 
+ | [RadCommons.config.Configuration](#src-only-package--RadCommons.config.Configuration) | Simple configuration container in case DI with more sophisticated containers is not used. Supports the JSON config files, command line arguments and environment variables as sources and their hierarchy/overrides. The configuration can be used as key-value pairs or bound to objects (Source only package). | 
  | [RadCommons.di.Component](#src-only-package--RadCommons.di.Component) | RadCommons DI Component - allows to mark and inject the component using the class attributes (Source only package). | 
- | [RadCommons.di.Config](#src-only-package--RadCommons.di.Config) | RadCommons DI configuration helpers (Source only package). | 
+ | [RadCommons.di.Config](#src-only-package--RadCommons.di.Config) | RadCommons DI helpers for application configuration (Source only package). | 
  | [RadCommons.di.PostInit](#src-only-package--RadCommons.di.PostInit) | RadCommons DI PostInit - allows to run post init method of component (Source only package). | 
  | [RadCommons.extensions.ArrayExtensions.Fill](#src-only-package--RadCommons.extensions.ArrayExtensions.Fill) | Fills the array with given value (Source only package). | 
  | [RadCommons.extensions.EnumeratorExtensions.ToEnumerable](#src-only-package--RadCommons.extensions.EnumeratorExtensions.ToEnumerable) | Transforms the IEnumerator or IEnumerator<T> to IEnumerable<T> (Source only package). | 
@@ -82,7 +82,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | [RadCommons.extensions.StringExtensions.Paths](#src-only-package--RadCommons.extensions.StringExtensions.Paths) | Path manipulation helpers for strings (Source only package). | 
  | [RadCommons.extensions.StringExtensions.Whitespace](#src-only-package--RadCommons.extensions.StringExtensions.Whitespace) | Whitespace manipulation helpers for strings (Source only package). | 
  | [RadCommons.extensions.TypeExtensions.DefaultValue](#src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue) | Provides default value for types (Source only package). | 
- | [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging) | RadCommons logging wrapper around NLog (Source only package). | 
+ | [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging) | RadCommons logging wrapper around NLog with some extended functionality (Source only package). | 
  | [RadCommons.utils.BackgroundWorkerWithSyncCancel](#src-only-package--RadCommons.utils.BackgroundWorkerWithSyncCancel) | Executes an operation on a separate thread with possibility of sync cancel (Source only package). | 
  | [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable) | Helper class for implementation of IDisposable types (Source only package). | 
  | [RadCommons.utils.ConsoleUtils](#src-only-package--RadCommons.utils.ConsoleUtils) | Console output utilities (Source only package). | 
@@ -91,7 +91,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | [RadCommons.utils.PeriodicTask](#src-only-package--RadCommons.utils.PeriodicTask) | Periodic (or scheduled) async task runner (Source only package). | 
  | [RadCommons.utils.ProcessUtils](#src-only-package--RadCommons.utils.ProcessUtils) | Process related utilities (Source only package). | 
  | [RadCommons.utils.ProcessWrapper](#src-only-package--RadCommons.utils.ProcessWrapper) | A class the wraps a process, allowing programmatic input and output (Source only package). | 
- | [RadCommons.utils.Txt](#src-only-package--RadCommons.utils.Txt) | Text builder (Source only package). | 
+ | [RadCommons.utils.Txt](#src-only-package--RadCommons.utils.Txt) | Text builder allowing to build strings from parts, supporting conditions, enumerations, etc.(Source only package). | 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
@@ -233,6 +233,10 @@ public static Task RunAsync(Action action, Action<System.Exception> exceptionHan
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task" target="_blank" >System.Threading.Tasks.Task</a></dt><dd>Async <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task" target="_blank" >System.Threading.Tasks.Task</a></dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>action</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -259,6 +263,10 @@ public static void RunSync(Func<System.Threading.Tasks.Task> task)
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>task</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -283,7 +291,11 @@ public static AsyncManager.T RunSync<T>(Func<System.Threading.Tasks.Task<T>> tas
 
 <strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd>Return Type</dd></dl>
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.func-1" target="_blank" >System.Func&lt;System.Threading.Tasks.Task&lt;T&gt;&gt;</a> <strong>task</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.tasks.task-1" target="_blank" >System.Threading.Tasks.Task`1</a> method to execute</dd></dl>
-<strong>Return value</strong><dl><dt>net.adamec.lib.common.async.AsyncManager.T</dt><dd></dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.async.AsyncManager.T</dt><dd>Return value ot the task</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>task</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -479,7 +491,7 @@ Creates a &quot;copy&quot; of the synchronization context.
 public override SynchronizationContext CreateCopy()
 ```
 
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext" target="_blank" >System.Threading.SynchronizationContext</a></dt><dd>Current <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext" target="_blank" >System.Threading.SynchronizationContext</a> object.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext" target="_blank" >System.Threading.SynchronizationContext</a></dt><dd>Current <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext" target="_blank" >System.Threading.SynchronizationContext</a> object.</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext.createcopy#System_Threading_SynchronizationContext_CreateCopy" target="_blank" >Threading.SynchronizationContext.CreateCopy</a>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -530,7 +542,7 @@ public override void Post(SendOrPostCallback d, object state)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.sendorpostcallback" target="_blank" >System.Threading.SendOrPostCallback</a> <strong>d</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.sendorpostcallback" target="_blank" >System.Threading.SendOrPostCallback</a> delegate to call.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>state</strong></dt><dd>The object passed to the delegate.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext.post#System_Threading_SynchronizationContext_Post_System_Threading_SendOrPostCallback_System_Object_" target="_blank" >Threading.SynchronizationContext.Post</a>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -556,7 +568,7 @@ public override void Send(SendOrPostCallback d, object state)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.sendorpostcallback" target="_blank" >System.Threading.SendOrPostCallback</a> <strong>d</strong></dt><dd>The <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.sendorpostcallback" target="_blank" >System.Threading.SendOrPostCallback</a> delegate to call.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> <strong>state</strong></dt><dd>The object passed to the delegate.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext.send#System_Threading_SynchronizationContext_Send_System_Threading_SendOrPostCallback_System_Object_" target="_blank" >Threading.SynchronizationContext.Send</a>
 
 
 ###  Exceptions ###
@@ -717,7 +729,7 @@ public static async Task<string[]> ReadAllLinesAsync(string path, Encoding encod
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.filenotfoundexception" target="_blank" >System.IO.FileNotFoundException</a></dt><dd>The file cannot be found, such as when mode is FileMode.Truncate or FileMode.Open, and the file specified by <strong>path</strong> does not exist. The file must already exist in these modes.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.ioexception" target="_blank" >System.IO.IOException</a></dt><dd>An I/O error, such as specifying FileMode.CreateNew when the file specified by <strong>path</strong> already exists, occurred.-or-The stream has been closed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.securityexception" target="_blank" >System.Security.SecurityException</a></dt><dd>The caller does not have the required permission.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directorynotfoundexception" target="_blank" >System.IO.DirectoryNotFoundException</a></dt><dd>The specified path is invalid, such as being on an unmapped drive.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.unauthorizedaccessexception" target="_blank" >System.UnauthorizedAccessException</a></dt><dd>The access requested is not permitted by the operating system for the specified <strong>path</strong> , such as when access is Write or ReadWrite and the file or directory is set for read-only access. -or- <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.fileoptions.encrypted#System_IO_FileOptions_Encrypted" target="_blank" >System.IO.FileOptions.Encrypted</a> is specified for options, but file encryption is not supported on the current platform.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>path</strong> is null.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>path</strong> is an empty string (&quot;&quot;), contains only white space, or contains one or more invalid characters. -or- <strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in an NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notsupportedexception" target="_blank" >System.NotSupportedException</a></dt><dd><strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in a non-NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception" target="_blank" >System.ArgumentOutOfRangeException</a></dt><dd>bufferSize is negative or zero.-or- mode, access, or share contain an invalid value.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception" target="_blank" >System.IO.PathTooLongException</a></dt><dd>The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The stream has been disposed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.invalidoperationexception" target="_blank" >System.InvalidOperationException</a></dt><dd>The reader is currently in use by a previous read operation.</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.filenotfoundexception" target="_blank" >System.IO.FileNotFoundException</a></dt><dd>The file cannot be found, such as when mode is FileMode.Truncate or FileMode.Open, and the file specified by <strong>path</strong> does not exist. The file must already exist in these modes.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.ioexception" target="_blank" >System.IO.IOException</a></dt><dd>An I/O error, such as specifying FileMode.CreateNew when the file specified by <strong>path</strong> already exists, occurred.-or-The stream has been closed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.securityexception" target="_blank" >System.Security.SecurityException</a></dt><dd>The caller does not have the required permission.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directorynotfoundexception" target="_blank" >System.IO.DirectoryNotFoundException</a></dt><dd>The specified path is invalid, such as being on an unmapped drive.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.unauthorizedaccessexception" target="_blank" >System.UnauthorizedAccessException</a></dt><dd>The access requested is not permitted by the operating system for the specified <strong>path</strong> , such as when access is Write or ReadWrite and the file or directory is set for read-only access. -or- <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.fileoptions.encrypted#System_IO_FileOptions_Encrypted" target="_blank" >System.IO.FileOptions.Encrypted</a> is specified for options, but file encryption is not supported on the current platform.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>path</strong> or <strong>encoding</strong> is null.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>path</strong> is an empty string (&quot;&quot;), contains only white space, or contains one or more invalid characters. -or- <strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in an NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notsupportedexception" target="_blank" >System.NotSupportedException</a></dt><dd><strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in a non-NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception" target="_blank" >System.ArgumentOutOfRangeException</a></dt><dd>bufferSize is negative or zero.-or- mode, access, or share contain an invalid value.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception" target="_blank" >System.IO.PathTooLongException</a></dt><dd>The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The stream has been disposed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.invalidoperationexception" target="_blank" >System.InvalidOperationException</a></dt><dd>The reader is currently in use by a previous read operation.</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -777,7 +789,7 @@ public static async Task<string> ReadAllTextAsync(string path, Encoding encoding
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.filenotfoundexception" target="_blank" >System.IO.FileNotFoundException</a></dt><dd>The file cannot be found, such as when mode is FileMode.Truncate or FileMode.Open, and the file specified by <strong>path</strong> does not exist. The file must already exist in these modes.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.ioexception" target="_blank" >System.IO.IOException</a></dt><dd>An I/O error, such as specifying FileMode.CreateNew when the file specified by <strong>path</strong> already exists, occurred.-or-The stream has been closed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.securityexception" target="_blank" >System.Security.SecurityException</a></dt><dd>The caller does not have the required permission.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directorynotfoundexception" target="_blank" >System.IO.DirectoryNotFoundException</a></dt><dd>The specified path is invalid, such as being on an unmapped drive.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.unauthorizedaccessexception" target="_blank" >System.UnauthorizedAccessException</a></dt><dd>The access requested is not permitted by the operating system for the specified <strong>path</strong> , such as when access is Write or ReadWrite and the file or directory is set for read-only access. -or- <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.fileoptions.encrypted#System_IO_FileOptions_Encrypted" target="_blank" >System.IO.FileOptions.Encrypted</a> is specified for options, but file encryption is not supported on the current platform.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>path</strong> is null.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>path</strong> is an empty string (&quot;&quot;), contains only white space, or contains one or more invalid characters. -or- <strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in an NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notsupportedexception" target="_blank" >System.NotSupportedException</a></dt><dd><strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in a non-NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception" target="_blank" >System.ArgumentOutOfRangeException</a></dt><dd>bufferSize is negative or zero.-or- mode, access, or share contain an invalid value.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception" target="_blank" >System.IO.PathTooLongException</a></dt><dd>The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The stream has been disposed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.invalidoperationexception" target="_blank" >System.InvalidOperationException</a></dt><dd>The reader is currently in use by a previous read operation.</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.filenotfoundexception" target="_blank" >System.IO.FileNotFoundException</a></dt><dd>The file cannot be found, such as when mode is FileMode.Truncate or FileMode.Open, and the file specified by <strong>path</strong> does not exist. The file must already exist in these modes.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.ioexception" target="_blank" >System.IO.IOException</a></dt><dd>An I/O error, such as specifying FileMode.CreateNew when the file specified by <strong>path</strong> already exists, occurred.-or-The stream has been closed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.securityexception" target="_blank" >System.Security.SecurityException</a></dt><dd>The caller does not have the required permission.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.directorynotfoundexception" target="_blank" >System.IO.DirectoryNotFoundException</a></dt><dd>The specified path is invalid, such as being on an unmapped drive.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.unauthorizedaccessexception" target="_blank" >System.UnauthorizedAccessException</a></dt><dd>The access requested is not permitted by the operating system for the specified <strong>path</strong> , such as when access is Write or ReadWrite and the file or directory is set for read-only access. -or- <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.fileoptions.encrypted#System_IO_FileOptions_Encrypted" target="_blank" >System.IO.FileOptions.Encrypted</a> is specified for options, but file encryption is not supported on the current platform.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>path</strong> or <strong>encoding</strong> is null.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>path</strong> is an empty string (&quot;&quot;), contains only white space, or contains one or more invalid characters. -or- <strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in an NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.notsupportedexception" target="_blank" >System.NotSupportedException</a></dt><dd><strong>path</strong> refers to a non-file device, such as &quot;con:&quot;, &quot;com1:&quot;, &quot;lpt1:&quot;, etc. in a non-NTFS environment.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception" target="_blank" >System.ArgumentOutOfRangeException</a></dt><dd>bufferSize is negative or zero.-or- mode, access, or share contain an invalid value.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception" target="_blank" >System.IO.PathTooLongException</a></dt><dd>The specified path, file name, or both exceed the system-defined maximum length. For example, on Windows-based platforms, paths must be less than 248 characters, and file names must be less than 260 characters.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The stream has been disposed.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.invalidoperationexception" target="_blank" >System.InvalidOperationException</a></dt><dd>The reader is currently in use by a previous read operation.</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -1068,7 +1080,7 @@ private void AddOrUpdateItem(string key, object value)
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>key</strong> is null or empty</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>key</strong> is null or empty</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -1099,6 +1111,10 @@ private static object Bind(Type type, string sectionName = null)
 
 ###  Remarks ###
 This method doesn&#39;t use the binding cache
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>type</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -1353,7 +1369,7 @@ public Configuration.ConfigurationBuilder Add(string key, object value)
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>key</strong> is null or empty</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>key</strong> is null or empty</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -1444,7 +1460,7 @@ public Configuration.ConfigurationBuilder AddJsonFile(string fileName, bool igno
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>fileName</strong> is null or empty and <strong>ignoreNullOrEmptyFileName</strong> is false</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>fileName</strong> doesn&#39;t exist and <strong>ignoreIfNotExist</strong> is false</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>fileName</strong> is null or empty and <strong>ignoreNullOrEmptyFileName</strong> is false</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>fileName</strong> doesn&#39;t exist and <strong>ignoreIfNotExist</strong> is false</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -1780,6 +1796,10 @@ public static void AddServicesWithComponentAttribute(this ContainerBuilder build
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>builder</strong> or <strong>assemblies</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -1804,6 +1824,10 @@ public static void AddServicesWithComponentAttribute(this ContainerBuilder build
 
 <strong>Method parameters</strong><dl><dt>Autofac.ContainerBuilder <strong>builder</strong></dt><dd>Autofac container builder</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type[]</a> <strong>types</strong></dt><dd>Array of types to check the classes for the [ComponentAttribute](#t-net.adamec.lib.common.di.component.componentattribute__170qqzl)</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>builder</strong> or <strong>types</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -1834,6 +1858,10 @@ private static Type[] GetImplementedInterfaces(Type type)
 
 ###  Remarks ###
 When the <strong>type</strong> itself is an interface, it&#39;s added to the returned list.
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>type</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -2011,7 +2039,7 @@ public NamedComponentRegistrationAttribute(string name, Type type)
 
 <strong>Constructor parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>name</strong></dt><dd>Registration name</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> <strong>type</strong></dt><dd>Registrations type for named registration. Component type will be used if null</dd></dl>
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>name</strong> is null or empty</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>name</strong> is null or empty</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -2846,7 +2874,7 @@ public static void AddOptions<TOptions>(this ContainerBuilder builder, IConfigur
 
 
 ###  Exceptions ###
-<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>configuration</strong> is null or <strong>configSection</strong> is null  or empty</dd></dl>
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>configuration</strong> is null</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>configSection</strong> is null  or empty</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -3456,6 +3484,10 @@ public static IEnumerable<T> ToEnumerable<T>(this IEnumerator enumerator)
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;T&gt;</a></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >System.Collections.Generic.IEnumerable`1</a> based on given <strong>enumerator</strong></dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>enumerator</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -3483,6 +3515,10 @@ public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> enumerator)
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >IEnumerable&lt;T&gt;</a></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >System.Collections.Generic.IEnumerable`1</a> based on given <strong>enumerator</strong></dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>enumerator</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -3508,6 +3544,10 @@ public static List<T> ToList<T>(this IEnumerator enumerator)
 <strong>Type parameters</strong><dl><dt><strong>T</strong></dt><dd>Type of objects held in enumerator/list</dd></dl>
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerator" target="_blank" >IEnumerator</a> <strong>enumerator</strong></dt><dd>Enumerator to transforms</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >List&lt;T&gt;</a></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1" target="_blank" >System.Collections.Generic.List`1</a> based on given <strong>enumerator</strong></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>enumerator</strong> is null</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -3884,6 +3924,10 @@ public static object GetDefaultValue(this Type type)
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a></dt><dd>Default value of given <strong>type</strong> . Null for non-value types, new instance for value types.</dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>type</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -3895,8 +3939,8 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [CommonLogging](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb) | public static | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory | 
- | [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv) | internal static | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
+ | [CommonLogging](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb) | internal static | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory | 
+ | [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
 
  
 
@@ -3905,7 +3949,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | public abstract | Logger interface - wrapper around the <em>NLog.ILogger</em> | 
+ | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | internal abstract | Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods | 
 
  
 
@@ -3928,7 +3972,7 @@ Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadC
 
 
 ```csharp
-public static class CommonLogging
+internal static class CommonLogging
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
@@ -4030,10 +4074,10 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="t-net.adamec.lib.common.logging.loggerextensions__wainxv" />  LoggerExtensions Class ##
+##  <a id="t-net.adamec.lib.common.logging.loggerext__ac9km2" />  LoggerExt Class ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Sources: logging\LoggerExtensions.cs           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4042,39 +4086,51 @@ Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadC
 
 
 ```csharp
-internal static class LoggerExtensions
+internal class LoggerExt : Logger, ILogger
 ```
 
-Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
-
+Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; NLog.Logger           
+Implements: [net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm), NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress
 
 
 ###  Methods ###
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Debug(ILogger, Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerextensions.debug_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___j9my8t) | public static | Writes the diagnostic message at the `Debug` level. | 
- | [Debug(ILogger, string, string)](#m-net.adamec.lib.common.logging.loggerextensions.debug_net.adamec.lib.common.logging.ilogger-system.string-system.string___1ivhtea) | public static | Writes the diagnostic message at the `Debug` level. | 
- | [Error(ILogger, Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___m1gnmw) | public static | Writes the diagnostic message at the `Error` level. | 
- | [Error(ILogger, Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___cx87zg) | public static | Writes the diagnostic message at the `Error` level. | 
- | [Error(ILogger, string, Exception, string)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___yb2lv7) | public static | Writes the diagnostic message at the `Error` level. | 
- | [Error(ILogger, string, string)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.string-system.string___1rt5ddv) | public static | Writes the diagnostic message at the `Error` level. | 
- | [Error&lt;TException&gt;(ILogger, string, Exception)](#m-net.adamec.lib.common.logging.loggerextensions.error--1_net.adamec.lib.common.logging.ilogger-system.string-system.exception___1i16h8s) | public static | Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type | 
- | [Error&lt;TException&gt;(ILogger, string, string, Exception)](#m-net.adamec.lib.common.logging.loggerextensions.error--1_net.adamec.lib.common.logging.ilogger-system.string-system.string-system.exception___1473s) | public static | Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type | 
- | [Fatal(ILogger, Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1u2znd0) | public static | Writes the diagnostic message at the `Fatal` level. | 
- | [Fatal(ILogger, Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___1ron6v0) | public static | Writes the diagnostic message at the `Fatal` level. | 
- | [Fatal(ILogger, string, Exception, string)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___zech9x) | public static | Writes the diagnostic message at the `Fatal` level. | 
- | [Fatal(ILogger, string, string)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.string-system.string___7ptull) | public static | Writes the diagnostic message at the `Fatal` level. | 
- | [Fatal&lt;TException&gt;(ILogger, string, Exception)](#m-net.adamec.lib.common.logging.loggerextensions.fatal--1_net.adamec.lib.common.logging.ilogger-system.string-system.exception___1i44id8) | public static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
- | [Fatal&lt;TException&gt;(ILogger, string, string, Exception)](#m-net.adamec.lib.common.logging.loggerextensions.fatal--1_net.adamec.lib.common.logging.ilogger-system.string-system.string-system.exception___1lozfm8) | public static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
- | [Info(ILogger, Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerextensions.info_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___q80pva) | public static | Writes the diagnostic message at the `Info` level. | 
- | [Info(ILogger, string, string)](#m-net.adamec.lib.common.logging.loggerextensions.info_net.adamec.lib.common.logging.ilogger-system.string-system.string___1ufgud1) | public static | Writes the diagnostic message at the `Info` level. | 
- | [LogIt(ILogger, LogLevel, Dictionary&lt;string,object&gt;, string, Exception)](#m-net.adamec.lib.common.logging.loggerextensions.logit_net.adamec.lib.common.logging.ilogger-nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___1pbym9v) | private static | Writes the item (message with optional event properties and exception)  into the log | 
- | [LogIt(ILogger, LogLevel, string, string, Exception)](#m-net.adamec.lib.common.logging.loggerextensions.logit_net.adamec.lib.common.logging.ilogger-nlog.loglevel-system.string-system.string-system.exception___rb1ido) | private static | Writes the item (message with optional exception)  into the log | 
- | [Warn(ILogger, Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___sahasq) | public static | Writes the diagnostic message at the `Warn` level. | 
- | [Warn(ILogger, Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___oq47e2) | public static | Writes the diagnostic message at the `Warn` level. | 
- | [Warn(ILogger, string, Exception, string)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___4coctd) | public static | Writes the diagnostic message at the `Warn` level. | 
- | [Warn(ILogger, string, string)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.string-system.string___1mophq5) | public static | Writes the diagnostic message at the `Warn` level. | 
+ | [CreateException&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924) | private static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
+ | [Debug(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma) | public | Writes the diagnostic message at the `Debug` level. | 
+ | [DebugCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af) | public | Writes the diagnostic message at the `Debug` level with correlation ID. | 
+ | [Error(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h) | public | Writes the diagnostic message at the `Error` level. | 
+ | [Error(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.string___u5pc5h) | public | Writes the diagnostic message at the `Error` level. | 
+ | [Error&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.loggerext.error--1_system.string-system.exception___1qowqgx) | public | Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type | 
+ | [ErrorCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.exception-system.string___1tdd1hu) | public | Writes the diagnostic message at the `Error` level with correlation ID. | 
+ | [ErrorCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.string___1vt0qk2) | public | Writes the diagnostic message at the `Error` level with correlation ID. | 
+ | [ErrorCorr&lt;TException&gt;(string, LoggerExt.TException, string)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string---0-system.string___bk3vj3) | public | Writes the diagnostic message at the `Error` level and returns the exception of given type | 
+ | [ErrorCorr&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string-system.string-system.exception___4hcjn7) | public | Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type | 
+ | [ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa) | public | Writes the diagnostic message at the `Error` level and returns the exception of given type | 
+ | [ErrorFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.errorfltrcorr--1_system.string---0-system.string-system.boolean___84xqu8) | public | Writes the diagnostic message at the `Error` level and returns the exception of given type | 
+ | [ErrorPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.loggerext.errorpassthrough_system.exception-system.string___1ey2kd0) | public | Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong> | 
+ | [Fatal(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___pw9hcn) | public | Writes the diagnostic message at the `Fatal` level. | 
+ | [Fatal(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1ff2uef) | public | Writes the diagnostic message at the `Fatal` level. | 
+ | [Fatal&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.loggerext.fatal--1_system.string-system.exception___1myw0tj) | public | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
+ | [FatalCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.exception-system.string___1q1adwi) | public | Writes the diagnostic message at the `Fatal` level with correlation ID. | 
+ | [FatalCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.string___c131ta) | public | Writes the diagnostic message at the `Fatal` level with correlation ID. | 
+ | [FatalCorr&lt;TException&gt;(string, LoggerExt.TException, string)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string---0-system.string___17i1735) | public | Writes the diagnostic message at the `Fatal` level and returns the exception of given type | 
+ | [FatalCorr&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string-system.string-system.exception___w1l5gt) | public | Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type | 
+ | [FatalFltr&lt;TException&gt;(LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.fatalfltr--1_--0-system.string-system.boolean___5rdjqe) | public | Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value. | 
+ | [FatalFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.fatalfltrcorr--1_system.string---0-system.string-system.boolean___15t2hh0) | public | Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value. | 
+ | [FatalPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o) | public | Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt; | 
+ | [Info(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b) | public | Writes the diagnostic message at the `Info` level. | 
+ | [InfoCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha) | public | Writes the diagnostic message at the `Info` level with correlation ID. | 
+ | [LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4) | private | Writes the item (message with optional event properties and exception)  into the log | 
+ | [LogIt(LogLevel, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf) | private | Writes the item (message with optional exception)  into the log | 
+ | [LogIt(LogLevel, string, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt) | private | Writes the item (message with optional exception) with correlation Id into the log | 
+ | [Trace(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70) | public | Writes the diagnostic message at the `Trace` level. | 
+ | [TraceCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz) | public | Writes the diagnostic message at the `Trace` level with correlation ID | 
+ | [Warn(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj) | public | Writes the diagnostic message at the `Warn` level. | 
+ | [Warn(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___wuc2dz) | public | Writes the diagnostic message at the `Warn` level. | 
+ | [WarnCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.exception-system.string___sfdb1u) | public | Writes the diagnostic message at the `Warn` level with correlation ID. | 
+ | [WarnCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.string___cfr64e) | public | Writes the diagnostic message at the `Warn` level with correlation ID. | 
 
  
 
@@ -4085,325 +4141,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.debug_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___j9my8t" />  LoggerExtensions.Debug(ILogger, Dictionary&lt;string,object&gt;, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924" />  LoggerExt.CreateException&lt;TException&gt;(string, Exception) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Debug` level.
-
-
-
-```csharp
-public static void Debug(this ILogger logger, Dictionary<string,object> eventProperties, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.debug_net.adamec.lib.common.logging.ilogger-system.string-system.string___1ivhtea" />  LoggerExtensions.Debug(ILogger, string, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Debug` level.
-
-
-
-```csharp
-public static void Debug(this ILogger logger, string correlationId, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___m1gnmw" />  LoggerExtensions.Error(ILogger, Dictionary&lt;string,object&gt;, Exception, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Error` level.
-
-
-
-```csharp
-public static void Error(this ILogger logger, Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___cx87zg" />  LoggerExtensions.Error(ILogger, Dictionary&lt;string,object&gt;, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Error` level.
-
-
-
-```csharp
-public static void Error(this ILogger logger, Dictionary<string,object> eventProperties, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___yb2lv7" />  LoggerExtensions.Error(ILogger, string, Exception, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Error` level.
-
-
-
-```csharp
-public static void Error(this ILogger logger, string correlationId, Exception exception, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.string-system.string___1rt5ddv" />  LoggerExtensions.Error(ILogger, string, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Error` level.
-
-
-
-```csharp
-public static void Error(this ILogger logger, string correlationId, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.error--1_net.adamec.lib.common.logging.ilogger-system.string-system.exception___1i16h8s" />  LoggerExtensions.Error&lt;TException&gt;(ILogger, string, Exception) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type
-
-
-
-```csharp
-public static LoggerExtensions.TException Error<TException>(this ILogger logger, string message, Exception innerException = null) where TException: Exception
-```
-
-<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
-<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExtensions.TException</dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.error--1_net.adamec.lib.common.logging.ilogger-system.string-system.string-system.exception___1473s" />  LoggerExtensions.Error&lt;TException&gt;(ILogger, string, string, Exception) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type
-
-
-
-```csharp
-public static LoggerExtensions.TException Error<TException>(this ILogger logger, string correlationId, string message, Exception innerException = null) where TException: Exception
-```
-
-<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
-<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExtensions.TException</dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1u2znd0" />  LoggerExtensions.Fatal(ILogger, Dictionary&lt;string,object&gt;, Exception, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Fatal` level.
-
-
-
-```csharp
-public static void Fatal(this ILogger logger, Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___1ron6v0" />  LoggerExtensions.Fatal(ILogger, Dictionary&lt;string,object&gt;, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Fatal` level.
-
-
-
-```csharp
-public static void Fatal(this ILogger logger, Dictionary<string,object> eventProperties, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___zech9x" />  LoggerExtensions.Fatal(ILogger, string, Exception, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Fatal` level.
-
-
-
-```csharp
-public static void Fatal(this ILogger logger, string correlationId, Exception exception, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.string-system.string___7ptull" />  LoggerExtensions.Fatal(ILogger, string, string) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
-
-
-Writes the diagnostic message at the `Fatal` level.
-
-
-
-```csharp
-public static void Fatal(this ILogger logger, string correlationId, [Localizable(false)] string message)
-```
-
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
-
-
-Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
-
-
- 
-
-
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.fatal--1_net.adamec.lib.common.logging.ilogger-system.string-system.exception___1i44id8" />  LoggerExtensions.Fatal&lt;TException&gt;(ILogger, string, Exception) Method ##
-<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
-Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4412,12 +4154,12 @@ Writes the diagnostic message at the `Fatal` level. Creates and returns the exce
 
 
 ```csharp
-public static LoggerExtensions.TException Fatal<TException>(this ILogger logger, string message, Exception innerException = null) where TException: Exception
+private static LoggerExt.TException CreateException<TException>(string message, Exception innerException = null) where TException: Exception
 ```
 
 <strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
-<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExtensions.TException</dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4426,11 +4168,413 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.fatal--1_net.adamec.lib.common.logging.ilogger-system.string-system.string-system.exception___1lozfm8" />  LoggerExtensions.Fatal&lt;TException&gt;(ILogger, string, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma" />  LoggerExt.Debug(Dictionary&lt;string,object&gt;, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Debug` level.
+
+
+
+```csharp
+public void Debug(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Debug(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af" />  LoggerExt.DebugCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Debug` level with correlation ID.
+
+
+
+```csharp
+public void DebugCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.DebugCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.debugcorr_system.string-system.string___aozvfj)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h" />  LoggerExt.Error(Dictionary&lt;string,object&gt;, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level.
+
+
+
+```csharp
+public void Error(Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Error(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.string___u5pc5h" />  LoggerExt.Error(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level.
+
+
+
+```csharp
+public void Error(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Error(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.error--1_system.string-system.exception___1qowqgx" />  LoggerExt.Error&lt;TException&gt;(string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type
+
+
+
+```csharp
+public LoggerExt.TException Error<TException>(string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>Implements: [ILogger.Error&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.exception-system.string___1tdd1hu" />  LoggerExt.ErrorCorr(string, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level with correlation ID.
+
+
+
+```csharp
+public void ErrorCorr(string correlationId, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.ErrorCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.exception-system.string___1qll13u)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.string___1vt0qk2" />  LoggerExt.ErrorCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level with correlation ID.
+
+
+
+```csharp
+public void ErrorCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.ErrorCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.string___coifvu)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string---0-system.string___bk3vj3" />  LoggerExt.ErrorCorr&lt;TException&gt;(string, LoggerExt.TException, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns the exception of given type
+
+
+
+```csharp
+public LoggerExt.TException ErrorCorr<TException>(string correlationId, LoggerExt.TException exception, string message = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.LoggerExt.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Pass-through exception</dd></dl>Implements: [ILogger.ErrorCorr&lt;TException&gt;(string, ILogger.TException, string)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string---0-system.string___eypxkv)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string-system.string-system.exception___4hcjn7" />  LoggerExt.ErrorCorr&lt;TException&gt;(string, string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type
+
+
+
+```csharp
+public LoggerExt.TException ErrorCorr<TException>(string correlationId, string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>Implements: [ILogger.ErrorCorr&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string-system.string-system.exception___91akh7)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa" />  LoggerExt.ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns the exception of given type
+
+
+
+```csharp
+public bool ErrorFltr<TException>(LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>Implements: [ILogger.ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)
+
+
+###  Example ###
+The following code logs any exception without catching it (function returns false by default) 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+ The following code catch and log the ArgumentException and logs any other exception without catching it. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (ArgumentException e) when (Logger.ErrorFltr(e,catchIt:true)) {}
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorfltrcorr--1_system.string---0-system.string-system.boolean___84xqu8" />  LoggerExt.ErrorFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns the exception of given type
+
+
+
+```csharp
+public bool ErrorFltrCorr<TException>(string correlationId, LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.LoggerExt.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>Implements: [ILogger.ErrorFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltrcorr--1_system.string---0-system.string-system.boolean___1spds2w)
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+###  See Also ###
+[ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.errorpassthrough_system.exception-system.string___1ey2kd0" />  LoggerExt.ErrorPassThrough(Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong>
+
+
+
+```csharp
+public Exception ErrorPassThrough(Exception exception, string message = null)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a></dt><dd>Pass-through exception</dd></dl>Implements: [ILogger.ErrorPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___pw9hcn" />  LoggerExt.Fatal(Dictionary&lt;string,object&gt;, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level.
+
+
+
+```csharp
+public void Fatal(Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Fatal(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1ff2uef" />  LoggerExt.Fatal(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level.
+
+
+
+```csharp
+public void Fatal(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Fatal(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatal--1_system.string-system.exception___1myw0tj" />  LoggerExt.Fatal&lt;TException&gt;(string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4439,12 +4583,12 @@ Writes the diagnostic message at the `Fatal` level. Creates and returns the exce
 
 
 ```csharp
-public static LoggerExtensions.TException Fatal<TException>(this ILogger logger, string correlationId, string message, Exception innerException = null) where TException: Exception
+public LoggerExt.TException Fatal<TException>(string message, Exception innerException = null) where TException: Exception
 ```
 
 <strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
-<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExtensions.TException</dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>Implements: [ILogger.Fatal&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73)
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4453,11 +4597,213 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.info_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___q80pva" />  LoggerExtensions.Info(ILogger, Dictionary&lt;string,object&gt;, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.exception-system.string___1q1adwi" />  LoggerExt.FatalCorr(string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level with correlation ID.
+
+
+
+```csharp
+public void FatalCorr(string correlationId, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.FatalCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.exception-system.string___yt34nm)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.string___c131ta" />  LoggerExt.FatalCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level with correlation ID.
+
+
+
+```csharp
+public void FatalCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.FatalCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.string___ufcx32)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string---0-system.string___17i1735" />  LoggerExt.FatalCorr&lt;TException&gt;(string, LoggerExt.TException, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns the exception of given type
+
+
+
+```csharp
+public LoggerExt.TException FatalCorr<TException>(string correlationId, LoggerExt.TException exception, string message = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.LoggerExt.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Pass-through exception</dd></dl>Implements: [ILogger.FatalCorr&lt;TException&gt;(string, ILogger.TException, string)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string---0-system.string___108vdu1)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string-system.string-system.exception___w1l5gt" />  LoggerExt.FatalCorr&lt;TException&gt;(string, string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type
+
+
+
+```csharp
+public LoggerExt.TException FatalCorr<TException>(string correlationId, string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>Implements: [ILogger.FatalCorr&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string-system.string-system.exception___1hlu7x)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalfltr--1_--0-system.string-system.boolean___5rdjqe" />  LoggerExt.FatalFltr&lt;TException&gt;(LoggerExt.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.
+
+
+
+```csharp
+public bool FatalFltr<TException>(LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>Implements: [ILogger.FatalFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa)
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+###  See Also ###
+[ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalfltrcorr--1_system.string---0-system.string-system.boolean___15t2hh0" />  LoggerExt.FatalFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.
+
+
+
+```csharp
+public bool FatalFltrCorr<TException>(string correlationId, LoggerExt.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.LoggerExt.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>Implements: [ILogger.FatalFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.fatalfltrcorr--1_system.string---0-system.string-system.boolean___a9m338)
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+###  See Also ###
+[ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o" />  LoggerExt.FatalPassThrough(Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt;
+
+
+
+```csharp
+public Exception FatalPassThrough(Exception exception, string message = null)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a></dt><dd>Pass-through exception</dd></dl>Implements: [ILogger.FatalPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b" />  LoggerExt.Info(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4466,11 +4812,11 @@ Writes the diagnostic message at the `Info` level.
 
 
 ```csharp
-public static void Info(this ILogger logger, Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+public void Info(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Info(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr)
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4479,24 +4825,24 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.info_net.adamec.lib.common.logging.ilogger-system.string-system.string___1ufgud1" />  LoggerExtensions.Info(ILogger, string, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha" />  LoggerExt.InfoCorr(string, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-Writes the diagnostic message at the `Info` level.
+Writes the diagnostic message at the `Info` level with correlation ID.
 
 
 
 ```csharp
-public static void Info(this ILogger logger, string correlationId, [Localizable(false)] string message)
+public void InfoCorr(string correlationId, [Localizable(false)] string message)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.InfoCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny)
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4505,11 +4851,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.logit_net.adamec.lib.common.logging.ilogger-nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___1pbym9v" />  LoggerExtensions.LogIt(ILogger, LogLevel, Dictionary&lt;string,object&gt;, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4" />  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4518,10 +4864,10 @@ Writes the item (message with optional event properties and exception)  into the
 
 
 ```csharp
-private static void LogIt(ILogger logger, LogLevel level, Dictionary<string,object> eventProperties, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, Dictionary<string,object> eventProperties, [Localizable(false)] string message, Exception exception = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -4531,11 +4877,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.logit_net.adamec.lib.common.logging.ilogger-nlog.loglevel-system.string-system.string-system.exception___rb1ido" />  LoggerExtensions.LogIt(ILogger, LogLevel, string, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf" />  LoggerExt.LogIt(LogLevel, string, Exception) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4544,10 +4890,10 @@ Writes the item (message with optional exception)  into the log
 
 
 ```csharp
-private static void LogIt(ILogger logger, LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -4557,23 +4903,23 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___sahasq" />  LoggerExtensions.Warn(ILogger, Dictionary&lt;string,object&gt;, Exception, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt" />  LoggerExt.LogIt(LogLevel, string, string, Exception) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-Writes the diagnostic message at the `Warn` level.
+Writes the item (message with optional exception) with correlation Id into the log
 
 
 
 ```csharp
-public static void Warn(this ILogger logger, Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
+private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -4583,24 +4929,24 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___oq47e2" />  LoggerExtensions.Warn(ILogger, Dictionary&lt;string,object&gt;, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70" />  LoggerExt.Trace(Dictionary&lt;string,object&gt;, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-Writes the diagnostic message at the `Warn` level.
+Writes the diagnostic message at the `Trace` level.
 
 
 
 ```csharp
-public static void Warn(this ILogger logger, Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+public void Trace(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Trace(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k)
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4609,24 +4955,24 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___4coctd" />  LoggerExtensions.Warn(ILogger, string, Exception, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz" />  LoggerExt.TraceCorr(string, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-Writes the diagnostic message at the `Warn` level.
+Writes the diagnostic message at the `Trace` level with correlation ID
 
 
 
 ```csharp
-public static void Warn(this ILogger logger, string correlationId, Exception exception, [Localizable(false)] string message)
+public void TraceCorr(string correlationId, [Localizable(false)] string message)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.TraceCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.tracecorr_system.string-system.string___1bdni2z)
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4635,11 +4981,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.string-system.string___1mophq5" />  LoggerExtensions.Warn(ILogger, string, string) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj" />  LoggerExt.Warn(Dictionary&lt;string,object&gt;, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Type: [LoggerExtensions](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)           
-Sources: logging\LoggerExtensions.cs           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4648,11 +4994,89 @@ Writes the diagnostic message at the `Warn` level.
 
 
 ```csharp
-public static void Warn(this ILogger logger, string correlationId, [Localizable(false)] string message)
+public void Warn(Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
 ```
 
-<strong>Method parameters</strong><dl><dt>[net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) <strong>logger</strong></dt><dd>Logger</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Warn(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___wuc2dz" />  LoggerExt.Warn(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level.
+
+
+
+```csharp
+public void Warn(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.Warn(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.exception-system.string___sfdb1u" />  LoggerExt.WarnCorr(string, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level with correlation ID.
+
+
+
+```csharp
+public void WarnCorr(string correlationId, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.WarnCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.exception-system.string___1kh0i9m)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.string___cfr64e" />  LoggerExt.WarnCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
+Sources: logging\LoggerExt.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level with correlation ID.
+
+
+
+```csharp
+public void WarnCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: [ILogger.WarnCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.string___pr2tiu)
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4668,15 +5092,893 @@ Sources: logging\ILogger.cs
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-Logger interface - wrapper around the <em>NLog.ILogger</em>
+Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods
 
 
 
 ```csharp
-public interface ILogger : ILogger
+internal interface ILogger : ILogger
 ```
 
+Implemented by: [net.adamec.lib.common.logging.LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
 Implements: NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress
+
+
+###  Methods ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Debug(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq) | public abstract | Writes the diagnostic message at the `Debug` level. | 
+ | [DebugCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.debugcorr_system.string-system.string___aozvfj) | public abstract | Writes the diagnostic message at the `Debug` level with correlation ID. | 
+ | [Error(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d) | public abstract | Writes the diagnostic message at the `Error` level. | 
+ | [Error(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl) | public abstract | Writes the diagnostic message at the `Error` level. | 
+ | [Error&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh) | public abstract | Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type | 
+ | [ErrorCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.exception-system.string___1qll13u) | public abstract | Writes the diagnostic message at the `Error` level with correlation ID. | 
+ | [ErrorCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.string___coifvu) | public abstract | Writes the diagnostic message at the `Error` level with correlation ID. | 
+ | [ErrorCorr&lt;TException&gt;(string, ILogger.TException, string)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string---0-system.string___eypxkv) | public abstract | Writes the diagnostic message at the `Error` level and returns the exception of given type | 
+ | [ErrorCorr&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string-system.string-system.exception___91akh7) | public abstract | Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type | 
+ | [ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm) | public abstract | Writes the diagnostic message at the `Error` level and returns the exception of given type | 
+ | [ErrorFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltrcorr--1_system.string---0-system.string-system.boolean___1spds2w) | public abstract | Writes the diagnostic message at the `Error` level and returns the exception of given type | 
+ | [ErrorPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk) | public abstract | Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong> | 
+ | [Fatal(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn) | public abstract | Writes the diagnostic message at the `Fatal` level. | 
+ | [Fatal(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz) | public abstract | Writes the diagnostic message at the `Fatal` level. | 
+ | [Fatal&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73) | public abstract | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
+ | [FatalCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.exception-system.string___yt34nm) | public abstract | Writes the diagnostic message at the `Fatal` level with correlation ID. | 
+ | [FatalCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.string___ufcx32) | public abstract | Writes the diagnostic message at the `Fatal` level with correlation ID. | 
+ | [FatalCorr&lt;TException&gt;(string, ILogger.TException, string)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string---0-system.string___108vdu1) | public abstract | Writes the diagnostic message at the `Fatal` level and returns the exception of given type | 
+ | [FatalCorr&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string-system.string-system.exception___1hlu7x) | public abstract | Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type | 
+ | [FatalFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa) | public abstract | Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value. | 
+ | [FatalFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.fatalfltrcorr--1_system.string---0-system.string-system.boolean___a9m338) | public abstract | Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value. | 
+ | [FatalPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8) | public abstract | Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> | 
+ | [Info(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr) | public abstract | Writes the diagnostic message at the `Info` level. | 
+ | [InfoCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny) | public abstract | Writes the diagnostic message at the `Info` level with correlation ID. | 
+ | [Trace(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k) | public abstract | Writes the diagnostic message at the `Trace` level. | 
+ | [TraceCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.tracecorr_system.string-system.string___1bdni2z) | public abstract | Writes the diagnostic message at the `Trace` level with correlation ID. | 
+ | [Warn(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj) | public abstract | Writes the diagnostic message at the `Warn` level. | 
+ | [Warn(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3) | public abstract | Writes the diagnostic message at the `Warn` level. | 
+ | [WarnCorr(string, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.exception-system.string___1kh0i9m) | public abstract | Writes the diagnostic message at the `Warn` level with correlation ID. | 
+ | [WarnCorr(string, string)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.string___pr2tiu) | public abstract | Writes the diagnostic message at the `Warn` level with correlation ID. | 
+
+ 
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq" />  ILogger.Debug(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Debug` level.
+
+
+
+```csharp
+public abstract void Debug(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.debugcorr_system.string-system.string___aozvfj" />  ILogger.DebugCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Debug` level with correlation ID.
+
+
+
+```csharp
+public abstract void DebugCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d" />  ILogger.Error(Dictionary&lt;string,object&gt;, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level.
+
+
+
+```csharp
+public abstract void Error(Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl" />  ILogger.Error(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level.
+
+
+
+```csharp
+public abstract void Error(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh" />  ILogger.Error&lt;TException&gt;(string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type
+
+
+
+```csharp
+public abstract ILogger.TException Error<TException>(string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException</dt><dd>Created exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.exception-system.string___1qll13u" />  ILogger.ErrorCorr(string, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level with correlation ID.
+
+
+
+```csharp
+public abstract void ErrorCorr(string correlationId, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.string___coifvu" />  ILogger.ErrorCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level with correlation ID.
+
+
+
+```csharp
+public abstract void ErrorCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string---0-system.string___eypxkv" />  ILogger.ErrorCorr&lt;TException&gt;(string, ILogger.TException, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns the exception of given type
+
+
+
+```csharp
+public abstract ILogger.TException ErrorCorr<TException>(string correlationId, ILogger.TException exception, string message = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.ILogger.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException</dt><dd>Pass-through exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string-system.string-system.exception___91akh7" />  ILogger.ErrorCorr&lt;TException&gt;(string, string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type
+
+
+
+```csharp
+public abstract ILogger.TException ErrorCorr<TException>(string correlationId, string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException</dt><dd>Created exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm" />  ILogger.ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns the exception of given type
+
+
+
+```csharp
+public abstract bool ErrorFltr<TException>(ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>
+
+
+###  Example ###
+The following code logs any exception without catching it (function returns false by default) 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+ The following code catch and log the ArgumentException and logs any other exception without catching it. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (ArgumentException e) when (Logger.ErrorFltr(e,catchIt:true)) {}
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorfltrcorr--1_system.string---0-system.string-system.boolean___1spds2w" />  ILogger.ErrorFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns the exception of given type
+
+
+
+```csharp
+public abstract bool ErrorFltrCorr<TException>(string correlationId, ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.ILogger.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+###  See Also ###
+[ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk" />  ILogger.ErrorPassThrough(Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong>
+
+
+
+```csharp
+public abstract Exception ErrorPassThrough(Exception exception, string message = null)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a></dt><dd>Pass-through exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn" />  ILogger.Fatal(Dictionary&lt;string,object&gt;, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level.
+
+
+
+```csharp
+public abstract void Fatal(Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz" />  ILogger.Fatal(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level.
+
+
+
+```csharp
+public abstract void Fatal(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73" />  ILogger.Fatal&lt;TException&gt;(string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type
+
+
+
+```csharp
+public abstract ILogger.TException Fatal<TException>(string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException</dt><dd>Created exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.exception-system.string___yt34nm" />  ILogger.FatalCorr(string, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level with correlation ID.
+
+
+
+```csharp
+public abstract void FatalCorr(string correlationId, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.string___ufcx32" />  ILogger.FatalCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level with correlation ID.
+
+
+
+```csharp
+public abstract void FatalCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string---0-system.string___108vdu1" />  ILogger.FatalCorr&lt;TException&gt;(string, ILogger.TException, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns the exception of given type
+
+
+
+```csharp
+public abstract ILogger.TException FatalCorr<TException>(string correlationId, ILogger.TException exception, string message = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.ILogger.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException</dt><dd>Pass-through exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string-system.string-system.exception___1hlu7x" />  ILogger.FatalCorr&lt;TException&gt;(string, string, Exception) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type
+
+
+
+```csharp
+public abstract ILogger.TException FatalCorr<TException>(string correlationId, string message, Exception innerException = null) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException</dt><dd>Created exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa" />  ILogger.FatalFltr&lt;TException&gt;(ILogger.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.
+
+
+
+```csharp
+public abstract bool FatalFltr<TException>(ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.logging.ILogger.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+###  See Also ###
+[ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalfltrcorr--1_system.string---0-system.string-system.boolean___a9m338" />  ILogger.FatalFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.
+
+
+
+```csharp
+public abstract bool FatalFltrCorr<TException>(string correlationId, ILogger.TException exception, string message = null, bool catchIt = false) where TException: Exception
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt>net.adamec.lib.common.logging.ILogger.TException <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>catchIt</strong></dt><dd>Flag whether the <strong>exception</strong> is to be catch by filter (default is false)</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>Flag whether the exception is to be catch by exception filter</dd></dl>
+
+
+###  Remarks ###
+This function is intended for catch exception filters. The parameter <strong>catchIt</strong> defines whether the exception filter will be applied after logging. The exception will be catch when <strong>catchIt</strong> is true, otherwise the filter is evaluated as false and it will continue with finding the catch clause (in both cases the log entry will be created)
+
+
+###  See Also ###
+[ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8" />  ILogger.FatalPassThrough(Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong>
+
+
+
+```csharp
+public abstract Exception FatalPassThrough(Exception exception, string message = null)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a></dt><dd>Pass-through exception</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr" />  ILogger.Info(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Info` level.
+
+
+
+```csharp
+public abstract void Info(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny" />  ILogger.InfoCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Info` level with correlation ID.
+
+
+
+```csharp
+public abstract void InfoCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k" />  ILogger.Trace(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Trace` level.
+
+
+
+```csharp
+public abstract void Trace(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.tracecorr_system.string-system.string___1bdni2z" />  ILogger.TraceCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Trace` level with correlation ID.
+
+
+
+```csharp
+public abstract void TraceCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj" />  ILogger.Warn(Dictionary&lt;string,object&gt;, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level.
+
+
+
+```csharp
+public abstract void Warn(Dictionary<string,object> eventProperties, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3" />  ILogger.Warn(Dictionary&lt;string,object&gt;, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level.
+
+
+
+```csharp
+public abstract void Warn(Dictionary<string,object> eventProperties, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.exception-system.string___1kh0i9m" />  ILogger.WarnCorr(string, Exception, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level with correlation ID.
+
+
+
+```csharp
+public abstract void WarnCorr(string correlationId, Exception exception, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.string___pr2tiu" />  ILogger.WarnCorr(string, string) Method ##
+<small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
+Assembly: net.adamec.lib.common           
+Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
+Sources: logging\ILogger.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+
+
+Writes the diagnostic message at the `Warn` level with correlation ID.
+
+
+
+```csharp
+public abstract void WarnCorr(string correlationId, [Localizable(false)] string message)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -4943,7 +6245,7 @@ protected override void OnDoWork(DoWorkEventArgs e)
 ```
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.doworkeventargs" target="_blank" >System.ComponentModel.DoWorkEventArgs</a> <strong>e</strong></dt><dd>An <a href="https://docs.microsoft.com/en-us/dotnet/api/system.eventargs" target="_blank" >System.EventArgs</a> that contains the event data.</dd></dl>
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.backgroundworker.ondowork#System_ComponentModel_BackgroundWorker_OnDoWork_System_ComponentModel_DoWorkEventArgs_" target="_blank" >ComponentModel.BackgroundWorker.OnDoWork</a>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -5119,7 +6421,7 @@ Dispose the object
 public void Dispose()
 ```
 
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose" target="_blank" >IDisposable.Dispose</a>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -5726,6 +7028,10 @@ public static async Task RunAsync(Action action, TimeSpan period, CancellationTo
 The <strong>cancellationToken</strong> interrupts the period/waiting loop, but not the action itself. The method doesn&#39;t create any additional thread or worker, it&#39;s the responsibility of the caller is needed.
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>action</strong> , <strong>period</strong> or <strong>cancellationToken</strong> is null</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -5951,6 +7257,10 @@ public static bool RunCommand(string command, string args, string workingDirecto
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>command</strong></dt><dd>Command to run</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>args</strong></dt><dd>Command line arguments</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>workingDirectory</strong></dt><dd>Working directory</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>outputOrError</strong></dt><dd>OUT: the standard output or error text</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd>True is process runs OK ( <strong>outputOrError</strong> is standard output) or false in case of exception or command error ( <strong>outputOrError</strong> is the error output or exception message)</dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>command</strong> is null or empty</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -6576,6 +7886,10 @@ public bool StartProcess(string command, string arguments = null, string working
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd></dd></dl>
 
 
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentexception" target="_blank" >System.ArgumentException</a></dt><dd><strong>command</strong> is null or empty</dd></dl>
+
+
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
 
@@ -7143,7 +8457,7 @@ Returns the text content of the text builder
 public override string ToString()
 ```
 
-<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>The text content of the text builder</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd>The text content of the text builder</dd></dl>Overrides: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.tostring#System_Object_ToString" target="_blank" >object.ToString</a>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -7286,12 +8600,12 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.async.AsyncManager" />  RadCommons.async.AsyncManager Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only async           
 Includes: None           
 Declaring file: async\AsyncManager.cs</small>
 
 
-Helpers for running the actions in sync or async mode (Source only package).
+Helpers for running the async tasks in sync mode and executing sync actions in async mode (Source only package).
 
 
 <strong>Usings</strong><dl><dt>[RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</dt><dd></dd></dl>
@@ -7310,7 +8624,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.async.FileAsync" />  RadCommons.async.FileAsync Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only async text-files           
 Includes: None           
 Declaring file: async\FileAsync.cs</small>
 
@@ -7331,12 +8645,13 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.config.Configuration" />  RadCommons.config.Configuration Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only configuration           
 Includes: None           
 Declaring file: config\Configuration.cs</small>
 
 
-Simple configuration container in case DI with more sophisticated containers is not used (Source only package).
+Simple configuration container in case DI with more sophisticated containers is not used. Supports the JSON config files, command line arguments
+ and environment variables as sources and their hierarchy/overrides. The configuration can be used as key-value pairs or bound to objects (Source only package).
 
 
 <strong>Usings</strong><dl><dt>[RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</dt><dd></dd></dl>
@@ -7355,7 +8670,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.di.Component" />  RadCommons.di.Component Source only package ##
-<small>Tags: RadCommons RadCommons-DI           
+<small>Tags: RadCommons source-only RadCommons-DI dependency-injection components           
 Includes: Folder           
 Declaring file: di\component\_SourceOnlyPackage.cs</small>
 
@@ -7382,12 +8697,12 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.di.Config" />  RadCommons.di.Config Source only package ##
-<small>Tags: RadCommons RadCommons-DI           
+<small>Tags: RadCommons source-only RadCommons-DI dependency-injection configuration           
 Includes: FolderRecursive           
 Declaring file: di\config\_SourceOnlyPackage.cs</small>
 
 
-RadCommons DI configuration helpers (Source only package).
+RadCommons DI helpers for application configuration (Source only package).
 
 
 <strong>Usings</strong><dl><dt>[RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</dt><dd></dd></dl>
@@ -7409,7 +8724,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.di.PostInit" />  RadCommons.di.PostInit Source only package ##
-<small>Tags: RadCommons RadCommons-DI           
+<small>Tags: RadCommons source-only RadCommons-DI dependency-injection post-init           
 Includes: Folder           
 Declaring file: di\postinit\_SourceOnlyPackage.cs</small>
 
@@ -7436,7 +8751,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.ArrayExtensions.Fill" />  RadCommons.extensions.ArrayExtensions.Fill Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension array           
 Includes: None           
 Declaring file: extensions\ArrayExtensionsFill.cs</small>
 
@@ -7457,7 +8772,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.EnumeratorExtensions.ToEnumerable" />  RadCommons.extensions.EnumeratorExtensions.ToEnumerable Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension enumerator           
 Includes: None           
 Declaring file: extensions\EnumeratorExtensionsToEnumerable.cs</small>
 
@@ -7478,7 +8793,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.IEnumerableExtensions.ForEach" />  RadCommons.extensions.IEnumerableExtensions.ForEach Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension enumerable           
 Includes: None           
 Declaring file: extensions\IEnumerableExtensionsForEach.cs</small>
 
@@ -7499,7 +8814,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.StringExtensions.Case" />  RadCommons.extensions.StringExtensions.Case Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension string camel-case case           
 Includes: None           
 Declaring file: extensions\StringExtensionsCase.cs</small>
 
@@ -7520,7 +8835,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.StringExtensions.Html" />  RadCommons.extensions.StringExtensions.Html Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension string html           
 Includes: None           
 Declaring file: extensions\StringExtensionsHtml.cs</small>
 
@@ -7541,7 +8856,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.StringExtensions.Parts" />  RadCommons.extensions.StringExtensions.Parts Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension string           
 Includes: None           
 Declaring file: extensions\StringExtensionsParts.cs</small>
 
@@ -7562,7 +8877,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.StringExtensions.Paths" />  RadCommons.extensions.StringExtensions.Paths Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension string file-utilities           
 Includes: None           
 Declaring file: extensions\StringExtensionsPaths.cs</small>
 
@@ -7583,7 +8898,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.StringExtensions.Whitespace" />  RadCommons.extensions.StringExtensions.Whitespace Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension string           
 Includes: None           
 Declaring file: extensions\StringExtensionsWhitespace.cs</small>
 
@@ -7604,7 +8919,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.extensions.TypeExtensions.DefaultValue" />  RadCommons.extensions.TypeExtensions.DefaultValue Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only extension type default-value           
 Includes: None           
 Declaring file: extensions\TypeExtensionsDefaultValue.cs</small>
 
@@ -7625,21 +8940,21 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.logging.CommonLogging" />  RadCommons.logging.CommonLogging Source only package ##
-<small>Tags: RadCommons RadCommons-Logging           
+<small>Tags: RadCommons source-only logging NLog           
 Includes: Folder           
 Declaring file: logging\_SourceOnlyPackage.cs</small>
 
 
-RadCommons logging wrapper around NLog (Source only package).
+RadCommons logging wrapper around NLog with some extended functionality (Source only package).
 
 
-<strong>References needed</strong><dl><dt>NLog</dt><dd></dd><dt>ProxyFoo</dt><dd></dd></dl>
+<strong>References needed</strong><dl><dt>NLog</dt><dd></dd></dl>
 
 
-<strong>Package members</strong><dl><dt>[CommonLogging (Type)](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory</dd><dt>[CreateLogger(string) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.string___wn77if)</dt><dd>Creates the logger with given <strong>categoryName</strong></dd><dt>[CreateLogger(Type) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.type___uhum9e)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[CreateLogger&lt;T&gt;() (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger--1__lp2vax)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em></dd><dt>[LoggerExtensions (Type)](#t-net.adamec.lib.common.logging.loggerextensions__wainxv)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions</dd><dt>[Debug(ILogger, string, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.debug_net.adamec.lib.common.logging.ilogger-system.string-system.string___1ivhtea)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(ILogger, string, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.info_net.adamec.lib.common.logging.ilogger-system.string-system.string___1ufgud1)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(ILogger, string, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.string-system.string___1mophq5)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(ILogger, string, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.string-system.string___1rt5ddv)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(ILogger, string, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.string-system.string___7ptull)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(ILogger, string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___4coctd)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(ILogger, string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___yb2lv7)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(ILogger, string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.string-system.exception-system.string___zech9x)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Fatal&lt;TException&gt;(ILogger, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.fatal--1_net.adamec.lib.common.logging.ilogger-system.string-system.exception___1i44id8)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(ILogger, string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.fatal--1_net.adamec.lib.common.logging.ilogger-system.string-system.string-system.exception___1lozfm8)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[Error&lt;TException&gt;(ILogger, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.error--1_net.adamec.lib.common.logging.ilogger-system.string-system.exception___1i16h8s)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Error&lt;TException&gt;(ILogger, string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.error--1_net.adamec.lib.common.logging.ilogger-system.string-system.string-system.exception___1473s)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Debug(ILogger, Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.debug_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___j9my8t)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(ILogger, Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.info_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___q80pva)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(ILogger, Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___oq47e2)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(ILogger, Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___cx87zg)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(ILogger, Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.string___1ron6v0)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(ILogger, Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.warn_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___sahasq)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(ILogger, Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.error_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___m1gnmw)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(ILogger, Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.fatal_net.adamec.lib.common.logging.ilogger-system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1u2znd0)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[LogIt(ILogger, LogLevel, string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.logit_net.adamec.lib.common.logging.ilogger-nlog.loglevel-system.string-system.string-system.exception___rb1ido)</dt><dd>Writes the item (message with optional exception)  into the log</dd><dt>[LogIt(ILogger, LogLevel, Dictionary&lt;string,object&gt;, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerextensions.logit_net.adamec.lib.common.logging.ilogger-nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___1pbym9v)</dt><dd>Writes the item (message with optional event properties and exception)  into the log</dd></dl>
+<strong>Package members</strong><dl><dt>[CommonLogging (Type)](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory</dd><dt>[CreateLogger(string) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.string___wn77if)</dt><dd>Creates the logger with given <strong>categoryName</strong></dd><dt>[CreateLogger(Type) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.type___uhum9e)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[CreateLogger&lt;T&gt;() (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger--1__lp2vax)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[Trace(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k)</dt><dd>Writes the diagnostic message at the `Trace` level.</dd><dt>[Debug(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[ErrorPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk)</dt><dd>Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong></dd><dt>[FatalPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong></dd><dt>[Error&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltr&lt;TException&gt;(ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[TraceCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.tracecorr_system.string-system.string___1bdni2z)</dt><dd>Writes the diagnostic message at the `Trace` level with correlation ID.</dd><dt>[DebugCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.debugcorr_system.string-system.string___aozvfj)</dt><dd>Writes the diagnostic message at the `Debug` level with correlation ID.</dd><dt>[InfoCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny)</dt><dd>Writes the diagnostic message at the `Info` level with correlation ID.</dd><dt>[WarnCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.string___pr2tiu)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.string___coifvu)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.string___ufcx32)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[WarnCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.exception-system.string___1kh0i9m)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.exception-system.string___1qll13u)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.exception-system.string___yt34nm)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[ErrorCorr&lt;TException&gt;(string, ILogger.TException, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string---0-system.string___eypxkv)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, ILogger.TException, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string---0-system.string___108vdu1)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns the exception of given type</dd><dt>[ErrorCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string-system.string-system.exception___91akh7)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string-system.string-system.exception___1hlu7x)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type</dd><dt>[ErrorFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorfltrcorr--1_system.string---0-system.string-system.boolean___1spds2w)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalfltrcorr--1_system.string---0-system.string-system.boolean___a9m338)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions</dd><dt>[Trace(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70)</dt><dd>Writes the diagnostic message at the `Trace` level.</dd><dt>[Debug(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___wuc2dz)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.string___u5pc5h)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1ff2uef)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___pw9hcn)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[ErrorPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorpassthrough_system.exception-system.string___1ey2kd0)</dt><dd>Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong></dd><dt>[FatalPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt;</dd><dt>[Error&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.error--1_system.string-system.exception___1qowqgx)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal--1_system.string-system.exception___1myw0tj)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[CreateException&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltr&lt;TException&gt;(LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalfltr--1_--0-system.string-system.boolean___5rdjqe)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[TraceCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz)</dt><dd>Writes the diagnostic message at the `Trace` level with correlation ID</dd><dt>[DebugCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af)</dt><dd>Writes the diagnostic message at the `Debug` level with correlation ID.</dd><dt>[InfoCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha)</dt><dd>Writes the diagnostic message at the `Info` level with correlation ID.</dd><dt>[WarnCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.string___cfr64e)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.string___1vt0qk2)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.string___c131ta)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[WarnCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.exception-system.string___sfdb1u)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.exception-system.string___1tdd1hu)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.exception-system.string___1q1adwi)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[ErrorCorr&lt;TException&gt;(string, LoggerExt.TException, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string---0-system.string___bk3vj3)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, LoggerExt.TException, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string---0-system.string___17i1735)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns the exception of given type</dd><dt>[ErrorCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string-system.string-system.exception___4hcjn7)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string-system.string-system.exception___w1l5gt)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type</dd><dt>[ErrorFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorfltrcorr--1_system.string---0-system.string-system.boolean___84xqu8)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalfltrcorr--1_system.string---0-system.string-system.boolean___15t2hh0)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[LogIt(LogLevel, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf)</dt><dd>Writes the item (message with optional exception)  into the log</dd><dt>[LogIt(LogLevel, string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt)</dt><dd>Writes the item (message with optional exception) with correlation Id into the log</dd><dt>[LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4)</dt><dd>Writes the item (message with optional event properties and exception)  into the log</dd></dl>
 
 
-<strong>Sources</strong><dl><dt>logging\_SourceOnlyPackage.cs</dt><dd></dd><dt>logging\CommonLogging.cs</dt><dd></dd><dt>logging\ILogger.cs</dt><dd></dd><dt>logging\LoggerExtensions.cs</dt><dd></dd></dl>
+<strong>Sources</strong><dl><dt>logging\_SourceOnlyPackage.cs</dt><dd></dd><dt>logging\CommonLogging.cs</dt><dd></dd><dt>logging\ILogger.cs</dt><dd></dd><dt>logging\LoggerExt.cs</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -7649,7 +8964,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.BackgroundWorkerWithSyncCancel" />  RadCommons.utils.BackgroundWorkerWithSyncCancel Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only worker background-worker           
 Includes: None           
 Declaring file: utils\BackgroundWorkerWithSyncCancel.cs</small>
 
@@ -7670,7 +8985,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.BaseDisposable" />  RadCommons.utils.BaseDisposable Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only disposable           
 Includes: None           
 Declaring file: utils\BaseDisposable.cs</small>
 
@@ -7691,7 +9006,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.ConsoleUtils" />  RadCommons.utils.ConsoleUtils Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only console           
 Includes: None           
 Declaring file: utils\ConsoleUtils.cs</small>
 
@@ -7712,7 +9027,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.FileUtils.Copy" />  RadCommons.utils.FileUtils.Copy Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only file-copy file-utilities           
 Includes: None           
 Declaring file: utils\FileUtilsCopy.cs</small>
 
@@ -7733,7 +9048,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.MarshalExt" />  RadCommons.utils.MarshalExt Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only marshal interop           
 Includes: None           
 Declaring file: utils\MarshalExt.cs</small>
 
@@ -7754,7 +9069,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.PeriodicTask" />  RadCommons.utils.PeriodicTask Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only async periodic-task           
 Includes: None           
 Declaring file: utils\PeriodicTask.cs</small>
 
@@ -7775,7 +9090,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.ProcessUtils" />  RadCommons.utils.ProcessUtils Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only process           
 Includes: None           
 Declaring file: utils\ProcessUtils.cs</small>
 
@@ -7796,7 +9111,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.ProcessWrapper" />  RadCommons.utils.ProcessWrapper Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only process           
 Includes: None           
 Declaring file: utils\ProcessWrapper.cs</small>
 
@@ -7817,12 +9132,12 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 
 
 ##  <a id="src-only-package--RadCommons.utils.Txt" />  RadCommons.utils.Txt Source only package ##
-<small>Tags: RadCommons           
+<small>Tags: RadCommons source-only text-builder string-builder           
 Includes: None           
 Declaring file: utils\Txt.cs</small>
 
 
-Text builder (Source only package).
+Text builder allowing to build strings from parts, supporting conditions, enumerations, etc.(Source only package).
 
 
 <strong>Package members</strong><dl><dt>[Txt (Type)](#t-net.adamec.lib.common.utils.txt__1fch6k9)</dt><dd>Text builder</dd><dt>[builder (Field)](#f-net.adamec.lib.common.utils.txt.builder__137g30a)</dt><dd>Internal <a href="https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder" target="_blank" >System.Text.StringBuilder</a></dd><dt>[Txt() (Method)](#m-net.adamec.lib.common.utils.txt.-ctor__41ctkn)</dt><dd>Creates a new empty text builder</dd><dt>[Txt(string) (Method)](#m-net.adamec.lib.common.utils.txt.-ctor_system.string___zqpefu)</dt><dd>Creates a new text builder with initial <strong>text</strong></dd><dt>[Add(string) (Method)](#m-net.adamec.lib.common.utils.txt.add_system.string___lgx7f6)</dt><dd>Adds the <strong>text</strong> to the text builder</dd><dt>[Add(Func&lt;string&gt;) (Method)](#m-net.adamec.lib.common.utils.txt.add_system.func_system.string____xzdmt3)</dt><dd>Adds the text returned from <strong>textFunc</strong> to the text builder</dd><dt>[AddIf(string, bool) (Method)](#m-net.adamec.lib.common.utils.txt.addif_system.string-system.boolean___1qmz3e2)</dt><dd>Adds the <strong>text</strong> to the text builder when the <strong>condition</strong> is true.</dd><dt>[AddIf(Func&lt;string&gt;, bool) (Method)](#m-net.adamec.lib.common.utils.txt.addif_system.func_system.string_-system.boolean___ogucu7)</dt><dd>Adds the text returned from <strong>textFunc</strong> to the text builder when the <strong>condition</strong> is true.</dd><dt>[AddEach&lt;TItemType&gt;(Func&lt;TItemType,string&gt;, IEnumerable&lt;TItemType&gt;, string) (Method)](#m-net.adamec.lib.common.utils.txt.addeach--1_system.func_--0-system.string_-system.collections.generic.ienumerable_--0_-system.string___1pfl3rh)</dt><dd>Adds the returned from <strong>textFunc</strong> for each items from <strong>items</strong> to the text builder.</dd><dt>[AddEachIf&lt;TItemType&gt;(Func&lt;TItemType,string&gt;, IEnumerable&lt;TItemType&gt;, bool, string) (Method)](#m-net.adamec.lib.common.utils.txt.addeachif--1_system.func_--0-system.string_-system.collections.generic.ienumerable_--0_-system.boolean-system.string___kykhox)</dt><dd>Adds the returned from <strong>textFunc</strong> for each items from <strong>items</strong> to the text builder when the <strong>condition</strong> is true.</dd><dt>[Clear() (Method)](#m-net.adamec.lib.common.utils.txt.clear__11a2n7)</dt><dd>Clear the text builder</dd><dt>[Start(string) (Method)](#m-net.adamec.lib.common.utils.txt.start_system.string___og05dp)</dt><dd>Creates a new instance ot [Txt](#t-net.adamec.lib.common.utils.txt__1fch6k9) text builder with optional initial <strong>text</strong></dd><dt>[ToString() (Method)](#m-net.adamec.lib.common.utils.txt.tostring__17wjkjc)</dt><dd>Returns the text content of the text builder</dd><dt>[From(string) (Method)](#m-net.adamec.lib.common.utils.txt.op_implicit_system.string_dtornet.adamec.lib.common.utils.txt__15d874r)</dt><dd>Creates a new instance ot [Txt](#t-net.adamec.lib.common.utils.txt__1fch6k9) text builder with optional initial <strong>text</strong></dd><dt>[ToString(Txt) (Method)](#m-net.adamec.lib.common.utils.txt.op_implicit_net.adamec.lib.common.utils.txt_dtorsystem.string__1e7zirr)</dt><dd>Converts the text builder to string containing its content</dd><dt>[Add(Txt, Txt) (Method)](#m-net.adamec.lib.common.utils.txt.op_addition_net.adamec.lib.common.utils.txt-net.adamec.lib.common.utils.txt___14gnt2r)</dt><dd>Concatenates the contents of two text builders</dd><dt>[BitwiseOr(Txt, Txt) (Method)](#m-net.adamec.lib.common.utils.txt.op_bitwiseor_net.adamec.lib.common.utils.txt-net.adamec.lib.common.utils.txt___84qns5)</dt><dd>Concatenates the contents of two text builders</dd></dl>

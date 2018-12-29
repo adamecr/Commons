@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.extensions.StringExtensions.Html</id>
     <description>HTML related string manipulation helpers (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only extension string html</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>

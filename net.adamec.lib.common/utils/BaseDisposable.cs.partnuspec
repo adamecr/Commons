@@ -2,7 +2,7 @@
   <metadata>
     <id>RadCommons.utils.BaseDisposable</id>
     <description>Helper class for implementation of IDisposable types (Source only package).</description>
-    <tags>RadCommons</tags>
+    <tags>RadCommons source-only disposable</tags>
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
