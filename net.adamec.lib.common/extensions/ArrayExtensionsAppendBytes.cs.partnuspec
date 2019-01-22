@@ -1,0 +1,14 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.extensions.ArrayExtensions.ConcatenateBytes</id>
+    <description>Adds the byte array to the current one and returns resulting array (concatenates two byte arrays into a new one) (Source only package).</description>
+    <tags>RadCommons source-only extension array</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="ArrayExtensionsAppendBytes.cs" target="content\App_Packages\RadCommons.extensions.ArrayExtensions.ConcatenateBytes\ArrayExtensionsAppendBytes.cs" />
+    <file src="ArrayExtensionsAppendBytes.cs" target="contentFiles\cs\any\App_Packages\RadCommons.extensions.ArrayExtensions.ConcatenateBytes\ArrayExtensionsAppendBytes.cs" />
+  </files>
+</package>

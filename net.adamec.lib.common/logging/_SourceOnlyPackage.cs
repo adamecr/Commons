@@ -7,6 +7,7 @@ namespace net.adamec.lib.common.logging
     /// <NuProp.Tags>RadCommons source-only logging NLog </NuProp.Tags>
     /// <NuProp.Includes type="Folder" />
     /// <NuProp.Needs id="NLog" />
+    /// <NuProp.Remarks cref="T:net.adamec.lib.common.logging.ILogger" />
     [CompilerGenerated]
     // ReSharper disable once InconsistentNaming
     internal class _SourceOnlyPackage

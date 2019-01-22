@@ -78,6 +78,7 @@ namespace net.adamec.lib.common.config
     /// and environment variables as sources and their hierarchy/overrides. The configuration can be used as key-value pairs or bound to objects (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons source-only configuration</NuProp.Tags>
     /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
+    /// <NuProp.Remarks cref ="T:net.adamec.lib.common.config.Configuration" />
     public sealed class Configuration
     {
         #region Singleton

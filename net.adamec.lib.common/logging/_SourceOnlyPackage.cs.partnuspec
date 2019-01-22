@@ -12,9 +12,25 @@
     <file src="_SourceOnlyPackage.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\_SourceOnlyPackage.cs" />
     <file src="CommonLogging.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs" />
     <file src="CommonLogging.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\CommonLogging.cs" />
+    <file src="ILogger.CorrelationId.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs" />
+    <file src="ILogger.CorrelationId.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.CorrelationId.cs" />
     <file src="ILogger.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs" />
     <file src="ILogger.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.cs" />
+    <file src="ILogger.EventProperties.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs" />
+    <file src="ILogger.EventProperties.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.EventProperties.cs" />
+    <file src="ILogger.ExceptionFilter.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs" />
+    <file src="ILogger.ExceptionFilter.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionFilter.cs" />
+    <file src="ILogger.ExceptionPassThrough.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs" />
+    <file src="ILogger.ExceptionPassThrough.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\ILogger.ExceptionPassThrough.cs" />
+    <file src="LoggerExt.CorrelationId.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs" />
+    <file src="LoggerExt.CorrelationId.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.CorrelationId.cs" />
     <file src="LoggerExt.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs" />
     <file src="LoggerExt.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.cs" />
+    <file src="LoggerExt.EventProperties.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs" />
+    <file src="LoggerExt.EventProperties.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.EventProperties.cs" />
+    <file src="LoggerExt.ExceptionFilter.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs" />
+    <file src="LoggerExt.ExceptionFilter.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionFilter.cs" />
+    <file src="LoggerExt.ExceptionPassThrough.cs" target="content\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs" />
+    <file src="LoggerExt.ExceptionPassThrough.cs" target="contentFiles\cs\any\App_Packages\RadCommons.logging.CommonLogging\LoggerExt.ExceptionPassThrough.cs" />
   </files>
 </package>

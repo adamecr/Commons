@@ -1,0 +1,23 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.utils.Scope</id>
+    <description>The runtime "container" for scoped operations.  The scope can be both state-less and state-full and it's valid until it's disposed.
+ The scopes can be nested (when the scope is disposed, the children are disposed as well) and there can be multiple child scopes (siblings) living in parallel.
+ The base implementation just manages the life time, child scopes and keeps the state (when provided).
+ Inherit from the Scope&lt;TState&gt; (and IScope&lt;TState&gt;)
+ to add the scope related operations (inherited classes have the access to state).
+ (Source only package).</description>
+    <tags>RadCommons source-only disposable scope</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+    <dependencies>
+      <dependency id="RadCommons.utils.BaseDisposable" include="all" version="%%CURRENT_VERSION%%" />
+      <dependency id="RadCommons.utils.Disposer" include="all" version="%%CURRENT_VERSION%%" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Scope.cs" target="content\App_Packages\RadCommons.utils.Scope\Scope.cs" />
+    <file src="Scope.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.Scope\Scope.cs" />
+  </files>
+</package>

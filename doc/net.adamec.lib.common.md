@@ -32,11 +32,13 @@
  | [ContainerBuilderExtensions](#t-net.adamec.lib.common.di.component.containerbuilderextensions__lgbl4y) | internal static | Class | Autofac <em>Autofac.ContainerBuilder</em> extensions | 
  | [ContainerBuilderExtensions](#t-net.adamec.lib.common.di.config.extensions.containerbuilderextensions__tpisv7) | internal static | Class | Autofac <em>Autofac.ContainerBuilder</em> extensions | 
  | [ContainerBuilderExtensions](#t-net.adamec.lib.common.di.postinit.containerbuilderextensions__7mjuw3) | internal static | Class | Autofac <em>Autofac.ContainerBuilder</em> extensions | 
+ | [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) | internal | Class | Base context implementation. | 
+ | [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q) | internal | Class | Keeps the stack of disposable objects, and disposes them when the disposer is being disposed. | 
  | [EnumeratorExtensions](#t-net.adamec.lib.common.extensions.enumeratorextensions__obwbb2) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerator-1" target="_blank" >System.Collections.Generic.IEnumerator`1</a> class extensions | 
  | [FileAsync](#t-net.adamec.lib.common.async.fileasync__158f1hu) | internal static | Class | Asynchronous text/lines file read methods https://stackoverflow.com/a/13168006 | 
  | [FileUtils](#t-net.adamec.lib.common.utils.fileutils__1bi9r8y) | internal static | Class | File copy utilities | 
  | [IEnumerableExtensions](#t-net.adamec.lib.common.extensions.ienumerableextensions__1a6urvh) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1" target="_blank" >System.Collections.Generic.IEnumerable`1</a> extensions | 
- | [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | Class | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
+ | [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | Class | Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | 
  | [MarshalExt](#t-net.adamec.lib.common.utils.marshalext__7jyavy) | internal static | Class | Marshaling helper methods | 
  | [NamedComponentRegistrationAttribute](#t-net.adamec.lib.common.di.component.namedcomponentregistrationattribute__158ujcr) | public | Class | Defines the registration name and type for named registration (component type will be used if null) | 
  | [PeriodicTask](#t-net.adamec.lib.common.utils.periodictask__1xfynj) | internal static | Class | Helper class allowing to execute periodic (or one time) scheduled action | 
@@ -45,6 +47,7 @@
  | [ProcessUtils](#t-net.adamec.lib.common.utils.processutils__tzt3e1) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process" target="_blank" >System.Diagnostics.Process</a> related utilities | 
  | [ProcessWrapper](#t-net.adamec.lib.common.utils.processwrapper__1oqe83p) | public | Class | A class the wraps a process, allowing programmatic input and output. | 
  | [ProcessWrapper.OutputChunk](#t-net.adamec.lib.common.utils.processwrapper.outputchunk__o3evan) | protected | Class | Internal class to hold the output chunk within the output worker | 
+ | [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) | internal | Class | Base scope implementation. | 
  | [ServiceCollectionAutoOptionsException](#t-net.adamec.lib.common.di.config.exception.servicecollectionautooptionsexception__1bgevbh) | public | Class | Exception thrown by <em>net.adamec.home.control.common.config.exception.ServiceCollectionAutoOptionsExtension</em> | 
  | [ServiceCollectionAutoOptionsExtension](#t-net.adamec.lib.common.di.config.extensions.servicecollectionautooptionsextension__1p9fgao) | internal static | Class | Extensions for options (configuration) class automatic binding to appsettings.json | 
  | [ServiceCollectionConfigureDirectException](#t-net.adamec.lib.common.di.config.exception.servicecollectionconfiguredirectexception__1q7o5xj) | public | Class | Exception thrown by <em>net.adamec.home.control.common.config.exception.ServiceCollectionConfigureDirectExtensions</em> | 
@@ -53,6 +56,7 @@
  | [Txt](#t-net.adamec.lib.common.utils.txt__1fch6k9) | public | Class | Text builder | 
  | [TypeExtensions](#t-net.adamec.lib.common.extensions.typeextensions__63ezc8) | internal static | Class | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type" target="_blank" >System.Type</a> extensions | 
  | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | internal abstract | Interface | Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods | 
+ | [IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf) | internal abstract | Interface | Scope interface. | 
  | [ProcessEventHandler](#t-net.adamec.lib.common.utils.processeventhandler__8h5v6w) | public | Delegate | A ProcessEventHandler is a delegate for process output events. | 
  | [ComponentAttribute.ImplicitRegistrationTypeEnum](#t-net.adamec.lib.common.di.component.componentattribute.implicitregistrationtypeenum__10jaypo) | public | Enum | Kind of the implicit component registration | 
  | [ComponentAttribute.ScopeEnum](#t-net.adamec.lib.common.di.component.componentattribute.scopeenum__r7ahps) | public | Enum | Component scope | 
@@ -73,6 +77,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | [RadCommons.di.Component](#src-only-package--RadCommons.di.Component) | RadCommons DI Component - allows to mark and inject the component using the class attributes (Source only package). | 
  | [RadCommons.di.Config](#src-only-package--RadCommons.di.Config) | RadCommons DI helpers for application configuration (Source only package). | 
  | [RadCommons.di.PostInit](#src-only-package--RadCommons.di.PostInit) | RadCommons DI PostInit - allows to run post init method of component (Source only package). | 
+ | [RadCommons.extensions.ArrayExtensions.ConcatenateBytes](#src-only-package--RadCommons.extensions.ArrayExtensions.ConcatenateBytes) | Adds the byte array to the current one and returns resulting array (concatenates two byte arrays into a new one) (Source only package). | 
  | [RadCommons.extensions.ArrayExtensions.Fill](#src-only-package--RadCommons.extensions.ArrayExtensions.Fill) | Fills the array with given value (Source only package). | 
  | [RadCommons.extensions.EnumeratorExtensions.ToEnumerable](#src-only-package--RadCommons.extensions.EnumeratorExtensions.ToEnumerable) | Transforms the IEnumerator or IEnumerator<T> to IEnumerable<T> (Source only package). | 
  | [RadCommons.extensions.IEnumerableExtensions.ForEach](#src-only-package--RadCommons.extensions.IEnumerableExtensions.ForEach) | Invokes the action for each item if IEnumerable<T> (Source only package). | 
@@ -86,11 +91,14 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | [RadCommons.utils.BackgroundWorkerWithSyncCancel](#src-only-package--RadCommons.utils.BackgroundWorkerWithSyncCancel) | Executes an operation on a separate thread with possibility of sync cancel (Source only package). | 
  | [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable) | Helper class for implementation of IDisposable types (Source only package). | 
  | [RadCommons.utils.ConsoleUtils](#src-only-package--RadCommons.utils.ConsoleUtils) | Console output utilities (Source only package). | 
+ | [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context) | The runtime "container" for context operations.  The context can be both state-less and state-full and it's valid until it's disposed. The current context is accessible via static property Current. The contexts are chained, when a new context is created using static method BeginContext(), the Current context became the Parent of the new one and the newly created context will be set as the Current one. When the context is disposed, the Current context is set to Parent of disposing context. The base implementation just manages the life time, context chain and keeps the state (when provided). Inherit from the Context<TState> to add the context related operations (inherited classes have the access to state). Based on the implementation of Guard Scopes by  https://github.com/safakgur. (Source only package). | 
+ | [RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer) | Keeps the stack of disposable objects, and disposes them when the disposer is being disposed. (Source only package). | 
  | [RadCommons.utils.FileUtils.Copy](#src-only-package--RadCommons.utils.FileUtils.Copy) | File copy utilities (Source only package). | 
  | [RadCommons.utils.MarshalExt](#src-only-package--RadCommons.utils.MarshalExt) | Marshaling helpers (Source only package). | 
  | [RadCommons.utils.PeriodicTask](#src-only-package--RadCommons.utils.PeriodicTask) | Periodic (or scheduled) async task runner (Source only package). | 
  | [RadCommons.utils.ProcessUtils](#src-only-package--RadCommons.utils.ProcessUtils) | Process related utilities (Source only package). | 
  | [RadCommons.utils.ProcessWrapper](#src-only-package--RadCommons.utils.ProcessWrapper) | A class the wraps a process, allowing programmatic input and output (Source only package). | 
+ | [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope) | The runtime "container" for scoped operations.  The scope can be both state-less and state-full and it's valid until it's disposed. The scopes can be nested (when the scope is disposed, the children are disposed as well) and there can be multiple child scopes (siblings) living in parallel. The base implementation just manages the life time, child scopes and keeps the state (when provided). Inherit from the Scope<TState> (and IScope<TState>) to add the scope related operations (inherited classes have the access to state). (Source only package). | 
  | [RadCommons.utils.Txt](#src-only-package--RadCommons.utils.Txt) | Text builder allowing to build strings from parts, supporting conditions, enumerations, etc.(Source only package). | 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -3369,8 +3377,8 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 ##  <a id="t-net.adamec.lib.common.extensions.arrayextensions__icw7wf" />  ArrayExtensions Class ##
 <small>Namespace: [net.adamec.lib.common.extensions](#n-net.adamec.lib.common.extensions__1vwuhoq)           
 Assembly: net.adamec.lib.common           
-Sources: extensions\ArrayExtensionsFill.cs           
-Source-only packages: [RadCommons.extensions.ArrayExtensions.Fill](#src-only-package--RadCommons.extensions.ArrayExtensions.Fill)</small>
+Sources: extensions\ArrayExtensionsAppendBytes.cs, extensions\ArrayExtensionsFill.cs           
+Source-only packages: [RadCommons.extensions.ArrayExtensions.ConcatenateBytes](#src-only-package--RadCommons.extensions.ArrayExtensions.ConcatenateBytes), [RadCommons.extensions.ArrayExtensions.Fill](#src-only-package--RadCommons.extensions.ArrayExtensions.Fill)</small>
 
 
 Array extensions
@@ -3389,9 +3397,36 @@ Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object"
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
+ | [AppendBytes(byte[], byte[])](#m-net.adamec.lib.common.extensions.arrayextensions.appendbytes_system.byte__-system.byte_____1lkijjg) | public static | Adds the byte array to the current one and returns resulting array (concatenates two byte arrays into a new one) | 
  | [Fill&lt;T&gt;(ArrayExtensions.T[], ArrayExtensions.T)](#m-net.adamec.lib.common.extensions.arrayextensions.fill--1_--0__---0___6j19g1) | public static | Fills the <strong>array</strong> or <strong>T</strong> with <strong>defaultValue</strong> | 
 
  
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.extensions.arrayextensions.appendbytes_system.byte__-system.byte_____1lkijjg" />  ArrayExtensions.AppendBytes(byte[], byte[]) Method ##
+<small>Namespace: [net.adamec.lib.common.extensions](#n-net.adamec.lib.common.extensions__1vwuhoq)           
+Assembly: net.adamec.lib.common           
+Type: [ArrayExtensions](#t-net.adamec.lib.common.extensions.arrayextensions__icw7wf)           
+Sources: extensions\ArrayExtensionsAppendBytes.cs           
+Source-only packages: [RadCommons.extensions.ArrayExtensions.ConcatenateBytes](#src-only-package--RadCommons.extensions.ArrayExtensions.ConcatenateBytes)</small>
+
+
+Adds the byte array to the current one and returns resulting array (concatenates two byte arrays into a new one)
+
+
+
+```csharp
+public static byte[] AppendBytes(this byte[] original, byte[] addedBytes)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.byte" target="_blank" >byte[]</a> <strong>original</strong></dt><dd>Original byte array</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.byte" target="_blank" >byte[]</a> <strong>addedBytes</strong></dt><dd>Bytes to add</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.byte" target="_blank" >byte[]</a></dt><dd>New concatenated byte array ( <strong>original</strong> + <strong>addedBytes</strong> )</dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -3940,7 +3975,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
  | [CommonLogging](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb) | internal static | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory | 
- | [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions | 
+ | [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) | internal | Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) | 
 
  
 
@@ -4077,11 +4112,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 ##  <a id="t-net.adamec.lib.common.logging.loggerext__ac9km2" />  LoggerExt Class ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Sources: logging\LoggerExt.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+Sources: logging\LoggerExt.CorrelationId.cs, logging\LoggerExt.cs, logging\LoggerExt.EventProperties.cs, logging\LoggerExt.ExceptionFilter.cs, logging\LoggerExt.ExceptionPassThrough.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
-[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions
+Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)
 
 
 
@@ -4097,7 +4132,7 @@ Implements: [net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.log
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [CreateException&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924) | private static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
+ | [CreateException&lt;TException&gt;(string, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i) | private static | Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type | 
  | [Debug(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma) | public | Writes the diagnostic message at the `Debug` level. | 
  | [DebugCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af) | public | Writes the diagnostic message at the `Debug` level with correlation ID. | 
  | [Error(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h) | public | Writes the diagnostic message at the `Error` level. | 
@@ -4122,9 +4157,9 @@ Implements: [net.adamec.lib.common.logging.ILogger](#t-net.adamec.lib.common.log
  | [FatalPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o) | public | Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt; | 
  | [Info(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b) | public | Writes the diagnostic message at the `Info` level. | 
  | [InfoCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha) | public | Writes the diagnostic message at the `Info` level with correlation ID. | 
- | [LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4) | private | Writes the item (message with optional event properties and exception)  into the log | 
- | [LogIt(LogLevel, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf) | private | Writes the item (message with optional exception)  into the log | 
- | [LogIt(LogLevel, string, string, Exception)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt) | private | Writes the item (message with optional exception) with correlation Id into the log | 
+ | [LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng) | private | Writes the item (message with optional event properties and exception)  into the log | 
+ | [LogIt(LogLevel, string, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x) | private | Writes the item (message with optional exception)  into the log | 
+ | [LogIt(LogLevel, string, string, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77) | private | Writes the item (message with optional exception) with correlation Id into the log | 
  | [Trace(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70) | public | Writes the diagnostic message at the `Trace` level. | 
  | [TraceCorr(string, string)](#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz) | public | Writes the diagnostic message at the `Trace` level with correlation ID | 
  | [Warn(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj) | public | Writes the diagnostic message at the `Warn` level. | 
@@ -4141,7 +4176,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924" />  LoggerExt.CreateException&lt;TException&gt;(string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i" />  LoggerExt.CreateException&lt;TException&gt;(string, string, Exception) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
@@ -4154,11 +4189,11 @@ Writes the diagnostic message at the `Fatal` level. Creates and returns the exce
 
 
 ```csharp
-private static LoggerExt.TException CreateException<TException>(string message, Exception innerException = null) where TException: Exception
+private static LoggerExt.TException CreateException<TException>(string message, out string stackTrace, Exception innerException = null) where TException: Exception
 ```
 
 <strong>Type parameters</strong><dl><dt><strong>TException</strong></dt><dd></dd></dl>
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Stack trace to be logged in `StackTrace` event property</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>innerException</strong></dt><dd>Exception to be logged</dd></dl>
 <strong>Return value</strong><dl><dt>net.adamec.lib.common.logging.LoggerExt.TException</dt><dd>Created exception</dd></dl>
 
 
@@ -4172,7 +4207,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4198,7 +4233,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4224,7 +4259,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4250,7 +4285,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4276,7 +4311,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4303,7 +4338,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4329,7 +4364,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4355,7 +4390,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4382,7 +4417,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4409,7 +4444,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4461,7 +4496,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4496,7 +4531,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4522,7 +4557,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4548,7 +4583,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4574,7 +4609,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4601,7 +4636,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4627,7 +4662,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4653,7 +4688,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4680,7 +4715,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4707,7 +4742,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4742,7 +4777,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4777,7 +4812,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4803,7 +4838,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4829,7 +4864,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4851,7 +4886,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4" />  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng" />  LoggerExt.LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
@@ -4864,10 +4899,10 @@ Writes the item (message with optional event properties and exception)  into the
 
 
 ```csharp
-private void LogIt(LogLevel level, Dictionary<string,object> eventProperties, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, Dictionary<string,object> eventProperties, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2" target="_blank" >Dictionary&lt;string,object&gt;</a> <strong>eventProperties</strong></dt><dd>Event properties (null when no properties are provided)</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in `StackTrace` event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -4877,7 +4912,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf" />  LoggerExt.LogIt(LogLevel, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x" />  LoggerExt.LogIt(LogLevel, string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
@@ -4890,10 +4925,10 @@ Writes the item (message with optional exception)  into the log
 
 
 ```csharp
-private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in `StackTrace` event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -4903,11 +4938,11 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
-##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt" />  LoggerExt.LogIt(LogLevel, string, string, Exception) Method ##
+##  <a id="m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77" />  LoggerExt.LogIt(LogLevel, string, string, Exception, string) Method ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4916,10 +4951,10 @@ Writes the item (message with optional exception) with correlation Id into the l
 
 
 ```csharp
-private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null)
+private void LogIt(LogLevel level, string correlationId, [Localizable(false)] string message, Exception exception = null, string stackTrace = null)
 ```
 
-<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd></dl>
+<strong>Method parameters</strong><dl><dt>NLog.LogLevel <strong>level</strong></dt><dd></dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>correlationId</strong></dt><dd>Correlation ID</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Log message</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception" target="_blank" >System.Exception</a> <strong>exception</strong></dt><dd>Optional exception to be logged</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>stackTrace</strong></dt><dd>Optional stack trace to be logged in `StackTrace` event property when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> of <strong>exception</strong> is empty</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -4933,7 +4968,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4959,7 +4994,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -4985,7 +5020,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5011,7 +5046,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5037,7 +5072,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5063,7 +5098,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
-Sources: logging\LoggerExt.cs           
+Sources: logging\LoggerExt.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5088,8 +5123,8 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 ##  <a id="t-net.adamec.lib.common.logging.ilogger__y2ollm" />  ILogger Interface ##
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
-Sources: logging\ILogger.cs           
-Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
+Sources: logging\ILogger.CorrelationId.cs, logging\ILogger.cs, logging\ILogger.EventProperties.cs, logging\ILogger.ExceptionFilter.cs, logging\ILogger.ExceptionPassThrough.cs           
+Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging), [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
 Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods
@@ -5102,6 +5137,76 @@ internal interface ILogger : ILogger
 
 Implemented by: [net.adamec.lib.common.logging.LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2)           
 Implements: NLog.ILogger, NLog.ILoggerBase, NLog.ISuppress
+
+
+###  Remarks ###
+The NLog supports having additional (custom) event properties provided to loggers and optionally rendered to logs. The event properties are represented as key-value dictionary, where key is the unique name of the property. Extended logger provides following methods to log with given set of the properties.
+
+ 
+
+
+ - [Trace(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k) ,
+ - [Debug(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq) ,
+ - [Info(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr) ,
+ - [Warn(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3) ,
+ - [Error(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl) ,
+ - [Fatal(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz) ,
+ - [Warn(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj) ,
+ - [Error(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d) and
+ - [Fatal(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)
+           
+
+
+
+
+  Sometimes, it&#39;s useful to have an exception logging method implemented as the operation returning the exception being logged. The [ErrorPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk) and [FatalPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8) methods will log given exception and return it for further processing. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception ex){
+       if(logger.ErrorPassThrough(ex) is MyException){
+         return null;
+       }else{
+         throw;
+       } 
+    }
+```
+ In the example above, the exception is always logged and then the decision/action is taken.
+
+ C# 6 brought the exception filters that don&#39;t unwind the stack as the exception is not catch yet when processing the filter. It can also be used for logging the exceptions without actually catching them (when the exception filter returns `false` ). Extended logger provides functions [ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm) and [FatalFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa) for this purpose. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception ex) when (logger.ErrorFltr(ex,"Error here!"){
+      //newer called as the default return value of ErrorFltr is false     
+    }
+```
+ The example above logs but never catch all exceptions. The following code catch and log the ArgumentException and logs any other exception without catching it. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (ArgumentException e) when (Logger.ErrorFltr(e,catchIt:true)) { ... }
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+
+
+  Logger can also create and exception, log it and return using functions [Error&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh) and [Fatal&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73) 
+```csharp
+    if(value is null) throw logger.Fatal<ArgumentNullException>("Value is null");
+```
+
+
+  When logging an exception using the [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) methods, the event property `StackTrace` is set from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> , when the logger creates an exception, the property is set using `new StackTrace(2, true).ToString()` . In other cases when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> is null or empty, `new StackTrace(true).ToString()` is used.
+
+  [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) also provides set of methods for logging with the correlation ID (for example in integration scenarios), where the given correlation ID is set to the event property `CorrelationId` . Such methods have the name ending with `Corr` suffix.
+
+
 
 
 ###  Methods ###
@@ -5152,7 +5257,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5178,7 +5283,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5204,7 +5309,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5230,7 +5335,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5256,7 +5361,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5283,7 +5388,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5309,7 +5414,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5335,7 +5440,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5362,7 +5467,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5389,7 +5494,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5441,7 +5546,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5476,7 +5581,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5502,7 +5607,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5528,7 +5633,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5554,7 +5659,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5581,7 +5686,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5607,7 +5712,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5633,7 +5738,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5660,7 +5765,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5687,7 +5792,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.ExceptionFilter.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5722,7 +5827,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5757,7 +5862,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.ExceptionPassThrough.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5783,7 +5888,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5809,7 +5914,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5835,7 +5940,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5861,7 +5966,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5887,7 +5992,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5913,7 +6018,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.EventProperties.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5939,7 +6044,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5965,7 +6070,7 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
 <small>Namespace: [net.adamec.lib.common.logging](#n-net.adamec.lib.common.logging__1g9pm29)           
 Assembly: net.adamec.lib.common           
 Type: [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)           
-Sources: logging\ILogger.cs           
+Sources: logging\ILogger.CorrelationId.cs           
 Source-only packages: [RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</small>
 
 
@@ -5995,6 +6100,8 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | [BackgroundWorkerWithSyncCancel](#t-net.adamec.lib.common.utils.backgroundworkerwithsynccancel__1hdlhvo) | public | Executes an operation on a separate thread with possibility of sync cancel. | 
  | [BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps) | public abstract | Helper class for implementation of <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> types | 
  | [ConsoleUtils](#t-net.adamec.lib.common.utils.consoleutils__8nc415) | internal static | Console output helpers | 
+ | [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) | internal | Base context implementation. | 
+ | [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q) | internal | Keeps the stack of disposable objects, and disposes them when the disposer is being disposed. | 
  | [FileUtils](#t-net.adamec.lib.common.utils.fileutils__1bi9r8y) | internal static | File copy utilities | 
  | [MarshalExt](#t-net.adamec.lib.common.utils.marshalext__7jyavy) | internal static | Marshaling helper methods | 
  | [PeriodicTask](#t-net.adamec.lib.common.utils.periodictask__1xfynj) | internal static | Helper class allowing to execute periodic (or one time) scheduled action | 
@@ -6002,7 +6109,17 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  | [ProcessUtils](#t-net.adamec.lib.common.utils.processutils__tzt3e1) | internal static | <a href="https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process" target="_blank" >System.Diagnostics.Process</a> related utilities | 
  | [ProcessWrapper](#t-net.adamec.lib.common.utils.processwrapper__1oqe83p) | public | A class the wraps a process, allowing programmatic input and output. | 
  | [ProcessWrapper.OutputChunk](#t-net.adamec.lib.common.utils.processwrapper.outputchunk__o3evan) | protected | Internal class to hold the output chunk within the output worker | 
+ | [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) | internal | Base scope implementation. | 
  | [Txt](#t-net.adamec.lib.common.utils.txt__1fch6k9) | public | Text builder | 
+
+ 
+
+
+###  Interfaces ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf) | internal abstract | Scope interface. | 
 
  
 
@@ -6270,16 +6387,35 @@ public abstract class BaseDisposable : IDisposable
 ```
 
 Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a>           
+Derived: [net.adamec.lib.common.utils.Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v), [net.adamec.lib.common.utils.Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q), [net.adamec.lib.common.utils.Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
 Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a>
+
+
+###  Constants ###
+
+ | Name | Value | Summary | 
+ | ------ | ------- | --------- | 
+ | [DisposedFlag](#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz) | 1 | Internal flag whether the object is fully disposed | 
+
+ 
+
+
+###  Fields ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [isDisposed](#f-net.adamec.lib.common.utils.basedisposable.isdisposed__2u766d) | private | The object is disposed when equals to [DisposedFlag](#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz) | 
+
+ 
 
 
 ###  Properties ###
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
- | [Disposed](#p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp) | public | Flag whether the object is fully disposed | 
- | [DisposedManaged](#p-net.adamec.lib.common.utils.basedisposable.disposedmanaged__1pm7df6) | public | Flag whether the managed resources are disposed | 
- | [DisposedNative](#p-net.adamec.lib.common.utils.basedisposable.disposednative__fqjn7i) | public | Flag whether the native resources are disposed | 
+ | [Disposed](#p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp) | public | Returns ```csharp true ``` when the object is fully disposed | 
+ | [DisposedManaged](#p-net.adamec.lib.common.utils.basedisposable.disposedmanaged__1pm7df6) | public | Returns ```csharp true ``` when the managed resources are disposed | 
+ | [DisposedNative](#p-net.adamec.lib.common.utils.basedisposable.disposednative__fqjn7i) | public | Returns ```csharp true ``` when the native resources are disposed | 
 
  
 
@@ -6297,12 +6433,63 @@ Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposa
 
  | Name | Modifier | Summary | 
  | ------ | ---------- | --------- | 
+ | [AssertNotDisposed(string)](#m-net.adamec.lib.common.utils.basedisposable.assertnotdisposed_system.string___18xs7ya) | protected | Throws an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a> when the current object is disposed | 
  | [Dispose()](#m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri) | public | Dispose the object | 
  | [Dispose(bool)](#m-net.adamec.lib.common.utils.basedisposable.dispose_system.boolean___1vzs8w4) | protected | Internal implementation of dispose - free the managed and native resources using the respective methods | 
  | [DisposeManaged()](#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85) | protected | Dispose any disposable managed fields or properties. | 
  | [DisposeNative()](#m-net.adamec.lib.common.utils.basedisposable.disposenative__uaa3i9) | protected | Dispose of COM objects, Handles, etc. Then set those objects to null. | 
 
  
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz" />  BaseDisposable.DisposedFlag Constant ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
+Sources: utils\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</small>
+
+
+Internal flag whether the object is fully disposed
+
+
+
+```csharp
+private const int DisposedFlag = 1
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.basedisposable.isdisposed__2u766d" />  BaseDisposable.isDisposed Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
+Sources: utils\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</small>
+
+
+The object is disposed when equals to [DisposedFlag](#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz)
+
+
+
+```csharp
+private int isDisposed
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.int32" target="_blank" >int</a></dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -6319,12 +6506,16 @@ Sources: utils\BaseDisposable.cs
 Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
-Flag whether the object is fully disposed
+Returns 
+```csharp
+true
+```
+ when the object is fully disposed
 
 
 
 ```csharp
-public bool Disposed { get; private set; }
+public bool Disposed { get; }
 ```
 
 <strong>Property value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a></dt><dd></dd></dl>
@@ -6344,7 +6535,11 @@ Sources: utils\BaseDisposable.cs
 Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
-Flag whether the managed resources are disposed
+Returns 
+```csharp
+true
+```
+ when the managed resources are disposed
 
 
 
@@ -6369,7 +6564,11 @@ Sources: utils\BaseDisposable.cs
 Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</small>
 
 
-Flag whether the native resources are disposed
+Returns 
+```csharp
+true
+```
+ when the native resources are disposed
 
 
 
@@ -6398,6 +6597,36 @@ Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCo
 ```csharp
  ~BaseDisposable()
 ```
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.basedisposable.assertnotdisposed_system.string___18xs7ya" />  BaseDisposable.AssertNotDisposed(string) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
+Sources: utils\BaseDisposable.cs           
+Source-only packages: [RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</small>
+
+
+Throws an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a> when the current object is disposed
+
+
+
+```csharp
+protected void AssertNotDisposed(string message = null)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>message</strong></dt><dd>Optional exception message</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>Current object is disposed</dd></dl>
+
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
 
@@ -6446,7 +6675,7 @@ Internal implementation of dispose - free the managed and native resources using
 protected virtual void Dispose(bool disposing)
 ```
 
-<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>disposing</strong></dt><dd>Flag whether the object is disposing (called from [Dispose()](#m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri) method). False if called from destructor</dd></dl>
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>disposing</strong></dt><dd>True to dispose both managed and native resources, false to dispose the native resources only</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
 
 
@@ -6753,6 +6982,561 @@ public static void WriteWarn(string line)
 
 <strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a> <strong>line</strong></dt><dd>Line to write to console</dd></dl>
 <strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="t-net.adamec.lib.common.utils.context-1__15rsz3v" />  Context&lt;TState&gt; Class ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Base context implementation.
+
+
+
+```csharp
+internal class Context<TState> : BaseDisposable where TState: class, new()
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TState</strong></dt><dd>Type of the state object managed by the context</dd></dl>
+Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.utils.BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a>
+
+
+###  Remarks ###
+The context can be both state-less and state-full and it&#39;s valid until it&#39;s disposed. The current context is accessible via [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) . The contexts are chained, when a new context is created using [BeginContext(Context&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.context-1.begincontext_-0___mkgdox) , the [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context became the [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) of the new one and the newly created context will be set as the [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) one. When the context is disposed, the [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context is set to [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) of disposing context. Context&#39;s children are disposed as well during the context disposal. The [AddToDisposer(IDisposable)](#m-net.adamec.lib.common.utils.context-1.addtodisposer_system.idisposable___1y4aua6) method is to be used in inherited classes whenever they manage any disposable resource to ensure their proper life time (when the [State](#p-net.adamec.lib.common.utils.context-1.state__1qgilfy) is <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> , it&#39;s added to disposer automatically). The base implementation just manages the life time, context chain and keeps the state (when provided). Inherit from the [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) to add the context related operations (inherited classes have the access to [State](#p-net.adamec.lib.common.utils.context-1.state__1qgilfy) ).
+
+ Based on the implementation of Guard Scopes by  https://github.com/safakgur at https://github.com/safakgur/guard/blob/v1.7.0/src/Guard.Scopes.cs
+
+
+
+
+###  Constants ###
+
+ | Name | Value | Summary | 
+ | ------ | ------- | --------- | 
+ | [ContextDisposedMessage](#f-net.adamec.lib.common.utils.context-1.contextdisposedmessage__161hgfs) | Current context has been disposed | Error message that will be put into the exception when there will be any operation on the disposed context. | 
+
+ 
+
+
+###  Fields ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [contextState](#f-net.adamec.lib.common.utils.context-1.contextstate__5jvaxj) | private | State managed by the context. | 
+ | [Local](#f-net.adamec.lib.common.utils.context-1.local__17b69oq) | private static | The context holder that is local to the calling asynchronous control flow. | 
+ | [parentContext](#f-net.adamec.lib.common.utils.context-1.parentcontext__1an2htq) | private | Parent context. | 
+
+ 
+
+
+###  Properties ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) | public static | Gets the current context. | 
+ | [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) | private | Gets the disposer associated with this container. | 
+ | [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) | public | Gets the parent scope. | 
+ | [State](#p-net.adamec.lib.common.utils.context-1.state__1qgilfy) | protected | Gets the state managed by the context. | 
+
+ 
+
+
+###  Constructors ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Context&lt;TState&gt;(Context&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.context-1.-ctor_-0___7zfvl8) | protected | Creates an instance of [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) and initialize its [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) . The new context will become [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) and the previous one its [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) . | 
+
+ 
+
+
+###  Methods ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [AddToDisposer(IDisposable)](#m-net.adamec.lib.common.utils.context-1.addtodisposer_system.idisposable___1y4aua6) | protected | Adds the <strong>disposable</strong> object to the context disposer, so it will be disposed with the context | 
+ | [BeginContext(Context&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.context-1.begincontext_-0___mkgdox) | public static | Creates a new [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) within the context chain. The new context will become [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) and the previous one its [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) . | 
+ | [DisposeManaged()](#m-net.adamec.lib.common.utils.context-1.disposemanaged__1ueqxf2) | protected | Dispose any disposable managed objects - all disposables kept in [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) stack are pop and disposed. The [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) context of the disposing one will become the new [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context. | 
+
+ 
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.context-1.contextdisposedmessage__161hgfs" />  Context&lt;TState&gt;.ContextDisposedMessage Constant ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Error message that will be put into the exception when there will be any operation on the disposed context.
+
+
+
+```csharp
+private const string ContextDisposedMessage = "Current context has been disposed"
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.context-1.contextstate__5jvaxj" />  Context&lt;TState&gt;.contextState Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+State managed by the context.
+
+
+
+```csharp
+private readonly Context<TState>.TState contextState
+```
+
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.utils.Context&lt;TState&gt;.TState</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.context-1.local__17b69oq" />  Context&lt;TState&gt;.Local Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+The context holder that is local to the calling asynchronous control flow.
+
+
+
+```csharp
+private static readonly AsyncLocal<net.adamec.lib.common.utils.Context<TState>> Local
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.asynclocal-1" target="_blank" >System.Threading.AsyncLocal&lt;net.adamec.lib.common.utils.Context&lt;TState&gt;&gt;</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.context-1.parentcontext__1an2htq" />  Context&lt;TState&gt;.parentContext Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Parent context.
+
+
+
+```csharp
+private readonly Context<TState> parentContext
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.utils.Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.context-1.current__14ss4su" />  Context&lt;TState&gt;.Current Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Gets the current context.
+
+
+
+```csharp
+public static Context<TState> Current { get; private set; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c" />  Context&lt;TState&gt;.Disposer Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Gets the disposer associated with this container.
+
+
+
+```csharp
+private Disposer Disposer { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.context-1.parent__18v621x" />  Context&lt;TState&gt;.Parent Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Gets the parent scope.
+
+
+
+```csharp
+public Context<TState> Parent { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)</dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current context has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.context-1.state__1qgilfy" />  Context&lt;TState&gt;.State Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Gets the state managed by the context.
+
+
+
+```csharp
+protected Context<TState>.TState State { get; }
+```
+
+<strong>Property value</strong><dl><dt>net.adamec.lib.common.utils.Context&lt;TState&gt;.TState</dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current context has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.context-1.-ctor_-0___7zfvl8" />  Context&lt;TState&gt;.Context&lt;TState&gt;(Context&lt;TState&gt;.TState) Constructor ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Creates an instance of [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) and initialize its [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) . The new context will become [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) and the previous one its [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) .
+
+
+
+```csharp
+protected Context<TState>(Context<TState>.TState state = null)
+```
+
+<strong>Constructor parameters</strong><dl><dt>net.adamec.lib.common.utils.Context&lt;TState&gt;.TState <strong>state</strong></dt><dd>Optional state managed by the context.</dd></dl>
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.context-1.addtodisposer_system.idisposable___1y4aua6" />  Context&lt;TState&gt;.AddToDisposer(IDisposable) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Adds the <strong>disposable</strong> object to the context disposer, so it will be disposed with the context
+
+
+
+```csharp
+protected void AddToDisposer(IDisposable disposable)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a> <strong>disposable</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> object to be added to the disposer.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>disposable</strong> is null.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current context has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.context-1.begincontext_-0___mkgdox" />  Context&lt;TState&gt;.BeginContext(Context&lt;TState&gt;.TState) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Creates a new [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) within the context chain. The new context will become [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) and the previous one its [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) .
+
+
+
+```csharp
+public static IDisposable BeginContext(Context<TState>.TState state = null)
+```
+
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.utils.Context&lt;TState&gt;.TState <strong>state</strong></dt><dd>Optional state managed by the context.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.context-1.disposemanaged__1ueqxf2" />  Context&lt;TState&gt;.DisposeManaged() Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v)           
+Sources: utils\Context.cs           
+Source-only packages: [RadCommons.utils.Context](#src-only-package--RadCommons.utils.Context)</small>
+
+
+Dispose any disposable managed objects - all disposables kept in [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) stack are pop and disposed. The [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) context of the disposing one will become the new [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context.
+
+
+
+
+
+```csharp
+protected override void DisposeManaged()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Overrides: [BaseDisposable.DisposeManaged()](#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="t-net.adamec.lib.common.utils.disposer__1ejr99q" />  Disposer Class ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Sources: utils\Disposer.cs           
+Source-only packages: [RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</small>
+
+
+Keeps the stack of disposable objects, and disposes them when the disposer is being disposed.
+
+
+
+```csharp
+internal class Disposer : BaseDisposable
+```
+
+Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.utils.BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a>
+
+
+###  Fields ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [disposables](#f-net.adamec.lib.common.utils.disposer.disposables__5cwehn) | private | Stack of disposables kept by the [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q) . | 
+ | [lockObj](#f-net.adamec.lib.common.utils.disposer.lockobj__1oj1wh6) | private | Lock object | 
+
+ 
+
+
+###  Methods ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Add(IDisposable)](#m-net.adamec.lib.common.utils.disposer.add_system.idisposable___1c4uk8l) | public | Adds the <strong>disposable</strong> object to the disposer. | 
+ | [Dispose(bool)](#m-net.adamec.lib.common.utils.disposer.dispose_system.boolean___32o7wm) | protected | Internal implementation of dispose - free the managed and native resources. | 
+
+ 
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.disposer.disposables__5cwehn" />  Disposer.disposables Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q)           
+Sources: utils\Disposer.cs           
+Source-only packages: [RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</small>
+
+
+Stack of disposables kept by the [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q) .
+
+
+
+```csharp
+private Stack<IDisposable> disposables
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1" target="_blank" >Stack&lt;IDisposable&gt;</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.disposer.lockobj__1oj1wh6" />  Disposer.lockObj Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q)           
+Sources: utils\Disposer.cs           
+Source-only packages: [RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</small>
+
+
+Lock object
+
+
+
+```csharp
+private readonly object lockObj
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.disposer.add_system.idisposable___1c4uk8l" />  Disposer.Add(IDisposable) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q)           
+Sources: utils\Disposer.cs           
+Source-only packages: [RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</small>
+
+
+Adds the <strong>disposable</strong> object to the disposer.
+
+
+
+```csharp
+public void Add(IDisposable disposable)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a> <strong>disposable</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> object to be added to the disposer.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>disposable</strong> is null.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.disposer.dispose_system.boolean___32o7wm" />  Disposer.Dispose(bool) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q)           
+Sources: utils\Disposer.cs           
+Source-only packages: [RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</small>
+
+
+Internal implementation of dispose - free the managed and native resources.
+
+
+
+```csharp
+protected override void Dispose(bool disposing)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >bool</a> <strong>disposing</strong></dt><dd>True to dispose both managed and native resources, false to dispose the native resources only.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Overrides: [BaseDisposable.Dispose(bool)](#m-net.adamec.lib.common.utils.basedisposable.dispose_system.boolean___1vzs8w4)
+
+
+###  Remarks ###
+When disposing the managed objects ( <strong>disposing</strong> is true), all disposables kept in [disposables](#f-net.adamec.lib.common.utils.disposer.disposables__5cwehn) stack are pop and disposed.
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -8081,6 +8865,461 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
+##  <a id="t-net.adamec.lib.common.utils.scope-1__eepqvi" />  Scope&lt;TState&gt; Class ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Base scope implementation.
+
+
+
+```csharp
+internal class Scope<TState> : BaseDisposable, IScope<TState> where TState: class, new()
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TState</strong></dt><dd>Type of the state object managed by the scope</dd></dl>
+Inheritance: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object" target="_blank" >object</a> -&gt; [net.adamec.lib.common.utils.BaseDisposable](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)           
+Implements: [net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf), <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a>
+
+
+###  Remarks ###
+The scope can be both state-less and state-full and it&#39;s valid until it&#39;s disposed. The scopes can be nested, when the scope is disposed, the children are disposed as well. There can be multiple child scopes (siblings) living in parallel. The [AddToDisposer(IDisposable)](#m-net.adamec.lib.common.utils.scope-1.addtodisposer_system.idisposable___154ejbt) method is to be used in inherited classes whenever they manage any disposable resource to ensure the proper life time (when the [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar) is <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> , it&#39;s added to disposer automatically). The base implementation just manages the life time, child scopes and keeps the state (when provided). Inherit from the [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) (and [IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf) ) to add the scope related operations (inherited classes have the access to [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar) ).
+
+
+
+
+###  Constants ###
+
+ | Name | Value | Summary | 
+ | ------ | ------- | --------- | 
+ | [ScopeDisposedMessage](#f-net.adamec.lib.common.utils.scope-1.scopedisposedmessage__12oxry0) | The scope has been disposed | Error message that will be put into the exception when there will be any operation on the disposed scope. | 
+
+ 
+
+
+###  Fields ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [parentScope](#f-net.adamec.lib.common.utils.scope-1.parentscope__h8qyu6) | private | Parent scope. | 
+ | [RootInternal](#f-net.adamec.lib.common.utils.scope-1.rootinternal__coycy3) | private static | Instance of the [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) created when the singleton is first touched - root scope with default [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar) | 
+ | [scopeState](#f-net.adamec.lib.common.utils.scope-1.scopestate__16lomdz) | private | State managed by the scope. | 
+
+ 
+
+
+###  Properties ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) | private | Gets the disposer associated with this container. | 
+ | [Parent](#p-net.adamec.lib.common.utils.scope-1.parent__1hk8ypk) | public | Gets the parent scope. | 
+ | [Root](#p-net.adamec.lib.common.utils.scope-1.root__17hnd9c) | public static | Gets the root scope. | 
+ | [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar) | protected | Gets the state managed by the scope. | 
+
+ 
+
+
+###  Constructors ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Scope&lt;TState&gt;()](#m-net.adamec.lib.common.utils.scope-1.-cctor__1t7jr8v) | private static | Static constructor | 
+ | [Scope&lt;TState&gt;(IScope&lt;TState&gt;, Scope&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.scope-1.-ctor_net.adamec.lib.common.utils.iscope_-0_--0___a63u7z) | protected | Creates an instance of child [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) . | 
+ | [Scope&lt;TState&gt;(Scope&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.scope-1.-ctor_-0___17usleh) | private | Creates an instance of [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) and initialize its [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) . | 
+
+ 
+
+
+###  Methods ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [AddToDisposer(IDisposable)](#m-net.adamec.lib.common.utils.scope-1.addtodisposer_system.idisposable___154ejbt) | protected | Adds the <strong>disposable</strong> object to the scope disposer, so it will be disposed with the scope | 
+ | [BeginScope(Scope&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.scope-1.beginscope_-0___1bcz3lp) | public | Creates a child scope of the current scope. | 
+ | [DisposeManaged()](#m-net.adamec.lib.common.utils.scope-1.disposemanaged__19g6lc3) | protected | Dispose any disposable managed objects - all disposables kept in [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) stack are pop and disposed. | 
+
+ 
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.scope-1.parentscope__h8qyu6" />  Scope&lt;TState&gt;.parentScope Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Parent scope.
+
+
+
+```csharp
+private readonly IScope<TState> parentScope
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.scope-1.rootinternal__coycy3" />  Scope&lt;TState&gt;.RootInternal Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Instance of the [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) created when the singleton is first touched - root scope with default [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar)
+
+
+
+```csharp
+private static readonly Scope<TState> RootInternal
+```
+
+<strong>Field value</strong><dl><dt>[net.adamec.lib.common.utils.Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+Not using the auto-property to have better control, when the instance is created
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.scope-1.scopedisposedmessage__12oxry0" />  Scope&lt;TState&gt;.ScopeDisposedMessage Constant ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Error message that will be put into the exception when there will be any operation on the disposed scope.
+
+
+
+```csharp
+private const string ScopeDisposedMessage = "The scope has been disposed"
+```
+
+<strong>Field value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string" target="_blank" >string</a></dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="f-net.adamec.lib.common.utils.scope-1.scopestate__16lomdz" />  Scope&lt;TState&gt;.scopeState Field ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+State managed by the scope.
+
+
+
+```csharp
+private readonly Scope<TState>.TState scopeState
+```
+
+<strong>Field value</strong><dl><dt>net.adamec.lib.common.utils.Scope&lt;TState&gt;.TState</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt" />  Scope&lt;TState&gt;.Disposer Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Gets the disposer associated with this container.
+
+
+
+```csharp
+private Disposer Disposer { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.scope-1.parent__1hk8ypk" />  Scope&lt;TState&gt;.Parent Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Gets the parent scope.
+
+
+
+```csharp
+public IScope<TState> Parent { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)</dt><dd></dd></dl>Implements: [IScope&lt;TState&gt;.Parent](#p-net.adamec.lib.common.utils.iscope-1.parent__iyc99h)
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current scope has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.scope-1.root__17hnd9c" />  Scope&lt;TState&gt;.Root Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Gets the root scope.
+
+
+
+```csharp
+public static Scope<TState> Root { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.scope-1.state__78jkar" />  Scope&lt;TState&gt;.State Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Gets the state managed by the scope.
+
+
+
+```csharp
+protected Scope<TState>.TState State { get; }
+```
+
+<strong>Property value</strong><dl><dt>net.adamec.lib.common.utils.Scope&lt;TState&gt;.TState</dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current scope has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.scope-1.-cctor__1t7jr8v" />  Scope&lt;TState&gt;.Scope&lt;TState&gt;() Constructor ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Static constructor
+
+
+
+```csharp
+private static Scope<TState>()
+```
+
+###  Remarks ###
+Explicit static constructor to tell C# compiler not to mark type as beforefieldinit
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.scope-1.-ctor_net.adamec.lib.common.utils.iscope_-0_--0___a63u7z" />  Scope&lt;TState&gt;.Scope&lt;TState&gt;(IScope&lt;TState&gt;, Scope&lt;TState&gt;.TState) Constructor ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Creates an instance of child [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) .
+
+
+
+```csharp
+protected Scope<TState>(IScope<TState> parent, Scope<TState>.TState state = null)
+```
+
+<strong>Constructor parameters</strong><dl><dt>[net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf) <strong>parent</strong></dt><dd>Parent scope</dd><dt>net.adamec.lib.common.utils.Scope&lt;TState&gt;.TState <strong>state</strong></dt><dd>Optional state managed by the scope.</dd></dl>
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.scope-1.-ctor_-0___17usleh" />  Scope&lt;TState&gt;.Scope&lt;TState&gt;(Scope&lt;TState&gt;.TState) Constructor ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Creates an instance of [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) and initialize its [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) .
+
+
+
+```csharp
+private Scope<TState>(Scope<TState>.TState state = null)
+```
+
+<strong>Constructor parameters</strong><dl><dt>net.adamec.lib.common.utils.Scope&lt;TState&gt;.TState <strong>state</strong></dt><dd>Optional state managed by the scope.</dd></dl>
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.scope-1.addtodisposer_system.idisposable___154ejbt" />  Scope&lt;TState&gt;.AddToDisposer(IDisposable) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Adds the <strong>disposable</strong> object to the scope disposer, so it will be disposed with the scope
+
+
+
+```csharp
+protected void AddToDisposer(IDisposable disposable)
+```
+
+<strong>Method parameters</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a> <strong>disposable</strong></dt><dd><a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> object to be added to the disposer.</dd></dl>
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.argumentnullexception" target="_blank" >System.ArgumentNullException</a></dt><dd><strong>disposable</strong> is null.</dd><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current scope has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.scope-1.beginscope_-0___1bcz3lp" />  Scope&lt;TState&gt;.BeginScope(Scope&lt;TState&gt;.TState) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Creates a child scope of the current scope.
+
+
+
+```csharp
+public IScope<TState> BeginScope(Scope<TState>.TState state = null)
+```
+
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.utils.Scope&lt;TState&gt;.TState <strong>state</strong></dt><dd>Optional state managed by the child scope..</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)</dt><dd>Child scope owned by the current scope.</dd></dl>Implements: [IScope&lt;TState&gt;.BeginScope(IScope&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.iscope-1.beginscope_-0___1d7nxoa)
+
+
+###  Exceptions ###
+<dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a></dt><dd>The current scope has been disposed.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.scope-1.disposemanaged__19g6lc3" />  Scope&lt;TState&gt;.DisposeManaged() Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Dispose any disposable managed objects - all disposables kept in [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) stack are pop and disposed.
+
+
+
+```csharp
+protected override void DisposeManaged()
+```
+
+<strong>Return value</strong><dl><dt><a href="https://docs.microsoft.com/en-us/dotnet/api/system.void" target="_blank" >void</a></dt><dd></dd></dl>Overrides: [BaseDisposable.DisposeManaged()](#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85)
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
 ##  <a id="t-net.adamec.lib.common.utils.txt__1fch6k9" />  Txt Class ##
 <small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common           
@@ -8570,6 +9809,101 @@ Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adame
  
 
 
+##  <a id="t-net.adamec.lib.common.utils.iscope-1__88aydf" />  IScope&lt;TState&gt; Interface ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Scope interface.
+
+
+
+```csharp
+internal interface IScope<in TState> : IDisposable where TState: class, new()
+```
+
+<strong>Type parameters</strong><dl><dt><strong>TState</strong></dt><dd>Type of the state object managed by the scope</dd></dl>
+Implemented by: [net.adamec.lib.common.utils.Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi)           
+Implements: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >IDisposable</a>
+
+
+###  Properties ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [Parent](#p-net.adamec.lib.common.utils.iscope-1.parent__iyc99h) | public abstract | Gets the parent scope. | 
+
+ 
+
+
+###  Methods ###
+
+ | Name | Modifier | Summary | 
+ | ------ | ---------- | --------- | 
+ | [BeginScope(IScope&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.iscope-1.beginscope_-0___1d7nxoa) | public abstract | Creates a child scope of the current scope. | 
+
+ 
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="p-net.adamec.lib.common.utils.iscope-1.parent__iyc99h" />  IScope&lt;TState&gt;.Parent Property ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Gets the parent scope.
+
+
+
+```csharp
+public abstract IScope<TState> Parent { get; }
+```
+
+<strong>Property value</strong><dl><dt>[net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="m-net.adamec.lib.common.utils.iscope-1.beginscope_-0___1d7nxoa" />  IScope&lt;TState&gt;.BeginScope(IScope&lt;TState&gt;.TState) Method ##
+<small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
+Assembly: net.adamec.lib.common           
+Type: [IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)           
+Sources: utils\Scope.cs           
+Source-only packages: [RadCommons.utils.Scope](#src-only-package--RadCommons.utils.Scope)</small>
+
+
+Creates a child scope of the current scope.
+
+
+
+```csharp
+public abstract IScope<TState> BeginScope(IScope<TState>.TState state)
+```
+
+<strong>Method parameters</strong><dl><dt>net.adamec.lib.common.utils.IScope&lt;TState&gt;.TState <strong>state</strong></dt><dd>State managed by the child scope.</dd></dl>
+<strong>Return value</strong><dl><dt>[net.adamec.lib.common.utils.IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf)</dt><dd>Child scope owned by the current scope.</dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
 ##  <a id="t-net.adamec.lib.common.utils.processeventhandler__8h5v6w" />  ProcessEventHandler Delegate ##
 <small>Namespace: [net.adamec.lib.common.utils](#n-net.adamec.lib.common.utils__7vdji9)           
 Assembly: net.adamec.lib.common           
@@ -8657,6 +9991,22 @@ Simple configuration container in case DI with more sophisticated containers is 
 <strong>Usings</strong><dl><dt>[RadCommons.logging.CommonLogging](#src-only-package--RadCommons.logging.CommonLogging)</dt><dd></dd></dl>
 
 
+###  Remarks ###
+This is the simple configuration container in case DI with more sophisticated containers is not used The configuration is stored as the key-value dictionary, supporting hierarchy using the dot separator and arrays.The arrays can contain values or another objects. Actually, mixed arrays of values and objects can be stored, but they are not supported for binding. For example `section1.option1` means the option1 available in section1, `section1.subSection2.option1` means the option1 available in section1.subSection2. `section1.option1[0]` means, that the option1 is array of values or objects (sections) within the section1. For arrays, the keys are like `OtherSection.SimpleArray[0]` or `OtherSection.ComplexObjectArray[0].Name`
+
+ [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) class provides a singleton instance, however the key functionality is provided via static functions, so no need to touch the [Instance](#p-net.adamec.lib.common.config.configuration.instance__131avv7) at all. The items can be retrieved by key using the [Get(string)](#m-net.adamec.lib.common.config.configuration.get_system.string___8ykaxa) and [Get&lt;TValueType&gt;(string, Configuration.TValueType)](#m-net.adamec.lib.common.config.configuration.get--1_system.string---0___1dcpnhz) methods. The first one returns null when the key is not found, the other one allow to define the default value to be returned, when the item is not found.
+
+ The inner class [Configuration.ConfigurationBuilder](#t-net.adamec.lib.common.config.configuration.configurationbuilder__13eawwj) provides the methods to build the configuration from JSON config files, commandline arguments, environment values and/or direct entries. The static method [Builder()](#m-net.adamec.lib.common.config.configuration.builder__700lxw) clears the configuration items and binding cache and creates a new instance of [Configuration.ConfigurationBuilder](#t-net.adamec.lib.common.config.configuration.configurationbuilder__13eawwj) allowing to build a configuration from scratch. The configuration is updated directly during the calls to builder methods, the existing items (keys) are updated, so it&#39;s possible to manage the priority of individual sources and the overrides if needed. The method [Build()](#m-net.adamec.lib.common.config.configuration.configurationbuilder.build__bwvls6) returns the configuration instance, breaking the fluent design of builder methods, however there is no other functionality within the method, so it&#39;s more the convention than need to use it at the end of configuration build.
+
+ Configuration binding it the way, how to access the configuration using the configuration objects instead of querying the individual items by key. When the method [Bind&lt;TOptionsContainer&gt;(string, bool)](#m-net.adamec.lib.common.config.configuration.bind--1_system.string-system.boolean___16p0943) is used, it creates a new instance of given type and tries to map the public properties with public setter to the keys (using the &quot;dot notation&quot;) within the [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) . It&#39;s possible to bind the object to  to the root  of the configuration to provide the whole configuration at once or bind it to the particular section to provide a configuration sub-tree. In general, the nested objects and both value and object arrays are supported. There are some rules when binding the arrays: The index must start with zero and must be in sequence (the first non-existing index stops the evaluation). The array should not mix the array or values and array of objects. The decision is made at the first item (index=0) whether it&#39;s value or object.
+
+ The implementation  of binding treats the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.boolean" target="_blank" >System.Boolean</a> values the special way - if there is no value, but existing key, the value is converted to true. This is useful when the command line arguments are used like flags. For example having the argument `-p:SkipStep1` and prefix `-p:` , the binding a bool property `SkipStep1` will set the value of the property to `true` (doesn&#39;t change the configuration item itself). Of course, it&#39;s still possible to use the syntax `-p:SkipStep1=true` or `-p:SkipStep1=false` even in this case.
+
+ As the binding uses the reflection, it&#39;s quite expensive operation, so by default, the bound objects are cached (the cache key is the type of bound object, so binding the same type to different sections is not recommended ). It&#39;s possible to force the binding using the parameter of [Bind&lt;TOptionsContainer&gt;(string, bool)](#m-net.adamec.lib.common.config.configuration.bind--1_system.string-system.boolean___16p0943) method. In general, the recommended pattern is to [Bind&lt;TOptionsContainer&gt;(string, bool)](#m-net.adamec.lib.common.config.configuration.bind--1_system.string-system.boolean___16p0943) the configuration  object after the configuration is built and then [Retrieve&lt;TOptionsContainer&gt;()](#m-net.adamec.lib.common.config.configuration.retrieve--1__1xuxip8) it from the cache when needed.
+
+
+
+
 <strong>Package members</strong><dl><dt>[Configuration (Type)](#t-net.adamec.lib.common.config.configuration__1md5nwk)</dt><dd>Singleton holding the application configuration (options)</dd><dt>[instance (Field)](#f-net.adamec.lib.common.config.configuration.instance__1aq1w9t)</dt><dd>Instance of the [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) created when the singleton is first touched</dd><dt>[Instance (Property)](#p-net.adamec.lib.common.config.configuration.instance__131avv7)</dt><dd>Public [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) instance</dd><dt>[Configuration() (Method)](#m-net.adamec.lib.common.config.configuration.-cctor__1xl390h)</dt><dd>Static constructor</dd><dt>[Configuration() (Method)](#m-net.adamec.lib.common.config.configuration.-ctor__11tp9ak)</dt><dd>Private constructor used to build the singleton instance</dd><dt>[Items (Property)](#p-net.adamec.lib.common.config.configuration.items__1i9u236)</dt><dd>Configuration items stored as key-value pairs</dd><dt>[Get(string) (Method)](#m-net.adamec.lib.common.config.configuration.get_system.string___8ykaxa)</dt><dd>Gets the configuration item by <strong>key</strong></dd><dt>[Get&lt;TValueType&gt;(string, Configuration.TValueType) (Method)](#m-net.adamec.lib.common.config.configuration.get--1_system.string---0___1dcpnhz)</dt><dd>Gets the typed configuration item by <strong>key</strong> . Returns the default value, that can be provided or is default to given <strong>TValueType</strong> The function tries to convert the value to <strong>TValueType</strong> using <a href="https://docs.microsoft.com/en-us/dotnet/api/system.convert.changetype#System_Convert_ChangeType_System_Object_System_Type_" target="_blank" >System.Convert.ChangeType(System.Object,System.Type)</a> if the conversion is not successful, the default is returned.</dd><dt>[bindingsCache (Field)](#f-net.adamec.lib.common.config.configuration.bindingscache__thj354)</dt><dd>Cache for bindings. Dictionary of type bound as a key and the bound object as value.</dd><dt>[Bind&lt;TOptionsContainer&gt;(string, bool) (Method)](#m-net.adamec.lib.common.config.configuration.bind--1_system.string-system.boolean___16p0943)</dt><dd>Binds the configuration to given <strong>TOptionsContainer</strong> type and returns the bound object of such type. The resulting configuration object is stored to the cache and can be later on retrieved using [Retrieve&lt;TOptionsContainer&gt;()](#m-net.adamec.lib.common.config.configuration.retrieve--1__1xuxip8)</dd><dt>[Retrieve&lt;TOptionsContainer&gt;() (Method)](#m-net.adamec.lib.common.config.configuration.retrieve--1__1xuxip8)</dt><dd>Retrieves the configuration object of given <strong>TOptionsContainer</strong> that has been bound and cached before. The new instance of <strong>TOptionsContainer</strong> is created when the type not found in cache</dd><dt>[Bind(Type, string) (Method)](#m-net.adamec.lib.common.config.configuration.bind_system.type-system.string___1b0yb6e)</dt><dd>Creates a  new object with given <strong>type</strong> and binds the configuration to its public properties where possible.</dd><dt>[GetSection(string) (Method)](#m-net.adamec.lib.common.config.configuration.getsection_system.string___17z37ez)</dt><dd>Gets the configuration sub-tree that belongs to given section. The keys returned are relative to given section! When the section is not provided, the whole configuration tree is returned.</dd><dt>[TryConvertValue(Type, object, object) (Method)](#m-net.adamec.lib.common.config.configuration.tryconvertvalue_system.type-system.object-system.object-___1f1lwmk)</dt><dd>Tries to convert <strong>sourceValue</strong> to <strong>targetType</strong> . The converted values is returned in <strong>targetValue</strong> out parameter, the result of conversion is the function return value.</dd><dt>[AddOrUpdateItem(string, object) (Method)](#m-net.adamec.lib.common.config.configuration.addorupdateitem_system.string-system.object___1atv1og)</dt><dd>Add a new configuration item with given <strong>value</strong> or updates its value if the <strong>key</strong> already exists.</dd><dt>[Builder() (Method)](#m-net.adamec.lib.common.config.configuration.builder__700lxw)</dt><dd>Clears the configuration items and binding cache and creates a new instance of [Configuration.ConfigurationBuilder](#t-net.adamec.lib.common.config.configuration.configurationbuilder__13eawwj)</dd><dt>[Configuration.ConfigurationBuilder (Type)](#t-net.adamec.lib.common.config.configuration.configurationbuilder__13eawwj)</dt><dd>Configuration builder providing the methods for adding the configuration items from individual sources</dd><dt>[Build() (Method)](#m-net.adamec.lib.common.config.configuration.configurationbuilder.build__bwvls6)</dt><dd>Finishes the configuration building and returns the [Instance](#p-net.adamec.lib.common.config.configuration.instance__131avv7)</dd><dt>[Add(string, object) (Method)](#m-net.adamec.lib.common.config.configuration.configurationbuilder.add_system.string-system.object___t030mu)</dt><dd>Add a new configuration item with given <strong>value</strong> or updates its value if the <strong>key</strong> already exists.</dd><dt>[AddEnvironmentVariables() (Method)](#m-net.adamec.lib.common.config.configuration.configurationbuilder.addenvironmentvariables__1behrcd)</dt><dd>Adds all environment variables into the [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) . When a configuration item exists, the value is updated.</dd><dt>[AddCommandLineArguments(string[]) (Method)](#m-net.adamec.lib.common.config.configuration.configurationbuilder.addcommandlinearguments_system.string_____f7vkq1)</dt><dd>Adds the command line arguments starting with <strong>prefixes</strong> into the [Configuration](#t-net.adamec.lib.common.config.configuration__1md5nwk) . When a configuration item exists, the value is updated.</dd><dt>[AddJsonFile(string, bool, bool) (Method)](#m-net.adamec.lib.common.config.configuration.configurationbuilder.addjsonfile_system.string-system.boolean-system.boolean___fpcrpi)</dt><dd>Loads the configuration items from JSON file, keeping the hierarchy of JSON objects (and arrays) When a configuration item exists, the value is updated.</dd></dl>
 
 
@@ -8742,6 +10092,27 @@ RadCommons DI PostInit - allows to run post init method of component (Source onl
 
 
 <strong>Sources</strong><dl><dt>di\postinit\_SourceOnlyPackage.cs</dt><dd></dd><dt>di\postinit\ContainerBuilderExtensions.cs</dt><dd></dd><dt>di\postinit\PostInitAttribute.cs</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="src-only-package--RadCommons.extensions.ArrayExtensions.ConcatenateBytes" />  RadCommons.extensions.ArrayExtensions.ConcatenateBytes Source only package ##
+<small>Tags: RadCommons source-only extension array           
+Includes: None           
+Declaring file: extensions\ArrayExtensionsAppendBytes.cs</small>
+
+
+Adds the byte array to the current one and returns resulting array (concatenates two byte arrays into a new one) (Source only package).
+
+
+<strong>Package members</strong><dl><dt>[ArrayExtensions (Type)](#t-net.adamec.lib.common.extensions.arrayextensions__icw7wf)</dt><dd>Array extensions</dd><dt>[AppendBytes(byte[], byte[]) (Method)](#m-net.adamec.lib.common.extensions.arrayextensions.appendbytes_system.byte__-system.byte_____1lkijjg)</dt><dd>Adds the byte array to the current one and returns resulting array (concatenates two byte arrays into a new one)</dd></dl>
+
+
+<strong>Sources</strong><dl><dt>extensions\ArrayExtensionsAppendBytes.cs</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -8951,10 +10322,80 @@ RadCommons logging wrapper around NLog with some extended functionality (Source 
 <strong>References needed</strong><dl><dt>NLog</dt><dd></dd></dl>
 
 
-<strong>Package members</strong><dl><dt>[CommonLogging (Type)](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory</dd><dt>[CreateLogger(string) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.string___wn77if)</dt><dd>Creates the logger with given <strong>categoryName</strong></dd><dt>[CreateLogger(Type) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.type___uhum9e)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[CreateLogger&lt;T&gt;() (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger--1__lp2vax)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[Trace(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k)</dt><dd>Writes the diagnostic message at the `Trace` level.</dd><dt>[Debug(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[ErrorPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk)</dt><dd>Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong></dd><dt>[FatalPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong></dd><dt>[Error&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltr&lt;TException&gt;(ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[TraceCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.tracecorr_system.string-system.string___1bdni2z)</dt><dd>Writes the diagnostic message at the `Trace` level with correlation ID.</dd><dt>[DebugCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.debugcorr_system.string-system.string___aozvfj)</dt><dd>Writes the diagnostic message at the `Debug` level with correlation ID.</dd><dt>[InfoCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny)</dt><dd>Writes the diagnostic message at the `Info` level with correlation ID.</dd><dt>[WarnCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.string___pr2tiu)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.string___coifvu)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.string___ufcx32)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[WarnCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.exception-system.string___1kh0i9m)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.exception-system.string___1qll13u)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.exception-system.string___yt34nm)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[ErrorCorr&lt;TException&gt;(string, ILogger.TException, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string---0-system.string___eypxkv)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, ILogger.TException, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string---0-system.string___108vdu1)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns the exception of given type</dd><dt>[ErrorCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string-system.string-system.exception___91akh7)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string-system.string-system.exception___1hlu7x)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type</dd><dt>[ErrorFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorfltrcorr--1_system.string---0-system.string-system.boolean___1spds2w)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalfltrcorr--1_system.string---0-system.string-system.boolean___a9m338)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) extensions</dd><dt>[Trace(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70)</dt><dd>Writes the diagnostic message at the `Trace` level.</dd><dt>[Debug(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___wuc2dz)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.string___u5pc5h)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1ff2uef)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___pw9hcn)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[ErrorPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorpassthrough_system.exception-system.string___1ey2kd0)</dt><dd>Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong></dd><dt>[FatalPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt;</dd><dt>[Error&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.error--1_system.string-system.exception___1qowqgx)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal--1_system.string-system.exception___1myw0tj)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[CreateException&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.exception___1wtd924)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltr&lt;TException&gt;(LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalfltr--1_--0-system.string-system.boolean___5rdjqe)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[TraceCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz)</dt><dd>Writes the diagnostic message at the `Trace` level with correlation ID</dd><dt>[DebugCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af)</dt><dd>Writes the diagnostic message at the `Debug` level with correlation ID.</dd><dt>[InfoCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha)</dt><dd>Writes the diagnostic message at the `Info` level with correlation ID.</dd><dt>[WarnCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.string___cfr64e)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.string___1vt0qk2)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.string___c131ta)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[WarnCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.exception-system.string___sfdb1u)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.exception-system.string___1tdd1hu)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.exception-system.string___1q1adwi)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[ErrorCorr&lt;TException&gt;(string, LoggerExt.TException, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string---0-system.string___bk3vj3)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, LoggerExt.TException, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string---0-system.string___17i1735)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns the exception of given type</dd><dt>[ErrorCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string-system.string-system.exception___4hcjn7)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string-system.string-system.exception___w1l5gt)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type</dd><dt>[ErrorFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorfltrcorr--1_system.string---0-system.string-system.boolean___84xqu8)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalfltrcorr--1_system.string---0-system.string-system.boolean___15t2hh0)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[LogIt(LogLevel, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception___hxtfrf)</dt><dd>Writes the item (message with optional exception)  into the log</dd><dt>[LogIt(LogLevel, string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception___1l4ejwt)</dt><dd>Writes the item (message with optional exception) with correlation Id into the log</dd><dt>[LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception___5yngu4)</dt><dd>Writes the item (message with optional event properties and exception)  into the log</dd></dl>
+###  Remarks ###
+The NLog supports having additional (custom) event properties provided to loggers and optionally rendered to logs. The event properties are represented as key-value dictionary, where key is the unique name of the property. Extended logger provides following methods to log with given set of the properties.
+
+ 
 
 
-<strong>Sources</strong><dl><dt>logging\_SourceOnlyPackage.cs</dt><dd></dd><dt>logging\CommonLogging.cs</dt><dd></dd><dt>logging\ILogger.cs</dt><dd></dd><dt>logging\LoggerExt.cs</dt><dd></dd></dl>
+ - [Trace(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k) ,
+ - [Debug(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq) ,
+ - [Info(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr) ,
+ - [Warn(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3) ,
+ - [Error(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl) ,
+ - [Fatal(Dictionary&lt;string,object&gt;, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz) ,
+ - [Warn(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj) ,
+ - [Error(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d) and
+ - [Fatal(Dictionary&lt;string,object&gt;, Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)
+           
+
+
+
+
+  Sometimes, it&#39;s useful to have an exception logging method implemented as the operation returning the exception being logged. The [ErrorPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk) and [FatalPassThrough(Exception, string)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8) methods will log given exception and return it for further processing. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception ex){
+       if(logger.ErrorPassThrough(ex) is MyException){
+         return null;
+       }else{
+         throw;
+       } 
+    }
+```
+ In the example above, the exception is always logged and then the decision/action is taken.
+
+ C# 6 brought the exception filters that don&#39;t unwind the stack as the exception is not catch yet when processing the filter. It can also be used for logging the exceptions without actually catching them (when the exception filter returns `false` ). Extended logger provides functions [ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm) and [FatalFltr&lt;TException&gt;(ILogger.TException, string, bool)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa) for this purpose. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (Exception ex) when (logger.ErrorFltr(ex,"Error here!"){
+      //newer called as the default return value of ErrorFltr is false     
+    }
+```
+ The example above logs but never catch all exceptions. The following code catch and log the ArgumentException and logs any other exception without catching it. 
+```csharp
+    try
+    {
+      ...
+    }
+    catch (ArgumentException e) when (Logger.ErrorFltr(e,catchIt:true)) { ... }
+    catch (Exception e) when (Logger.FatalFltr(e)) {}
+```
+
+
+  Logger can also create and exception, log it and return using functions [Error&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh) and [Fatal&lt;TException&gt;(string, Exception)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73) 
+```csharp
+    if(value is null) throw logger.Fatal<ArgumentNullException>("Value is null");
+```
+
+
+  When logging an exception using the [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) methods, the event property `StackTrace` is set from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> , when the logger creates an exception, the property is set using `new StackTrace(2, true).ToString()` . In other cases when the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace" target="_blank" >System.Exception.StackTrace</a> is null or empty, `new StackTrace(true).ToString()` is used.
+
+  [LoggerExt](#t-net.adamec.lib.common.logging.loggerext__ac9km2) also provides set of methods for logging with the correlation ID (for example in integration scenarios), where the given correlation ID is set to the event property `CorrelationId` . Such methods have the name ending with `Corr` suffix.
+
+
+
+
+<strong>Package members</strong><dl><dt>[CommonLogging (Type)](#t-net.adamec.lib.common.logging.commonlogging__1dar5wb)</dt><dd>[ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm) factory</dd><dt>[CreateLogger(string) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.string___wn77if)</dt><dd>Creates the logger with given <strong>categoryName</strong></dd><dt>[CreateLogger(Type) (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger_system.type___uhum9e)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[CreateLogger&lt;T&gt;() (Method)](#m-net.adamec.lib.common.logging.commonlogging.createlogger--1__lp2vax)</dt><dd>Creates the logger for given type. The name of the logger will be <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.fullname#System_Type_FullName" target="_blank" >System.Type.FullName</a></dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[TraceCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.tracecorr_system.string-system.string___1bdni2z)</dt><dd>Writes the diagnostic message at the `Trace` level with correlation ID.</dd><dt>[DebugCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.debugcorr_system.string-system.string___aozvfj)</dt><dd>Writes the diagnostic message at the `Debug` level with correlation ID.</dd><dt>[InfoCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.infocorr_system.string-system.string___2iypny)</dt><dd>Writes the diagnostic message at the `Info` level with correlation ID.</dd><dt>[WarnCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.string___pr2tiu)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.string___coifvu)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.string___ufcx32)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[WarnCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warncorr_system.string-system.exception-system.string___1kh0i9m)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr_system.string-system.exception-system.string___1qll13u)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr_system.string-system.exception-system.string___yt34nm)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[ErrorCorr&lt;TException&gt;(string, ILogger.TException, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string---0-system.string___eypxkv)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, ILogger.TException, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string---0-system.string___108vdu1)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns the exception of given type</dd><dt>[ErrorCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorcorr--1_system.string-system.string-system.exception___91akh7)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalcorr--1_system.string-system.string-system.exception___1hlu7x)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type</dd><dt>[ErrorFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorfltrcorr--1_system.string---0-system.string-system.boolean___1spds2w)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltrCorr&lt;TException&gt;(string, ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalfltrcorr--1_system.string---0-system.string-system.boolean___a9m338)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[Trace(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___15kc02k)</dt><dd>Writes the diagnostic message at the `Trace` level.</dd><dt>[Debug(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___jxdraq)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1kbhewr)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___1hy0rp3)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.string___kfa9gl)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1yxmkzz)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___10z37vj)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___1watp5d)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___175gumn)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[ErrorFltr&lt;TException&gt;(ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorfltr--1_--0-system.string-system.boolean___135nosm)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltr&lt;TException&gt;(ILogger.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalfltr--1_--0-system.string-system.boolean___1av7ixa)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[ILogger (Type)](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dt><dd>Logger interface - wrapper around the <em>NLog.ILogger</em> with some additional methods</dd><dt>[ErrorPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.errorpassthrough_system.exception-system.string___1vc33gk)</dt><dd>Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong></dd><dt>[FatalPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatalpassthrough_system.exception-system.string___1fx8xs8)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong></dd><dt>[Error&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.error--1_system.string-system.exception___pmrssh)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.ilogger.fatal--1_system.string-system.exception___x5u73)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dd><dt>[TraceCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.tracecorr_system.string-system.string___1e218kz)</dt><dd>Writes the diagnostic message at the `Trace` level with correlation ID</dd><dt>[DebugCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.debugcorr_system.string-system.string___i119af)</dt><dd>Writes the diagnostic message at the `Debug` level with correlation ID.</dd><dt>[InfoCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.infocorr_system.string-system.string___3vobha)</dt><dd>Writes the diagnostic message at the `Info` level with correlation ID.</dd><dt>[WarnCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.string___cfr64e)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.string___1vt0qk2)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.string___c131ta)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[WarnCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warncorr_system.string-system.exception-system.string___sfdb1u)</dt><dd>Writes the diagnostic message at the `Warn` level with correlation ID.</dd><dt>[ErrorCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr_system.string-system.exception-system.string___1tdd1hu)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID.</dd><dt>[FatalCorr(string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr_system.string-system.exception-system.string___1q1adwi)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID.</dd><dt>[ErrorCorr&lt;TException&gt;(string, LoggerExt.TException, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string---0-system.string___bk3vj3)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, LoggerExt.TException, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string---0-system.string___17i1735)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns the exception of given type</dd><dt>[ErrorCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorcorr--1_system.string-system.string-system.exception___4hcjn7)</dt><dd>Writes the diagnostic message at the `Error` level with correlation ID. Creates and returns the exception of given type</dd><dt>[FatalCorr&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalcorr--1_system.string-system.string-system.exception___w1l5gt)</dt><dd>Writes the diagnostic message at the `Fatal` level with correlation ID. Creates and returns the exception of given type</dd><dt>[ErrorFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorfltrcorr--1_system.string---0-system.string-system.boolean___84xqu8)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltrCorr&lt;TException&gt;(string, LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalfltrcorr--1_system.string---0-system.string-system.boolean___15t2hh0)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[LogIt(LogLevel, string, string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.string-system.exception-system.string___14n4i77)</dt><dd>Writes the item (message with optional exception) with correlation Id into the log</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dd><dt>[CreateException&lt;TException&gt;(string, string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.createexception--1_system.string-system.string--system.exception___1kt7m7i)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd><dt>[LogIt(LogLevel, string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.string-system.exception-system.string___17r766x)</dt><dd>Writes the item (message with optional exception)  into the log</dd><dt>[LogIt(LogLevel, Dictionary&lt;string,object&gt;, string, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.logit_nlog.loglevel-system.collections.generic.dictionary_system.string-system.object_-system.string-system.exception-system.string___vo1jng)</dt><dd>Writes the item (message with optional event properties and exception)  into the log</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dd><dt>[Trace(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.trace_system.collections.generic.dictionary_system.string-system.object_-system.string___1k5wn70)</dt><dd>Writes the diagnostic message at the `Trace` level.</dd><dt>[Debug(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.debug_system.collections.generic.dictionary_system.string-system.object_-system.string___by66ma)</dt><dd>Writes the diagnostic message at the `Debug` level.</dd><dt>[Info(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.info_system.collections.generic.dictionary_system.string-system.object_-system.string___1qxds6b)</dt><dd>Writes the diagnostic message at the `Info` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.string___wuc2dz)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.string___u5pc5h)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.string___1ff2uef)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[Warn(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.warn_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___8kyvvj)</dt><dd>Writes the diagnostic message at the `Warn` level.</dd><dt>[Error(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.error_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___7fy00h)</dt><dd>Writes the diagnostic message at the `Error` level.</dd><dt>[Fatal(Dictionary&lt;string,object&gt;, Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal_system.collections.generic.dictionary_system.string-system.object_-system.exception-system.string___pw9hcn)</dt><dd>Writes the diagnostic message at the `Fatal` level.</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dd><dt>[ErrorFltr&lt;TException&gt;(LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorfltr--1_--0-system.string-system.boolean___ipfsfa)</dt><dd>Writes the diagnostic message at the `Error` level and returns the exception of given type</dd><dt>[FatalFltr&lt;TException&gt;(LoggerExt.TException, string, bool) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalfltr--1_--0-system.string-system.boolean___5rdjqe)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns <strong>catchIt</strong> value.</dd><dt>[LoggerExt (Type)](#t-net.adamec.lib.common.logging.loggerext__ac9km2)</dt><dd>Extended logger implementing [ILogger](#t-net.adamec.lib.common.logging.ilogger__y2ollm)</dd><dt>[ErrorPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.errorpassthrough_system.exception-system.string___1ey2kd0)</dt><dd>Writes the diagnostic message at the `Error` level and returns given <strong>exception</strong></dd><dt>[FatalPassThrough(Exception, string) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatalpassthrough_system.exception-system.string___10psm2o)</dt><dd>Writes the diagnostic message at the `Fatal` level and returns given <strong>exception</strong> &gt;</dd><dt>[Error&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.error--1_system.string-system.exception___1qowqgx)</dt><dd>Writes the diagnostic message at the `Error` level. Creates and returns the exception of given type</dd><dt>[Fatal&lt;TException&gt;(string, Exception) (Method)](#m-net.adamec.lib.common.logging.loggerext.fatal--1_system.string-system.exception___1myw0tj)</dt><dd>Writes the diagnostic message at the `Fatal` level. Creates and returns the exception of given type</dd></dl>
+
+
+<strong>Sources</strong><dl><dt>logging\_SourceOnlyPackage.cs</dt><dd></dd><dt>logging\CommonLogging.cs</dt><dd></dd><dt>logging\ILogger.CorrelationId.cs</dt><dd></dd><dt>logging\ILogger.cs</dt><dd></dd><dt>logging\ILogger.EventProperties.cs</dt><dd></dd><dt>logging\ILogger.ExceptionFilter.cs</dt><dd></dd><dt>logging\ILogger.ExceptionPassThrough.cs</dt><dd></dd><dt>logging\LoggerExt.CorrelationId.cs</dt><dd></dd><dt>logging\LoggerExt.cs</dt><dd></dd><dt>logging\LoggerExt.EventProperties.cs</dt><dd></dd><dt>logging\LoggerExt.ExceptionFilter.cs</dt><dd></dd><dt>logging\LoggerExt.ExceptionPassThrough.cs</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -8993,7 +10434,19 @@ Declaring file: utils\BaseDisposable.cs</small>
 Helper class for implementation of IDisposable types (Source only package).
 
 
-<strong>Package members</strong><dl><dt>[BaseDisposable (Type)](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)</dt><dd>Helper class for implementation of <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> types</dd><dt>[Disposed (Property)](#p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp)</dt><dd>Flag whether the object is fully disposed</dd><dt>[DisposedManaged (Property)](#p-net.adamec.lib.common.utils.basedisposable.disposedmanaged__1pm7df6)</dt><dd>Flag whether the managed resources are disposed</dd><dt>[DisposedNative (Property)](#p-net.adamec.lib.common.utils.basedisposable.disposednative__fqjn7i)</dt><dd>Flag whether the native resources are disposed</dd><dt>[Dispose() (Method)](#m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri)</dt><dd>Dispose the object</dd><dt>[Dispose(bool) (Method)](#m-net.adamec.lib.common.utils.basedisposable.dispose_system.boolean___1vzs8w4)</dt><dd>Internal implementation of dispose - free the managed and native resources using the respective methods</dd><dt>[DisposeManaged() (Method)](#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85)</dt><dd>Dispose any disposable managed fields or properties.</dd><dt>[DisposeNative() (Method)](#m-net.adamec.lib.common.utils.basedisposable.disposenative__uaa3i9)</dt><dd>Dispose of COM objects, Handles, etc. Then set those objects to null.</dd><dt>[~BaseDisposable() (Method)](#m-net.adamec.lib.common.utils.basedisposable.finalize__1l3n8dl)</dt><dd></dd></dl>
+<strong>Package members</strong><dl><dt>[BaseDisposable (Type)](#t-net.adamec.lib.common.utils.basedisposable__7s72ps)</dt><dd>Helper class for implementation of <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> types</dd><dt>[DisposedFlag (Field)](#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz)</dt><dd>Internal flag whether the object is fully disposed</dd><dt>[isDisposed (Field)](#f-net.adamec.lib.common.utils.basedisposable.isdisposed__2u766d)</dt><dd>The object is disposed when equals to [DisposedFlag](#f-net.adamec.lib.common.utils.basedisposable.disposedflag__1kqq0uz)</dd><dt>[Disposed (Property)](#p-net.adamec.lib.common.utils.basedisposable.disposed__nxq2fp)</dt><dd>Returns 
+```csharp
+true
+```
+ when the object is fully disposed</dd><dt>[DisposedManaged (Property)](#p-net.adamec.lib.common.utils.basedisposable.disposedmanaged__1pm7df6)</dt><dd>Returns 
+```csharp
+true
+```
+ when the managed resources are disposed</dd><dt>[DisposedNative (Property)](#p-net.adamec.lib.common.utils.basedisposable.disposednative__fqjn7i)</dt><dd>Returns 
+```csharp
+true
+```
+ when the native resources are disposed</dd><dt>[Dispose() (Method)](#m-net.adamec.lib.common.utils.basedisposable.dispose__6qe9ri)</dt><dd>Dispose the object</dd><dt>[Dispose(bool) (Method)](#m-net.adamec.lib.common.utils.basedisposable.dispose_system.boolean___1vzs8w4)</dt><dd>Internal implementation of dispose - free the managed and native resources using the respective methods</dd><dt>[DisposeManaged() (Method)](#m-net.adamec.lib.common.utils.basedisposable.disposemanaged__1ht3p85)</dt><dd>Dispose any disposable managed fields or properties.</dd><dt>[DisposeNative() (Method)](#m-net.adamec.lib.common.utils.basedisposable.disposenative__uaa3i9)</dt><dd>Dispose of COM objects, Handles, etc. Then set those objects to null.</dd><dt>[~BaseDisposable() (Method)](#m-net.adamec.lib.common.utils.basedisposable.finalize__1l3n8dl)</dt><dd></dd><dt>[AssertNotDisposed(string) (Method)](#m-net.adamec.lib.common.utils.basedisposable.assertnotdisposed_system.string___18xs7ya)</dt><dd>Throws an <a href="https://docs.microsoft.com/en-us/dotnet/api/system.objectdisposedexception" target="_blank" >System.ObjectDisposedException</a> when the current object is disposed</dd></dl>
 
 
 <strong>Sources</strong><dl><dt>utils\BaseDisposable.cs</dt><dd></dd></dl>
@@ -9018,6 +10471,73 @@ Console output utilities (Source only package).
 
 
 <strong>Sources</strong><dl><dt>utils\ConsoleUtils.cs</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="src-only-package--RadCommons.utils.Context" />  RadCommons.utils.Context Source only package ##
+<small>Tags: RadCommons source-only disposable context           
+Includes: None           
+Declaring file: utils\Context.cs</small>
+
+
+The runtime "container" for context operations.  The context can be both state-less and state-full and it's valid until it's disposed.
+ The current context is accessible via static property Current.
+ The contexts are chained, when a new context is created using static method BeginContext(),
+ the Current context became the Parent of the new one and
+ the newly created context will be set as the Current one.
+ When the context is disposed, the Current context is set to Parent of disposing context.
+ The base implementation just manages the life time, context chain and keeps the state (when provided).
+ Inherit from the Context<TState> to add the context related operations (inherited classes have the access to state).
+ Based on the implementation of Guard Scopes by  https://github.com/safakgur.
+ (Source only package).
+
+
+<strong>Usings</strong><dl><dt>[RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</dt><dd></dd><dt>[RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The context can be both state-less and state-full and it&#39;s valid until it&#39;s disposed. The current context is accessible via [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) . The contexts are chained, when a new context is created using [BeginContext(Context&lt;TState&gt;.TState)](#m-net.adamec.lib.common.utils.context-1.begincontext_-0___mkgdox) , the [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context became the [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) of the new one and the newly created context will be set as the [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) one. When the context is disposed, the [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context is set to [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) of disposing context. Context&#39;s children are disposed as well during the context disposal. The [AddToDisposer(IDisposable)](#m-net.adamec.lib.common.utils.context-1.addtodisposer_system.idisposable___1y4aua6) method is to be used in inherited classes whenever they manage any disposable resource to ensure their proper life time (when the [State](#p-net.adamec.lib.common.utils.context-1.state__1qgilfy) is <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> , it&#39;s added to disposer automatically). The base implementation just manages the life time, context chain and keeps the state (when provided). Inherit from the [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) to add the context related operations (inherited classes have the access to [State](#p-net.adamec.lib.common.utils.context-1.state__1qgilfy) ).
+
+ Based on the implementation of Guard Scopes by  https://github.com/safakgur at https://github.com/safakgur/guard/blob/v1.7.0/src/Guard.Scopes.cs
+
+
+
+
+<strong>Package members</strong><dl><dt>[Context&lt;TState&gt; (Type)](#t-net.adamec.lib.common.utils.context-1__15rsz3v)</dt><dd>Base context implementation.</dd><dt>[ContextDisposedMessage (Field)](#f-net.adamec.lib.common.utils.context-1.contextdisposedmessage__161hgfs)</dt><dd>Error message that will be put into the exception when there will be any operation on the disposed context.</dd><dt>[Local (Field)](#f-net.adamec.lib.common.utils.context-1.local__17b69oq)</dt><dd>The context holder that is local to the calling asynchronous control flow.</dd><dt>[Current (Property)](#p-net.adamec.lib.common.utils.context-1.current__14ss4su)</dt><dd>Gets the current context.</dd><dt>[Disposer (Property)](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c)</dt><dd>Gets the disposer associated with this container.</dd><dt>[parentContext (Field)](#f-net.adamec.lib.common.utils.context-1.parentcontext__1an2htq)</dt><dd>Parent context.</dd><dt>[Parent (Property)](#p-net.adamec.lib.common.utils.context-1.parent__18v621x)</dt><dd>Gets the parent scope.</dd><dt>[contextState (Field)](#f-net.adamec.lib.common.utils.context-1.contextstate__5jvaxj)</dt><dd>State managed by the context.</dd><dt>[State (Property)](#p-net.adamec.lib.common.utils.context-1.state__1qgilfy)</dt><dd>Gets the state managed by the context.</dd><dt>[Context&lt;TState&gt;(Context&lt;TState&gt;.TState) (Method)](#m-net.adamec.lib.common.utils.context-1.-ctor_-0___7zfvl8)</dt><dd>Creates an instance of [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) and initialize its [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) . The new context will become [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) and the previous one its [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) .</dd><dt>[BeginContext(Context&lt;TState&gt;.TState) (Method)](#m-net.adamec.lib.common.utils.context-1.begincontext_-0___mkgdox)</dt><dd>Creates a new [Context&lt;TState&gt;](#t-net.adamec.lib.common.utils.context-1__15rsz3v) within the context chain. The new context will become [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) and the previous one its [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) .</dd><dt>[AddToDisposer(IDisposable) (Method)](#m-net.adamec.lib.common.utils.context-1.addtodisposer_system.idisposable___1y4aua6)</dt><dd>Adds the <strong>disposable</strong> object to the context disposer, so it will be disposed with the context</dd><dt>[DisposeManaged() (Method)](#m-net.adamec.lib.common.utils.context-1.disposemanaged__1ueqxf2)</dt><dd>Dispose any disposable managed objects - all disposables kept in [Disposer](#p-net.adamec.lib.common.utils.context-1.disposer__1lrrq4c) stack are pop and disposed. The [Parent](#p-net.adamec.lib.common.utils.context-1.parent__18v621x) context of the disposing one will become the new [Current](#p-net.adamec.lib.common.utils.context-1.current__14ss4su) context.
+
+</dd></dl>
+
+
+<strong>Sources</strong><dl><dt>utils\Context.cs</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="src-only-package--RadCommons.utils.Disposer" />  RadCommons.utils.Disposer Source only package ##
+<small>Tags: RadCommons source-only disposable           
+Includes: None           
+Declaring file: utils\Disposer.cs</small>
+
+
+Keeps the stack of disposable objects, and disposes them when the disposer is being disposed. (Source only package).
+
+
+<strong>Usings</strong><dl><dt>[RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</dt><dd></dd></dl>
+
+
+<strong>Package members</strong><dl><dt>[Disposer (Type)](#t-net.adamec.lib.common.utils.disposer__1ejr99q)</dt><dd>Keeps the stack of disposable objects, and disposes them when the disposer is being disposed.</dd><dt>[disposables (Field)](#f-net.adamec.lib.common.utils.disposer.disposables__5cwehn)</dt><dd>Stack of disposables kept by the [Disposer](#t-net.adamec.lib.common.utils.disposer__1ejr99q) .</dd><dt>[lockObj (Field)](#f-net.adamec.lib.common.utils.disposer.lockobj__1oj1wh6)</dt><dd>Lock object</dd><dt>[Dispose(bool) (Method)](#m-net.adamec.lib.common.utils.disposer.dispose_system.boolean___32o7wm)</dt><dd>Internal implementation of dispose - free the managed and native resources.</dd><dt>[Add(IDisposable) (Method)](#m-net.adamec.lib.common.utils.disposer.add_system.idisposable___1c4uk8l)</dt><dd>Adds the <strong>disposable</strong> object to the disposer.</dd></dl>
+
+
+<strong>Sources</strong><dl><dt>utils\Disposer.cs</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
@@ -9123,6 +10643,41 @@ A class the wraps a process, allowing programmatic input and output (Source only
 
 
 <strong>Sources</strong><dl><dt>utils\ProcessWrapper.cs</dt><dd></dd></dl>
+
+
+Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)
+
+
+ 
+
+
+##  <a id="src-only-package--RadCommons.utils.Scope" />  RadCommons.utils.Scope Source only package ##
+<small>Tags: RadCommons source-only disposable scope           
+Includes: None           
+Declaring file: utils\Scope.cs</small>
+
+
+The runtime "container" for scoped operations.  The scope can be both state-less and state-full and it's valid until it's disposed.
+ The scopes can be nested (when the scope is disposed, the children are disposed as well) and there can be multiple child scopes (siblings) living in parallel.
+ The base implementation just manages the life time, child scopes and keeps the state (when provided).
+ Inherit from the Scope<TState> (and IScope<TState>)
+ to add the scope related operations (inherited classes have the access to state).
+ (Source only package).
+
+
+<strong>Usings</strong><dl><dt>[RadCommons.utils.BaseDisposable](#src-only-package--RadCommons.utils.BaseDisposable)</dt><dd></dd><dt>[RadCommons.utils.Disposer](#src-only-package--RadCommons.utils.Disposer)</dt><dd></dd></dl>
+
+
+###  Remarks ###
+The scope can be both state-less and state-full and it&#39;s valid until it&#39;s disposed. The scopes can be nested, when the scope is disposed, the children are disposed as well. There can be multiple child scopes (siblings) living in parallel. The [AddToDisposer(IDisposable)](#m-net.adamec.lib.common.utils.scope-1.addtodisposer_system.idisposable___154ejbt) method is to be used in inherited classes whenever they manage any disposable resource to ensure the proper life time (when the [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar) is <a href="https://docs.microsoft.com/en-us/dotnet/api/system.idisposable" target="_blank" >System.IDisposable</a> , it&#39;s added to disposer automatically). The base implementation just manages the life time, child scopes and keeps the state (when provided). Inherit from the [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) (and [IScope&lt;TState&gt;](#t-net.adamec.lib.common.utils.iscope-1__88aydf) ) to add the scope related operations (inherited classes have the access to [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar) ).
+
+
+
+
+<strong>Package members</strong><dl><dt>[IScope&lt;TState&gt; (Type)](#t-net.adamec.lib.common.utils.iscope-1__88aydf)</dt><dd>Scope interface.</dd><dt>[Parent (Property)](#p-net.adamec.lib.common.utils.iscope-1.parent__iyc99h)</dt><dd>Gets the parent scope.</dd><dt>[BeginScope(IScope&lt;TState&gt;.TState) (Method)](#m-net.adamec.lib.common.utils.iscope-1.beginscope_-0___1d7nxoa)</dt><dd>Creates a child scope of the current scope.</dd><dt>[Scope&lt;TState&gt; (Type)](#t-net.adamec.lib.common.utils.scope-1__eepqvi)</dt><dd>Base scope implementation.</dd><dt>[ScopeDisposedMessage (Field)](#f-net.adamec.lib.common.utils.scope-1.scopedisposedmessage__12oxry0)</dt><dd>Error message that will be put into the exception when there will be any operation on the disposed scope.</dd><dt>[RootInternal (Field)](#f-net.adamec.lib.common.utils.scope-1.rootinternal__coycy3)</dt><dd>Instance of the [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) created when the singleton is first touched - root scope with default [State](#p-net.adamec.lib.common.utils.scope-1.state__78jkar)</dd><dt>[Root (Property)](#p-net.adamec.lib.common.utils.scope-1.root__17hnd9c)</dt><dd>Gets the root scope.</dd><dt>[Scope&lt;TState&gt;() (Method)](#m-net.adamec.lib.common.utils.scope-1.-cctor__1t7jr8v)</dt><dd>Static constructor</dd><dt>[Disposer (Property)](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt)</dt><dd>Gets the disposer associated with this container.</dd><dt>[parentScope (Field)](#f-net.adamec.lib.common.utils.scope-1.parentscope__h8qyu6)</dt><dd>Parent scope.</dd><dt>[Parent (Property)](#p-net.adamec.lib.common.utils.scope-1.parent__1hk8ypk)</dt><dd>Gets the parent scope.</dd><dt>[scopeState (Field)](#f-net.adamec.lib.common.utils.scope-1.scopestate__16lomdz)</dt><dd>State managed by the scope.</dd><dt>[State (Property)](#p-net.adamec.lib.common.utils.scope-1.state__78jkar)</dt><dd>Gets the state managed by the scope.</dd><dt>[Scope&lt;TState&gt;(Scope&lt;TState&gt;.TState) (Method)](#m-net.adamec.lib.common.utils.scope-1.-ctor_-0___17usleh)</dt><dd>Creates an instance of [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) and initialize its [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) .</dd><dt>[Scope&lt;TState&gt;(IScope&lt;TState&gt;, Scope&lt;TState&gt;.TState) (Method)](#m-net.adamec.lib.common.utils.scope-1.-ctor_net.adamec.lib.common.utils.iscope_-0_--0___a63u7z)</dt><dd>Creates an instance of child [Scope&lt;TState&gt;](#t-net.adamec.lib.common.utils.scope-1__eepqvi) .</dd><dt>[BeginScope(Scope&lt;TState&gt;.TState) (Method)](#m-net.adamec.lib.common.utils.scope-1.beginscope_-0___1bcz3lp)</dt><dd>Creates a child scope of the current scope.</dd><dt>[AddToDisposer(IDisposable) (Method)](#m-net.adamec.lib.common.utils.scope-1.addtodisposer_system.idisposable___154ejbt)</dt><dd>Adds the <strong>disposable</strong> object to the scope disposer, so it will be disposed with the scope</dd><dt>[DisposeManaged() (Method)](#m-net.adamec.lib.common.utils.scope-1.disposemanaged__19g6lc3)</dt><dd>Dispose any disposable managed objects - all disposables kept in [Disposer](#p-net.adamec.lib.common.utils.scope-1.disposer__1at2jxt) stack are pop and disposed.</dd></dl>
+
+
+<strong>Sources</strong><dl><dt>utils\Scope.cs</dt><dd></dd></dl>
 
 
 Go to [namespaces](net.adamec.lib.common.md#namespace-list) or [types](net.adamec.lib.common.md#type-list) or [source-only packages](net.adamec.lib.common.md#package-list)

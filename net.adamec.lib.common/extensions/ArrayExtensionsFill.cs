@@ -7,7 +7,6 @@
     /// <NuProp.Id>RadCommons.extensions.ArrayExtensions.Fill</NuProp.Id>
     /// <NuProp.Description>Fills the array with given value (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons source-only extension array</NuProp.Tags>
-    // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class ArrayExtensions
     {
         /// <summary>

@@ -113,7 +113,8 @@ The source-only package is created from the (partial) class or classes in the pr
 - `<NuProp.Tags></NuProp.Tags>` - package tags (optional) 
 - `<NuProp.Includes type = "" />` - file includes (optional). If type is `Folder`, the package will include all compile files in folder, if type is `FolderRecursive` the subfolders will be also included.       
 - `<NuProp.Using id = "" version=""/>` - package dependencies (optional). Version for a dependency is optional. These dependencies will be defined within the package     
-- `<NuProp.Needs id="" />` - "external" dependencies (optional) - not included in package, just info when consuming!!! Meaning that the **consumer has to include the dependency on its own**.     
+- `<NuProp.Needs id="" />` - "external" dependencies (optional) - not included in package, just info when consuming!!! Meaning that the **consumer has to include the dependency on its own**.  
+- `<NuProp.Remarks cref="" />` - (optional), when set references to a type to get the XML Documentation remarks from to document the source only package using [MarkupDoc](https://github.com/adamecr/MarkupDoc).    
 
 `GeneratePartNuSpecFilesForSourceOnly` target, executed during the build, checks all compilation files and generates the `.partnuspec` files for source files containing valid `<NuProp.Id>` XML Documentation Comments (metadata). `.partnuspec` file is a partial NuSpec file that is later on extended with solution wide properties and serves as a base for packaging of source-only packages.
 

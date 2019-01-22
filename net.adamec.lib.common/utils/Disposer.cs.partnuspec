@@ -1,0 +1,17 @@
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>RadCommons.utils.Disposer</id>
+    <description>Keeps the stack of disposable objects, and disposes them when the disposer is being disposed. (Source only package).</description>
+    <tags>RadCommons source-only disposable</tags>
+    <contentFiles>
+      <files include="cs/**/*.*" buildAction="Compile" />
+    </contentFiles>
+    <dependencies>
+      <dependency id="RadCommons.utils.BaseDisposable" include="all" version="%%CURRENT_VERSION%%" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Disposer.cs" target="content\App_Packages\RadCommons.utils.Disposer\Disposer.cs" />
+    <file src="Disposer.cs" target="contentFiles\cs\any\App_Packages\RadCommons.utils.Disposer\Disposer.cs" />
+  </files>
+</package>
