@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using net.adamec.lib.common.core.utils;
 
 namespace net.adamec.lib.common.utils
 {
@@ -9,7 +10,7 @@ namespace net.adamec.lib.common.utils
     /// <NuProp.Id>RadCommons.utils.Disposer</NuProp.Id>
     /// <NuProp.Description>Keeps the stack of disposable objects, and disposes them when the disposer is being disposed. (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons source-only disposable</NuProp.Tags>
-    /// <NuProp.Using id="RadCommons.utils.BaseDisposable" />
+    /// <NuProp.Needs id="RadCommons.core" />
     internal class Disposer : BaseDisposable
     {
         /// <summary>

@@ -1,12 +1,12 @@
 ﻿using System;
 using NLog;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
     /// Extended logger implementing <see cref="ILogger"/>
     /// </summary>
-    internal partial class LoggerExt
+    public partial class LoggerExt
     {
         /// <summary>
         /// Writes the diagnostic message at the <c>Error</c> level and returns given <paramref name="exception"/>

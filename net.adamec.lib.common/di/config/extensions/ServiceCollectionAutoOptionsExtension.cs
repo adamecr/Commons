@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using net.adamec.lib.common.di.config.exception;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.di.config.extensions
 {
@@ -13,8 +13,6 @@ namespace net.adamec.lib.common.di.config.extensions
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class ServiceCollectionAutoOptionsExtension
     {
-        private static readonly ILogger Logger = CommonLogging.CreateLogger(typeof(ServiceCollectionAutoOptionsExtension));
-
         /// <summary>
         /// Scans given assemblies for classes marked with <see cref="AutoOptionsAttribute"/> and binds them to appsettings.json configuration section defined in attribute.
         /// Optionally (if defined in attribute), an instance or the configuration class can be created and registered as singleton into MS DI
@@ -49,7 +47,7 @@ namespace net.adamec.lib.common.di.config.extensions
                     catch (Exception ex) when (ex is AmbiguousMatchException || ex is TypeLoadException)
                     {
                         //do nothing
-                        Logger.Warn(ex, $"Can't get the AutoOptionsAttribute. {ex.Message}");
+                        Debug.WriteLine($"Can't get the AutoOptionsAttribute. {ex.Message}");
                     }
 
 
@@ -73,9 +71,8 @@ namespace net.adamec.lib.common.di.config.extensions
                         ex is InvalidOperationException ||
                         ex is NotSupportedException)
                     {
-                        //log and rethrow
+                        //rethrow
                         var msg = $"Can't invoke 'services.Configure<{type.Name}>({section})'. {ex.Message}";
-                        Logger.Warn(ex, msg);
                         throw new ServiceCollectionAutoOptionsException(msg, ex);
                     }
 
@@ -125,7 +122,7 @@ namespace net.adamec.lib.common.di.config.extensions
                     catch (Exception ex) when (ex is AmbiguousMatchException || ex is TypeLoadException)
                     {
                         //do nothing
-                        Logger.Warn(ex, $"Can't get the AutoOptionsAttribute. {ex.Message}");
+                        Debug.WriteLine($"Can't get the AutoOptionsAttribute. {ex.Message}");
                     }
 
 
@@ -149,9 +146,8 @@ namespace net.adamec.lib.common.di.config.extensions
                         ex is InvalidOperationException ||
                         ex is NotSupportedException)
                     {
-                        //log and rethrow
+                        //rethrow
                         var msg = $"Can't invoke 'services.Configure<{type.Name}>({section})'. {ex.Message}";
-                        Logger.Warn(ex, msg);
                         throw new ServiceCollectionAutoOptionsException(msg, ex);
                     }
 

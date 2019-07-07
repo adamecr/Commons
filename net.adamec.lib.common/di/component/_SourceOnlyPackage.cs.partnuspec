@@ -6,10 +6,6 @@
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
-    <dependencies>
-      <dependency id="RadCommons.logging.CommonLogging" include="all" version="%%CURRENT_VERSION%%" />
-      <dependency id="RadCommons.di.Component" include="all" version="%%CURRENT_VERSION%%" />
-    </dependencies>
   </metadata>
   <files>
     <file src="_SourceOnlyPackage.cs" target="content\App_Packages\RadCommons.di.Component\_SourceOnlyPackage.cs" />

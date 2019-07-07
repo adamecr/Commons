@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.async
 {
@@ -12,22 +11,17 @@ namespace net.adamec.lib.common.async
     /// <NuProp.Id>RadCommons.async.AsyncManager</NuProp.Id>
     /// <NuProp.Description>Helpers for running the async tasks in sync mode and executing sync actions in async mode (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons source-only async</NuProp.Tags>
-    /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class AsyncManager
     {
         /// <summary>
-        /// Logger
-        /// </summary>
-        private static readonly ILogger Logger = CommonLogging.CreateLogger(typeof(AsyncManager));
-
-        /// <summary>
-        /// Default exception handler for <see cref="RunAsync"/>. Catches and logs all exceptions during the task execution.
+        /// Default exception handler for <see cref="RunAsync"/>. Catches all exceptions during the task execution.
         /// </summary>
         private static readonly Action<Task> DefaultExceptionHandler = task =>
         {
             try { task.Wait(); }
-            catch (Exception e) { Logger.Fatal(e, $"Async call finished with expception {e}"); }
+            // ReSharper disable once EmptyGeneralCatchClause
+            catch (Exception) { }
         };
 
         /// <summary>
@@ -39,7 +33,7 @@ namespace net.adamec.lib.common.async
         /// <exception cref="ArgumentNullException"><paramref name="action"/> is null</exception>
         public static Task RunAsync(Action action, Action<Exception> exceptionHandler = null)
         {
-            if (action == null) throw Logger.Fatal<ArgumentNullException>(nameof(action));
+            if (action == null) throw new ArgumentNullException(nameof(action));
 
             var task = new Task(action);
 
@@ -64,7 +58,7 @@ namespace net.adamec.lib.common.async
         /// <exception cref="ArgumentNullException"><paramref name="task"/> is null</exception>
         public static void RunSync(Func<Task> task)
         {
-            if (task == null) throw Logger.Fatal<ArgumentNullException>(nameof(task));
+            if (task == null) throw new ArgumentNullException(nameof(task));
 
             var oldContext = SynchronizationContext.Current;
             var synch = new ExclusiveSynchronizationContext();
@@ -99,7 +93,7 @@ namespace net.adamec.lib.common.async
         /// <exception cref="ArgumentNullException"><paramref name="task"/> is null</exception>
         public static T RunSync<T>(Func<Task<T>> task)
         {
-            if (task == null) throw Logger.Fatal<ArgumentNullException>(nameof(task));
+            if (task == null) throw new ArgumentNullException(nameof(task));
 
             var oldContext = SynchronizationContext.Current;
             var synch = new ExclusiveSynchronizationContext();

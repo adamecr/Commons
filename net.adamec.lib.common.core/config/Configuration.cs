@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 using Environment = System.Environment;
 using InvalidCastException = System.InvalidCastException;
 
-namespace net.adamec.lib.common.config
+namespace net.adamec.lib.common.core.config
 {
     /// <summary>
     /// Singleton holding the application configuration (options) 
@@ -73,12 +73,6 @@ namespace net.adamec.lib.common.config
     /// then <see cref="Retrieve{TOptionsContainer}"/> it from the cache when needed.
     /// </para>
     /// </remarks>
-    /// <NuProp.Id>RadCommons.config.Configuration</NuProp.Id>
-    /// <NuProp.Description>Simple configuration container in case DI with more sophisticated containers is not used. Supports the JSON config files, command line arguments
-    /// and environment variables as sources and their hierarchy/overrides. The configuration can be used as key-value pairs or bound to objects (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons source-only configuration</NuProp.Tags>
-    /// <NuProp.Using id = "RadCommons.logging.CommonLogging" />
-    /// <NuProp.Remarks cref ="T:net.adamec.lib.common.config.Configuration" />
     public sealed class Configuration
     {
         #region Singleton

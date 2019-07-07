@@ -6,7 +6,6 @@ using Autofac;
 using Autofac.Core;
 using Autofac.Core.Lifetime;
 using net.adamec.lib.common.di.component;
-using net.adamec.lib.common.logging;
 
 namespace net.adamec.lib.common.di.postinit
 {
@@ -16,11 +15,6 @@ namespace net.adamec.lib.common.di.postinit
     // ReSharper disable once PartialTypeWithSinglePart
     internal static partial class ContainerBuilderExtensions
     {
-        /// <summary>
-        /// Logger
-        /// </summary>
-        private static readonly ILogger Logger = CommonLogging.CreateLogger(typeof(ContainerBuilderExtensions));
-
         /// <summary>
         /// Adds the support of <see cref="PostInitAttribute"/> to the Autofac container builder.
         /// </summary>
@@ -53,10 +47,6 @@ namespace net.adamec.lib.common.di.postinit
             foreach (var componentRegistration in container.ComponentRegistry.Registrations)
             {
                 var type = componentRegistration.Activator.LimitType;
-                if (Logger.IsDebugEnabled)
-                {
-                    Logger.Debug($"ProcessComponentPostInit - checking registration of type '{type.FullName}'");
-                }
 
                 if (!(componentRegistration.Lifetime is RootScopeLifetime)) continue; //must be singleton
 
@@ -72,12 +62,6 @@ namespace net.adamec.lib.common.di.postinit
                 var componentAttribute = type.GetTypeInfo().GetCustomAttribute<ComponentAttribute>(false);
                 if (componentAttribute == null) continue; //must have component attribute
 
-                if (Logger.IsDebugEnabled)
-                {
-                    Logger.Debug(
-                        $"ProcessComponentPostInit - registration of type '{type.FullName}' is self registered singleton with Component attribute. Checking for PostInit attribute");
-                }
-
                 //has Component attribute, check if has any method with PostInit attribute and get the first one
                 foreach (var method in type.GetMethods())
                 {
@@ -85,31 +69,17 @@ namespace net.adamec.lib.common.di.postinit
                     if (postInitAttribute == null) continue;
 
                     //has postinit attribute - try to inject parameters
-                    if (Logger.IsDebugEnabled)
-                    {
-                        Logger.Debug(
-                            $"ProcessComponentPostInit - type '{type.FullName}' has post init method '{method.Name}'");
-                    }
-
                     var parameterValues = new List<object>();
                     foreach (var parameter in method.GetParameters())
                     {
                         var parameterType = parameter.ParameterType;
                         if (container.TryResolve(parameterType, out object valueToInject))
                         {
-                            if (Logger.IsDebugEnabled)
-                            {
-                                Logger.Debug(
-                                    $"ProcessComponentPostInit - resolved parameter {parameter.Name} of type {parameterType.FullName} for post init method '{method.Name}' of type '{type.FullName}'");
-                            }
-
                             parameterValues.Add(valueToInject);
                         }
                         else
                         {
-                            var msg =
-                                $"ProcessComponentPostInit - can't resolve parameter {parameter.Name} of type {parameterType.FullName} for post init method '{method.Name}' of type '{type.FullName}'";
-                            Logger.Fatal(msg);
+                            var msg = $"ProcessComponentPostInit - can't resolve parameter {parameter.Name} of type {parameterType.FullName} for post init method '{method.Name}' of type '{type.FullName}'";
                             throw new Exception(msg);
                         }
                     }
@@ -117,25 +87,11 @@ namespace net.adamec.lib.common.di.postinit
                     //invoke
                     if (container.TryResolve(type, out object componentInstance))
                     {
-                        if (Logger.IsDebugEnabled)
-                        {
-                            Logger.Debug(
-                                $"ProcessComponentPostInit - invoking post init method '{method.Name}' of type '{type.FullName}'");
-                        }
-
                         method.Invoke(componentInstance, parameterValues.ToArray());
-
-                        if (Logger.IsDebugEnabled)
-                        {
-                            Logger.Debug(
-                                $"ProcessComponentPostInit - invoked post init method '{method.Name}' of type '{type.FullName}'");
-                        }
                     }
                     else
                     {
-                        var msg =
-                            $"ProcessComponentPostInit - can't resolve component of type '{type.FullName}' for invoking the post init method '{method.Name}' ";
-                        Logger.Fatal(msg);
+                        var msg =$"ProcessComponentPostInit - can't resolve component of type '{type.FullName}' for invoking the post init method '{method.Name}' ";
                         throw new Exception(msg);
                     }
 

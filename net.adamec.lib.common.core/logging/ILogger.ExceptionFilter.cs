@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
-    /// Extended logger implementing <see cref="ILogger"/>
+    /// Logger interface - wrapper around the <see cref="NLog.ILogger"/> with some additional methods
     /// </summary>
-    internal partial class LoggerExt
+    public partial interface ILogger
     {
         /// <summary>
         /// Writes the diagnostic message at the <c>Error</c> level and returns the exception of <typeparamref name="TException">given type</typeparamref>
@@ -39,11 +39,7 @@ namespace net.adamec.lib.common.logging
         /// <param name="message">Log message.</param>
         /// <param name="catchIt">Flag whether the <paramref name="exception"/> is to be catch by filter (default is false)</param>
         /// <returns>Flag whether the exception is to be catch by exception filter</returns>
-        public bool ErrorFltr<TException>(TException exception, string message = null, bool catchIt = false) where TException : Exception
-        {
-            Error(exception, message);
-            return catchIt;
-        }
+        bool ErrorFltr<TException>(TException exception, string message = null, bool catchIt = false) where TException : Exception;
 
         /// <summary>
         /// Writes the diagnostic message at the <c>Fatal</c> level and returns <paramref name="catchIt"/> value.
@@ -59,10 +55,6 @@ namespace net.adamec.lib.common.logging
         /// <param name="catchIt">Flag whether the <paramref name="exception"/> is to be catch by filter (default is false)</param>
         /// <seealso cref="ErrorFltr{TException}"/>
         /// <returns>Flag whether the exception is to be catch by exception filter</returns>
-        public bool FatalFltr<TException>(TException exception, string message = null, bool catchIt = false) where TException : Exception
-        {
-            Fatal(exception, message);
-            return catchIt;
-        }
+        bool FatalFltr<TException>(TException exception, string message = null, bool catchIt = false) where TException : Exception;
     }
 }

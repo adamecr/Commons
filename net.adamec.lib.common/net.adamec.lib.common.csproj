@@ -23,14 +23,17 @@
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.8.1" />
-    <PackageReference Include="Dawn.Guard" Version="1.7.0" />
+    <PackageReference Include="Autofac" Version="4.9.2" />
+    <PackageReference Include="Dawn.Guard" Version="1.8.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="NLog" Version="4.5.11" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NLog" Version="4.6.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\net.adamec.lib.common.core\net.adamec.lib.common.core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="**\*.cs.partnuspec">

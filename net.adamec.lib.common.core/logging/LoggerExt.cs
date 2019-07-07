@@ -4,12 +4,12 @@ using System.ComponentModel;
 using System.Diagnostics;
 using NLog;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
     /// Extended logger implementing <see cref="ILogger"/>
     /// </summary>
-    internal partial class LoggerExt : Logger, ILogger
+    public partial class LoggerExt : Logger, ILogger
     {
         /// <summary>
         /// Writes the diagnostic message at the <c>Fatal</c> level. Creates and returns the exception of <typeparamref name="TException">given type</typeparamref>

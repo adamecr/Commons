@@ -7,9 +7,6 @@
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
-    <dependencies>
-      <dependency id="RadCommons.logging.CommonLogging" include="all" version="%%CURRENT_VERSION%%" />
-    </dependencies>
   </metadata>
   <files>
     <file src="Configuration.cs" target="content\App_Packages\RadCommons.config.Configuration\Configuration.cs" />

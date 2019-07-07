@@ -1,4 +1,5 @@
 ﻿using System;
+using net.adamec.lib.common.core.utils;
 
 namespace net.adamec.lib.common.utils
 {
@@ -14,8 +15,8 @@ namespace net.adamec.lib.common.utils
     /// to add the scope related operations (inherited classes have the access to state).
     /// (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons source-only disposable scope</NuProp.Tags>
-    /// <NuProp.Using id="RadCommons.utils.BaseDisposable" />
     /// <NuProp.Using id="RadCommons.utils.Disposer" />
+    /// <NuProp.Needs id="RadCommons.core" />
     /// <NuProp.Remarks cref="T:net.adamec.lib.common.utils.Scope`1" />
     internal interface IScope<in TState> : IDisposable where TState: class,new()
     {

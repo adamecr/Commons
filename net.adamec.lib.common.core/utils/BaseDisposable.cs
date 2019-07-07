@@ -2,21 +2,19 @@
 using System.Diagnostics;
 using System.Threading;
 
-namespace net.adamec.lib.common.utils
+namespace net.adamec.lib.common.core.utils
 {
     /// <inheritdoc />
     /// <summary>
     /// Helper class for implementation of <see cref="T:System.IDisposable" /> types
     /// </summary>
-    /// <NuProp.Id>RadCommons.utils.BaseDisposable</NuProp.Id>
-    /// <NuProp.Description>Helper class for implementation of IDisposable types (Source only package).</NuProp.Description>
-    /// <NuProp.Tags>RadCommons source-only disposable</NuProp.Tags>
     public abstract class BaseDisposable : IDisposable
     {
         /// <summary>
         /// Internal flag whether the object is fully disposed
         /// </summary>
         private const int DisposedFlag = 1;
+
         /// <summary>
         /// The object is disposed when equals to <see cref="DisposedFlag"/>
         /// </summary>
@@ -35,13 +33,38 @@ namespace net.adamec.lib.common.utils
         }
 
         /// <summary>
+        /// The managed resources are disposed when equals to <see cref="DisposedFlag"/>
+        /// </summary>
+        private int isManagedDisposed;
+
+        /// <summary>
         /// Returns <code>true</code> when the managed resources are disposed
         /// </summary>
-        public bool DisposedManaged { get; private set; }
+        public bool DisposedManaged
+        {
+            get
+            {
+                Interlocked.MemoryBarrier();
+                return isManagedDisposed == DisposedFlag;
+            }
+        }
+
+        /// <summary>
+        /// The native resources are disposed when equals to <see cref="DisposedFlag"/>
+        /// </summary>
+        private int isNativeDisposed;
+
         /// <summary>
         /// Returns <code>true</code> when the native resources are disposed
         /// </summary>
-        public bool DisposedNative { get; private set; }
+        public bool DisposedNative
+        {
+            get
+            {
+                Interlocked.MemoryBarrier();
+                return isNativeDisposed == DisposedFlag;
+            }
+        }
 
         /// <inheritdoc />
         /// <summary>
@@ -78,7 +101,7 @@ namespace net.adamec.lib.common.utils
                     }
                     finally
                     {
-                        DisposedManaged = true;
+                        Interlocked.Exchange(ref isManagedDisposed, DisposedFlag);
                     }
                 }
             }
@@ -97,7 +120,7 @@ namespace net.adamec.lib.common.utils
                 }
                 finally
                 {
-                    DisposedNative = true;
+                    Interlocked.Exchange(ref isNativeDisposed, DisposedFlag);
                 }
             }
 

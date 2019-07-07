@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## Unreleased ##
+
+## [2.0.1] - 2019-07-07 ##
+### Breaking Changes ###
+Created nuget package `RadCommons.core` containing `BaseDisposable` class, `Configuration` class and logging that are no longer available as source-only packages mainly due to a `public` members and/or limitations of having them as `internal` (problems with inheritance in consuming code). This nuget package is needed by some of the source-only packages.  
+
+### Fixed ###
+CommonLogging: Fix in DebugCorr (removed dummy log item)
+BaseDisposable: DisposedManaged and DisposedNative thread safety
+Configuration: removed reference to CommonLogging (was not used at all)
+RadCommons.di.Component: removed reference to CommonLogging (was not used at all), removed reference to itself (fix)
+
+### Changes ###
+AsyncManager: removed reference to (and used of) CommonLogging
+RadCommons.di.Config: removed reference to (and used of) CommonLogging
+RadCommons.di.PostInit: removed reference to (and used of) CommonLogging
+
 ## [1.2.0] - 2019-01-22 ##
 ### Added ###
 - Added `Disposer` - Keeps the stack of disposable objects, and disposes them when the disposer is being disposed.
@@ -56,6 +73,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Initial release
 - NuGet packages are not published yet, they will be published with v1.0.0
 
+[2.0.1]: https://github.com/adamecr/Commons/compare/v1.2.0...v2.0.1
 [1.2.0]: https://github.com/adamecr/Commons/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/adamecr/Commons/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/adamecr/Commons/compare/v0.1.0...v1.0.0

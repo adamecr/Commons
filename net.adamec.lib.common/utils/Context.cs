@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using net.adamec.lib.common.core.utils;
 
 namespace net.adamec.lib.common.utils
 {
@@ -38,8 +39,8 @@ namespace net.adamec.lib.common.utils
     /// Based on the implementation of Guard Scopes by  https://github.com/safakgur.
     /// (Source only package).</NuProp.Description>
     /// <NuProp.Tags>RadCommons source-only disposable context</NuProp.Tags>
-    /// <NuProp.Using id="RadCommons.utils.BaseDisposable" />
     /// <NuProp.Using id="RadCommons.utils.Disposer" />
+    /// <NuProp.Needs id="RadCommons.core" />
     /// <NuProp.Remarks cref="T:net.adamec.lib.common.utils.Context`1" />
     internal class Context<TState> : BaseDisposable where TState : class, new()
     {

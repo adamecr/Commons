@@ -6,9 +6,6 @@
     <contentFiles>
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
-    <dependencies>
-      <dependency id="RadCommons.utils.BaseDisposable" include="all" version="%%CURRENT_VERSION%%" />
-    </dependencies>
   </metadata>
   <files>
     <file src="Disposer.cs" target="content\App_Packages\RadCommons.utils.Disposer\Disposer.cs" />

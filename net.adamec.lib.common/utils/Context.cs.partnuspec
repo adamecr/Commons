@@ -16,7 +16,6 @@
       <files include="cs/**/*.*" buildAction="Compile" />
     </contentFiles>
     <dependencies>
-      <dependency id="RadCommons.utils.BaseDisposable" include="all" version="%%CURRENT_VERSION%%" />
       <dependency id="RadCommons.utils.Disposer" include="all" version="%%CURRENT_VERSION%%" />
     </dependencies>
   </metadata>

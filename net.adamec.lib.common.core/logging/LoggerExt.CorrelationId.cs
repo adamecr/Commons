@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using NLog;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
     /// Extended logger implementing <see cref="ILogger"/>
     /// </summary>
-    internal partial class LoggerExt
+    public partial class LoggerExt
     {
         /// <summary>
         /// Writes the diagnostic message at the <c>Trace</c> level with correlation ID
@@ -27,7 +27,6 @@ namespace net.adamec.lib.common.logging
         /// <param name="message">Log message.</param>
         public void DebugCorr(string correlationId, [Localizable(false)] string message)
         {
-            base.Debug("a", "a");
             LogIt(LogLevel.Debug, correlationId, message);
         }
 
@@ -113,7 +112,7 @@ namespace net.adamec.lib.common.logging
         /// <returns>Pass-through exception</returns>
         public TException ErrorCorr<TException>(string correlationId, TException exception, string message = null) where TException : Exception
         {
-            LogIt(LogLevel.Error, correlationId,string.IsNullOrWhiteSpace(message) ? exception.Message : message, exception);
+            LogIt(LogLevel.Error, correlationId, string.IsNullOrWhiteSpace(message) ? exception.Message : message, exception);
             return exception;
         }
 
@@ -126,7 +125,7 @@ namespace net.adamec.lib.common.logging
         /// <returns>Pass-through exception</returns>
         public TException FatalCorr<TException>(string correlationId, TException exception, string message = null) where TException : Exception
         {
-            LogIt(LogLevel.Fatal, correlationId,string.IsNullOrWhiteSpace(message) ? exception.Message : message, exception);
+            LogIt(LogLevel.Fatal, correlationId, string.IsNullOrWhiteSpace(message) ? exception.Message : message, exception);
             return exception;
         }
 

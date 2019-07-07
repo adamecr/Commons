@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
     /// Logger interface - wrapper around the <see cref="NLog.ILogger"/> with some additional methods
     /// </summary>
-    internal partial interface ILogger
+    public partial interface ILogger
     {
         /// <summary>
         /// Writes the diagnostic message at the <c>Error</c> level and returns given <paramref name="exception"/>

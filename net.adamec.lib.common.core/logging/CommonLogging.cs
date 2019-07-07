@@ -1,12 +1,13 @@
 ﻿using System;
 using NLog;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
     /// <see cref="ILogger"/> factory
     /// </summary>
-    internal static class CommonLogging
+    // ReSharper disable once PartialTypeWithSinglePart
+    public static class CommonLogging
     {
         /// <summary>
         /// Creates the logger with given <paramref name="categoryName"/>

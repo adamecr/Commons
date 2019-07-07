@@ -7,13 +7,13 @@
       =======================================================================================
     -->
   <PropertyGroup>
-    <RadMajor>1</RadMajor>
-    <RadMinor>2</RadMinor>
-    <RadPatch>0</RadPatch>
-    <RadBuild>538</RadBuild>
-    <PackageVersionShort>1.2.0</PackageVersionShort>
-    <PackageVersionFull>1.2.0+538.190122135212.master.2404837</PackageVersionFull>
-    <GitCommit>2404837</GitCommit>
-    <GitBranch>master</GitBranch>
+    <RadMajor>2</RadMajor>
+    <RadMinor>0</RadMinor>
+    <RadPatch>1</RadPatch>
+    <RadBuild>552</RadBuild>
+    <PackageVersionShort>2.0.1</PackageVersionShort>
+    <PackageVersionFull>2.0.1+552.190707161143.release.eea80db</PackageVersionFull>
+    <GitCommit>eea80db</GitCommit>
+    <GitBranch>release</GitBranch>
   </PropertyGroup>
 </Project>

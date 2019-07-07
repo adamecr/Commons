@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace net.adamec.lib.common.logging
+namespace net.adamec.lib.common.core.logging
 {
     /// <summary>
     /// Logger interface - wrapper around the <see cref="NLog.ILogger"/> with some additional methods
@@ -85,7 +85,7 @@ namespace net.adamec.lib.common.logging
     /// Such methods have the name ending with <c>Corr</c> suffix.
     /// </para>
     /// </remarks>
-    internal partial interface ILogger : NLog.ILogger
+    public partial interface ILogger : NLog.ILogger
     {
     }
 }
